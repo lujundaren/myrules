@@ -1,6 +1,6 @@
 #!name=心悦俱乐部去广告
-#!desc=移除心悦俱乐部开屏闪屏广告、首页活动弹窗、WeLink与广点通SDK及后台预加载广告
-#!author=Cuttlefish, blackmatrix7
+#!desc=移除心悦俱乐部开屏闪屏广告、聚合广告SDK(倍孜/ADBiding/ADN-Plus)、首页活动弹窗、Doraon活动推送及后台预加载广告
+#!author=Cuttlefish, blackmatrix7, lujundaren
 #!category=去广告
 
 [Rule]
@@ -21,7 +21,27 @@ IP-CIDR,119.29.29.99/32,REJECT,no-resolve
 IP-CIDR,182.254.116.0/24,REJECT,no-resolve
 IP-CIDR,182.254.118.0/24,REJECT,no-resolve
 
-# 3. 拦截腾讯优量汇广告联盟 (GDT SDK) 与开屏分发域名
+# 3. 拦截心悦俱乐部开屏聚合广告 SDK (倍孜 BeiZi / ADBiding / ADN-Plus / 1RTB / 热云 SolarEngine)
+DOMAIN-SUFFIX,beizi.biz,REJECT
+DOMAIN-SUFFIX,beiziglobal.com,REJECT
+DOMAIN-SUFFIX,beizi.net,REJECT
+DOMAIN-SUFFIX,adbiding.com,REJECT
+DOMAIN-SUFFIX,adn-plus.com.cn,REJECT
+DOMAIN-SUFFIX,adn-plus.cn,REJECT
+DOMAIN-SUFFIX,solar-engine.com,REJECT
+DOMAIN-SUFFIX,1rtb.net,REJECT
+DOMAIN-SUFFIX,1rtb.com,REJECT
+
+# 4. 拦截心悦活动弹窗推送 CDN 与数据埋点上报 (Doraon / Upweb / TDM / TGPA / RDelivery)
+DOMAIN,doraon.image.xinyue.qq.com,REJECT
+DOMAIN,rdelivery.qq.com,REJECT
+DOMAIN,cloud.tgpa.qq.com,REJECT
+DOMAIN,hc.tdm.qq.com,REJECT
+DOMAIN,receiver.tdm.qq.com,REJECT
+DOMAIN-SUFFIX,upweb.qq.com,REJECT
+DOMAIN,upweb-app-log-2gdx04da52926cd3-1258344700.ap-shanghai.app.tcloudbase.com,REJECT
+
+# 5. 拦截腾讯优量汇广告联盟 (GDT SDK) 与开屏分发域名
 DOMAIN-SUFFIX,gdt.qq.com,REJECT
 DOMAIN-SUFFIX,gdtimg.com,REJECT
 DOMAIN-SUFFIX,adsmind.gdtimg.com,REJECT
@@ -29,35 +49,47 @@ DOMAIN-SUFFIX,adsmind.ugdtimg.com,REJECT
 DOMAIN-SUFFIX,qzs.gdtimg.com,REJECT
 DOMAIN-SUFFIX,pgdt.gtimg.com,REJECT
 DOMAIN-SUFFIX,splashqqlive.gtimg.com,REJECT
+DOMAIN,tangram.e.qq.com,REJECT
+DOMAIN,sdkreport.e.qq.com,REJECT
 
 [URL Rewrite]
 # 1. 腾讯 HTTPDNS 接口拦截
 ^https?:\/\/119\.29\.29\.29\/d - reject
 ^https?:\/\/httpdns.*\.qq\.com\/ - reject
 
-# 2. 心悦开屏闪屏与弹窗接口（全合规标准正则，杜绝 (?i) 编译错误）
+# 2. 心悦开屏闪屏与弹窗接口（全合规标准正则，精准拦截广告与弹窗，保留正常业务接口）
 ^https?:\/\/.*xinyue\.qq\.com\/xyapi\..*(?:[pP]op[fF]lash|[sS]plash|[fF]lash|[bB]anner|[aA]dvertise|[aA]d|[sS]tartup|[lL]aunch|[sS]creen) - reject-200
 ^https?:\/\/.*xinyue\.qq\.com\/.*(?:[sS]plash|[pP]opup|[aA]dlink|[aA]dvert) - reject-200
-^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/ - reject-200
+^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/(?:GetIndexPopFlash|GetIndexSplash|GetFlashScreen|GetPopFlash|GetSplash|GetPopup|GetAd) - reject-200
 ^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.(?:AdService|BannerService|PopupService)\/ - reject-200
 
-# 3. 腾讯游戏社区与心悦 WeLink 广告下发接口
+# 3. 第三方开屏广告 SDK 接口拦截 (ADBiding / BeiZi / 1RTB / ADN-Plus)
+^https?:\/\/.*\.adbiding\.com\/ - reject-200
+^https?:\/\/.*\.beizi\.biz\/ - reject-200
+^https?:\/\/.*\.1rtb\.net\/ - reject-200
+^https?:\/\/.*\.adn-plus\.com\.cn\/ - reject-200
+
+# 4. 腾讯游戏社区与心悦 WeLink 广告下发接口
 ^https?:\/\/.*game\.qq\.com\/.*_service=welink\.ad - reject-200
 ^https?:\/\/djcapp\.game\.qq\.com\/daoju\/igw\/main\/\?_service=welink - reject-200
 
-# 4. 闪屏与开屏静态素材 CDN 预下载
+# 5. 闪屏、弹窗与活动静态素材预下载 (Doraon / xyadmin banner / gtimg)
+^https?:\/\/doraon\.image\.xinyue\.qq\.com\/ - reject-200
+^https?:\/\/image\.xinyue\.qq\.com\/xyadmin\/.*(?:[bB]anner|[aA]d|[pP]opup) - reject-200
 ^https?:\/\/game\.gtimg\.cn\/images\/tgclub\/.*(?:splash|flash|popup|ad) - reject-200
 ^https?:\/\/.*gtimg\.(?:com|cn)\/.*(?:splash|popflash) - reject-200
 ^https?:\/\/splashqqlive\.gtimg\.com - reject-200
 
-# 5. 优量汇 (GDT) 广告请求与日志
+# 6. 优量汇 (GDT) 广告请求与日志
 ^https?:\/\/.*\.gdt\.qq\.com\/ - reject-200
 ^https?:\/\/.*\.gdtimg\.com\/ - reject-200
 
 [Map Local]
-# 兜底：返回标准合法空 JSON 响应，防止 App 报错降级展示本地旧缓存
-^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/(?:GetIndexPopFlash|GetIndexSplash|GetFlashScreen|GetPopFlash|GetSplash) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.(?:AdService|BannerService|PopupService)\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+# 兜底：返回标准合法空 JSON 响应 {"result":0,"msg":"ok","data":{}}，防止 App 报错降级展示本地旧缓存
+^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/(?:GetIndexPopFlash|GetIndexSplash|GetFlashScreen|GetPopFlash|GetSplash|GetPopup|GetAd) data-type=text data="{\"result\":0,\"msg\":\"ok\",\"data\":{}}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.(?:AdService|BannerService|PopupService)\/ data-type=text data="{\"result\":0,\"msg\":\"ok\",\"data\":{}}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/.*\.adbiding\.com\/.*(?:bid|req) data-type=text data="{\"code\":0,\"data\":{}}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/.*\.beizi\.biz\/.*(?:req|ad) data-type=text data="{\"code\":0,\"data\":{}}" status-code=200 header="Content-Type:application/json"
 
 [MITM]
-hostname = %APPEND% bgw.xinyue.qq.com, *.xinyue.qq.com, xinyue.qq.com, djcapp.game.qq.com, *.gdt.qq.com, 119.29.29.29
+hostname = %APPEND% bgw.xinyue.qq.com, *.xinyue.qq.com, xinyue.qq.com, djcapp.game.qq.com, *.gdt.qq.com, *.adbiding.com, *.beizi.biz, *.1rtb.net, 119.29.29.29
