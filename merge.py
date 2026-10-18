@@ -322,6 +322,7 @@ def main():
     if mitm_hosts:
         out.append("[MITM]")
         out.append("hostname = %APPEND% " + ", ".join(mitm_hosts))
+        out.append("h2 = true")
         out.append("")
 
     os.makedirs(os.path.dirname(OUTPUT), exist_ok=True)
