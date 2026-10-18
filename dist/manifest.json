@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-18 10:47:08 UTC",
-  "sources_ok": 41,
+  "generated": "2026-10-18 11:12:45 UTC",
+  "sources_ok": 40,
   "sources_total": 41,
   "mitm_hosts": [
     "mp.weixin.qq.com",
@@ -107,8 +107,6 @@
     "g-acs.m.goofish.com",
     "sh-gateway.shihuo.cn",
     "static.shihuocdn.cn",
-    "rr*.googlevideo.com",
-    "youtubei.googleapis.com",
     "x.com",
     "*-spclient.spotify.com",
     "spclient.wg.spotify.com"
@@ -200,10 +198,6 @@
     },
     {
       "url": "https://raw.githubusercontent.com/ishowshu/qx/refs/heads/main/script/goofish.js",
-      "host": "raw.githubusercontent.com"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/Script/Youtube/youtube.response.js",
       "host": "raw.githubusercontent.com"
     },
     {
