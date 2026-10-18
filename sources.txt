@@ -23,8 +23,8 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/pa
 # 腾讯系通用组件净化 (Tencent)：腾讯系应用内通用广告模块清理
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partT/Tencent.sgmodule
 
-# 心悦俱乐部 (XinYueClub)：开屏与游戏推荐弹窗过滤
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/XinYueClub.sgmodule
+# 心悦俱乐部 (XinYueClub)：开屏闪屏广告、首页活动弹窗与商业推广过滤
+modules/XinYueClub.sgmodule
 
 
 # ----------------- 4. 社交、社区与资讯工具 -----------------

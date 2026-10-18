@@ -1289,6 +1289,7 @@ DOMAIN-KEYWORD,iyes.youku.com,REJECT
 ^https?:\/\/.+?\/music\/common\/upload\/t_splash_info\/ - reject
 ^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/music\/common\/upload\/t_splash_info\/ - reject
 ^https:\/\/music\.y\.qq\.com\/maproxy\/getPbCompressAd - reject
+^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\..*(PopFlash|Splash|Flash|Banner|Advertise) - reject-200
 ^https:\/\/api\.zhihu\.com\/unlimited\/go\/my_card - reject
 ^https:\/\/api\.zhihu\.com\/ab\/api\/v1\/products\/zhihu\/platforms\/ios\/config - reject
 ^https:\/\/link\.zhihu\.com\/\?target=(?:https?)?(?:%3A|:)?(?:\/\/|%2F%2F)?(.*) http://$1 302
@@ -1363,7 +1364,8 @@ DOMAIN-KEYWORD,iyes.youku.com,REJECT
 ^https?:\/\/mp\.weixin\.qq\.com\/mp\/cps_product_info\?action data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/y\.gtimg\.cn\/music\/common\/\/upload\/kg_ad/.*?\d{4}\.jpg data-type=tiny-gif status-code=200
 ^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/targeted_ads data-type=tiny-gif status-code=200
-^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/GetIndexPopFlash data-type=text data=" " status-code=200
+^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/(GetIndexPopFlash|GetIndexSplash|GetFlashScreen|GetPopFlash) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.(AdService|BannerService)\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/line3-h5-mobile-api\.biligame\.com\/game\/live\/large_card_material\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/ap[ip]\.bilibili\.com\/x\/(resource\/(top\/activity|patch\/tab(\/v2)?)|v2\/search\/square|vip\/ads\/materials)\? data-type=text data="{"code":-404,"message":"-404","ttl":1,"data":null}" status-code=200 header="Content-Type:text/plain"

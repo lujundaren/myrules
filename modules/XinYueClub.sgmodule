@@ -1,0 +1,16 @@
+#!name=心悦俱乐部去广告
+#!desc=移除心悦俱乐部开屏广告、首页活动弹窗、商业推广浮窗及游戏推荐弹窗
+#!author=Cuttlefish, blackmatrix7
+#!category=去广告
+
+[URL Rewrite]
+# 拦截开屏闪屏与首页弹窗推广
+^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\..*(PopFlash|Splash|Flash|Banner|Advertise) - reject-200
+
+[Map Local]
+# 兜底：返回标准合法空 JSON 响应，防止 App 报错降级展示本地旧缓存
+^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/(GetIndexPopFlash|GetIndexSplash|GetFlashScreen|GetPopFlash) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.(AdService|BannerService)\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+[MITM]
+hostname = %APPEND% bgw.xinyue.qq.com
