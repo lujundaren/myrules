@@ -127,7 +127,7 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/pa
 
 # ----------------- 8. 常用国际流行应用 -----------------
 # YouTube：手机客户端与网页端播放贴片广告、视频列表赞助商广告过滤
-https://yfamilys.com/module/YouTubeAd.sgmodule
+https://raw.githubusercontent.com/lujundaren/myrules/main/modules/YouTubeAd.sgmodule
 
 # X / Twitter：信息流推广推文、赞助商广告净化
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/XWebAds.module

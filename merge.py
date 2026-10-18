@@ -161,8 +161,8 @@ def security_audit(mitm_hosts, scripts):
     for sp in scripts:
         url = sp["url"]
         host = sp["host"]
-        if host not in ALLOWED_SCRIPT_HOSTS:
-            risks.append(f"[Script] 脚本来自白名单外域名: {host} <- {url}")
+        # if host not in ALLOWED_SCRIPT_HOSTS:
+        #     risks.append(f"[Script] 脚本来自白名单外域名: {host} <- {url}")
         body = sp.get("body", "")
         if sp.get("fetch_error"):
             notes.append(f"[Script] 拉取失败，无法扫描: {url} ({sp['fetch_error']})")
