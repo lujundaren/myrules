@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18 16:56:08 UTC",
+  "generated": "2026-10-18 17:38:07 UTC",
   "sources_ok": 37,
   "sources_total": 37,
   "mitm_hosts": [
@@ -14,9 +14,6 @@
     "xinyue.qq.com",
     "djcapp.game.qq.com",
     "*.gdt.qq.com",
-    "*.adbiding.com",
-    "*.beizi.biz",
-    "*.1rtb.net",
     "119.29.29.29",
     "grpc.biliapi.net",
     "app.bilibili.com",
