@@ -5,6 +5,21 @@
 
 [Rule]
 DOMAIN,bsbsb.top,DIRECT
+
+# 1. 拦截 HTTPDNS，强制走标准 DNS 解析
+DOMAIN,httpdns.biliapi.net,REJECT
+DOMAIN,httpdns.bilivideo.com,REJECT
+DOMAIN,httpdns.bilibili.com,REJECT
+IP-CIDR,203.107.1.1/24,REJECT,no-resolve
+IP-CIDR,119.29.29.29/32,REJECT,no-resolve
+
+# 2. 拦截 QUIC (UDP 443)，彻底阻止 B站走 HTTP/3 绕过 MITM，强制回退至 TCP HTTP/2 进行解密拦截
+AND,((DOMAIN-SUFFIX,bilibili.com), (DEST-PORT,443), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN-SUFFIX,biliapi.net), (DEST-PORT,443), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN-SUFFIX,bilivideo.com), (DEST-PORT,443), (PROTOCOL,UDP)),REJECT
+AND,((DOMAIN-SUFFIX,biliapi.com), (DEST-PORT,443), (PROTOCOL,UDP)),REJECT
+
+# 3. 商业广告与追踪域拦截
 DOMAIN,cm.bilibili.com,REJECT
 DOMAIN-SUFFIX,cm.bilibili.com,REJECT
 DOMAIN,ad.bilibili.com,REJECT
@@ -41,11 +56,6 @@ AND,((DOMAIN-SUFFIX,chat.bilibili.com), (OR,((DOMAIN-KEYWORD,stun), (DOMAIN-KEYW
 ^https?:\/\/mall\.bilibili\.com\/(?:detail\.html|mall-c-search\/) - reject-200
 ^https?:\/\/line3-h5-mobile-api\.biligame\.com\/game\/live\/large_card_material - reject-200
 
-[Header Rewrite]
-# 强制协商未压缩 gRPC，杜绝移动端解码异常
-http-request ^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com|app\.biliapi\.net)\/ header-replace grpc-accept-encoding identity
-http-request ^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com|app\.biliapi\.net)\/ header-replace accept-encoding identity
-
 [Body Rewrite]
 http-response-jq ^https:\/\/api\.bilibili\.com\/pgc\/view\/v2\/app\/season\? 'del(.data.payment)'
 http-response-jq ^https:\/\/api\.live\.bilibili\.com\/xlive\/open-interface\/v2\/tracker\/conf\? '.data.domains=["wss://tracker.chat.bilibili.com"]'
@@ -81,3 +91,4 @@ bilibili.pgc.response.grpc = type=http-response, pattern=^https:\/\/(grpc|app)\.
 
 [MITM]
 hostname = %APPEND% app.bilibili.com, app.biliapi.net, app.biliapi.com, api.bilibili.com, api.biliapi.net, grpc.biliapi.net, api.live.bilibili.com, api.vc.bilibili.com, manga.bilibili.com, cm.bilibili.com, line3-h5-mobile-api.biligame.com, mall.bilibili.com
+h2 = true
