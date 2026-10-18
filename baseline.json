@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18 17:55:47 UTC",
+  "updated": "2026-10-18 18:28:01 UTC",
   "source_hashes": {
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "b0e4ce5d9aeeeebf598e7b353f040dd70518a068c290574390a9015c20d14163",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatOfficialAccount.sgmodule": "6c02ea57ab21760e7f744de6ade7caf8e8c92d26c48e40740157a0200154a54d",
@@ -7,7 +7,7 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partQ/QQMusic.sgmodule": "22d9ae859892ace66b99b3f5e5f5f214db60f9657adc5158e1a15dbaf7297d3f",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partT/Tencent.sgmodule": "831a745d40be8b347c6960eeb297ae809ef87bf4627b3727e061905ad2ce644c",
     "modules/XinYueClub.sgmodule": "7876d38524f3fd282785f04b416b0cac61b10f26102d2aad36ad53b9fb828ff1",
-    "modules/Bilibili.sgmodule": "7850b895c3d4e3568d2c20a6af2005eadd464e18423c22ee22bce2aed67c2759",
+    "modules/Bilibili.sgmodule": "f19f2c3d3bd06ceda248cf2a964060b45017f5c4c039bd9e34068baa25eee3a8",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/Xiaohongshu.sgmodule": "6dc58305c0453a654d44def91a4d995cb4e5345f0c89dd703e98b19be1584038",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/Zhihu.sgmodule": "4f064915d1efc056df784f24a2f50baaa94f59be4d698597f561fef818b77964",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/weibo.module": "cbb427d9bbf7fbe1c3b7a383693f2291eeb97cdf3107e13f9e902f7ca5a266fd",
@@ -43,7 +43,7 @@
     "https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js": "79098ac4d2eb7932c9b2b45ac7891469703626855e5d13ab4374af52cc48983e",
     "https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.request.js": "213ae859b87198f69f4a890efb592c48f5d988806f298509a75e1e6a8b59341e",
     "https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.json.js": "32ba00da58c598c4419e7cc86f50acf0279a1c819fa6e3f2a851e6582001a5b8",
-    "https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.response.js": "d9a09789a9f2153c27b0a435064dfdcf1723a36f20451a075e37c4f8f21d338f",
+    "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.protobuf.response.js": "5959a015c7e832e188e1239addd7a95e862fb945c033209cbeefa1cdbf53ff8a",
     "https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js": "318d89bce1117edb26a93b383804e195649ec4674a04efa9e3ddb4ef7f34b498",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhihu/zhihu.js": "544fd88207b9d7005bb5cf427a1994028f91a95a65fde3db72a501983bff99f4",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/weibo/weibo_ads.js": "0f1f3eba5b2c96f4f089525ad033b578b6a18a2fd99eb95409e5b0816f4a4b34",
@@ -86,6 +86,7 @@
     "app.bilibili.com",
     "api.bilibili.com",
     "api.live.bilibili.com",
+    "mall.bilibili.com",
     "line3-h5-mobile-api.biligame.com",
     "edith.xiaohongshu.com",
     "www.xiaohongshu.com",

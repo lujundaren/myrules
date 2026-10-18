@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18 17:55:47 UTC",
+  "generated": "2026-10-18 18:28:01 UTC",
   "sources_ok": 37,
   "sources_total": 37,
   "mitm_hosts": [
@@ -19,6 +19,7 @@
     "app.bilibili.com",
     "api.bilibili.com",
     "api.live.bilibili.com",
+    "mall.bilibili.com",
     "line3-h5-mobile-api.biligame.com",
     "edith.xiaohongshu.com",
     "www.xiaohongshu.com",
@@ -125,7 +126,7 @@
       "host": "raw.githubusercontent.com"
     },
     {
-      "url": "https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.response.js",
+      "url": "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.protobuf.response.js",
       "host": "raw.githubusercontent.com"
     },
     {
