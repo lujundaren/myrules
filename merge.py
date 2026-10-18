@@ -110,6 +110,38 @@ def mitm_hosts_from(lines):
     return out
 
 
+def sort_mitm_hosts(hosts):
+    """规范化排序 MITM 主机名，确保排除项 (-xxx) 始终排在对应通配符之前"""
+    unique_hosts = list(dict.fromkeys(hosts))
+    # 将带减号 - 的排除项排在前面，防止被后续通配符覆盖
+    negatives = [h for h in unique_hosts if h.startswith("-")]
+    positives = [h for h in unique_hosts if not h.startswith("-")]
+    return negatives + positives
+
+
+def sanitize_script_line(ln):
+    """对脚本行中未解析的参数模板占位符赋默认安全值，避免运行时 JSON.parse 崩溃"""
+    if "{{{" not in ln:
+        return ln
+    # 移除未指定具体引擎时的占位符（让客户端使用默认系统内核）
+    ln = re.sub(r"engine=\{\{\{[^}]+\}\}\},?", "", ln)
+    # 针对已知常见模板变量赋予标准有效值，确保内嵌 JSON 合法
+    replacements = {
+        r"\"lyricLang\":\s*\"\{\{\{[^}]+\}\}\}\"": "\"lyricLang\":\"off\"",
+        r"\"captionLang\":\s*\"\{\{\{[^}]+\}\}\}\"": "\"captionLang\":\"off\"",
+        r"\"blockUpload\":\s*\{\{\{[^}]+\}\}\}": "\"blockUpload\":true",
+        r"\"blockImmersive\":\s*\{\{\{[^}]+\}\}\}": "\"blockImmersive\":true",
+        r"\"blockShorts\":\s*\{\{\{[^}]+\}\}\}": "\"blockShorts\":false",
+        r"\"debug\":\s*\{\{\{[^}]+\}\}\}": "\"debug\":false",
+    }
+    for pat, rep in replacements.items():
+        ln = re.sub(pat, rep, ln)
+    # 通用兜底
+    ln = re.sub(r"\"\{\{\{[^}]+\}\}\}\"", "\"\"", ln)
+    ln = re.sub(r"\{\{\{[^}]+\}\}\}", "true", ln)
+    return ln
+
+
 def load_baseline():
     """读取安全基线文件"""
     if os.path.exists(BASELINE):
@@ -187,6 +219,8 @@ def main():
             buckets.setdefault(name, [])
             seen.setdefault(name, set())
             for ln in lines:
+                if name.lower() == "script":
+                    ln = sanitize_script_line(ln)
                 if ln not in seen[name]:
                     seen[name].add(ln)
                     buckets[name].append(ln)
@@ -195,8 +229,8 @@ def main():
         print("ERROR: 全部源拉取失败，保留旧产物", file=sys.stderr)
         sys.exit(1)
 
-    # 去重 MITM 与 脚本列表
-    mitm_hosts = list(dict.fromkeys(mitm_hosts))
+    # 去重与优化 MITM 与 脚本列表
+    mitm_hosts = sort_mitm_hosts(mitm_hosts)
     script_urls = list(dict.fromkeys(script_urls))
 
     # 扫描与记录每个远程脚本哈希
@@ -246,7 +280,6 @@ def main():
     if mitm_hosts:
         out.append("[MITM]")
         out.append("hostname = %APPEND% " + ", ".join(mitm_hosts))
-        out.append("h2 = true")
         out.append("")
 
     os.makedirs(os.path.dirname(OUTPUT), exist_ok=True)

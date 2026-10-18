@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-18 21:02:08 UTC",
+  "updated": "2026-10-18 21:25:20 UTC",
   "source_hashes": {
-    "modules/general.sgmodule": "ab177005109f9dbdda1443e2b760ad11d17c4bb57d56aef6e940352d337b6f79",
+    "modules/general.sgmodule": "f2e5ce77af1fbb32fa2e6810bd03120619d262c25c230b54c36a3f357df0edf0",
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "b0e4ce5d9aeeeebf598e7b353f040dd70518a068c290574390a9015c20d14163",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatOfficialAccount.sgmodule": "6c02ea57ab21760e7f744de6ade7caf8e8c92d26c48e40740157a0200154a54d",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatUnlockLinkRestrict.sgmodule": "6f0df4c6a44a3063a92f7718f19bff9d91e3c71d0cf55ae39e43f04656ed163e",
@@ -35,7 +35,7 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partP/Pinduoduo.sgmodule": "3042090a0b36ab0d248a765e0e6f1737a8d993ecaa6eab16d24145c6447795dc",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/XianYu.sgmodule": "40fb852def1a961a3c48b2ed0eb4f798a52f90a05a905c1b4f51435a8c20e0cf",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partS/ShiHuo.sgmodule": "00456018c1448d9d4ee7b939ec45b49d722b6f3fa998529774c882478d8bbfb1",
-    "modules/YouTubeAd.sgmodule": "9318806991fb9f2991fd79f65f9ed9cea8e45cac450c840dc9142285214c4d75",
+    "modules/YouTubeAd.sgmodule": "02d1867c2069ffd6e8224891cd1e5d2289b4ab65db4e20fea19502c8fc659933",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/XWebAds.module": "858a6d01cefdb013ea99328c6d383b6bff04426d8f8d6abc734ee52258a8a595",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partR/Reddit.sgmodule": "8eb2a9c9e5b9b95196996d2df39bb7719f3ab279a169d083f898939075e5c6b1",
     "https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/modules/Fries.TikTok.sgmodule": "c95e7f4e96b10339a84b694d4becf6c1a7ce2671763d5a3b1469c3ed0a1477ea",
@@ -73,6 +73,8 @@
     "https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.Dev.js": "e13a47f0c527065c5c4012e2a32b0e537ec113cb1d6c0ad7b6154aa31729adb4"
   },
   "mitm_hosts": [
+    "-i.vip.iqiyi.com",
+    "-redirector*.googlevideo.com",
     "mp.weixin.qq.com",
     "weixin110.qq.com",
     "security.wechat.com",
@@ -120,7 +122,6 @@
     "interface.music.163.com",
     "interface3.music.163.com",
     "interface9.music.163.com",
-    "-i.vip.iqiyi.com",
     "*.iqiyi.com",
     "acs.youku.com",
     "push.m.youku.com",
@@ -176,7 +177,6 @@
     "g-acs.m.goofish.com",
     "sh-gateway.shihuo.cn",
     "static.shihuocdn.cn",
-    "-redirector*.googlevideo.com",
     "*.googlevideo.com",
     "www.youtube.com",
     "s.youtube.com",

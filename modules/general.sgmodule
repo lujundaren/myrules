@@ -1,8 +1,8 @@
 #!name=General 通用基础规则
-#!desc=通用底层规则增强：全局阻断 UDP 443 (QUIC/HTTP3) 强制应用回退 TCP，防止绕过 MITM 代理与去广告净化，未来可在此扩展更多全局通用策略
+#!desc=通用底层规则增强，未来可在此扩展更多全局通用策略
 #!category=通用优化
 #!author=lujundaren
 
 [Rule]
-# 全局阻断 UDP 443 (QUIC / HTTP3)，以 0 延迟促使应用回退 TCP (HTTP/2)
-AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT-NO-DROP
+# 全局阻断 UDP 443 (QUIC / HTTP3)
+AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT
