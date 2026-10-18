@@ -1,0 +1,65 @@
+#!name=哔哩哔哩净化增强
+#!desc=彻底移除B站开屏广告、搜索流推广提示、视频播放页横幅/带货卡片、暂停弹窗广告，支持空降助手
+#!author=kokoryh, 墨鱼
+#!category=去广告
+
+[Rule]
+DOMAIN,bsbsb.top,DIRECT
+DOMAIN,cm.bilibili.com,REJECT
+DOMAIN-SUFFIX,cm.bilibili.com,REJECT
+DOMAIN,ad.bilibili.com,REJECT
+DOMAIN-SUFFIX,ad.bilibili.com,REJECT
+DOMAIN,data.bilibili.com,REJECT
+DOMAIN,api.biliapi.com,REJECT
+DOMAIN,app.biliapi.com,REJECT
+DOMAIN,api.biliapi.net,REJECT
+DOMAIN,app.biliapi.net,REJECT
+AND,((DOMAIN-SUFFIX,chat.bilibili.com), (OR,((DOMAIN-KEYWORD,stun), (DOMAIN-KEYWORD,tracker), (DOMAIN-KEYWORD,p2p)))),REJECT
+
+[Map Local]
+# 开屏广告秒关与闪屏配置
+^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list\? header="content-type: application/json" data-type=text data="{"code":0,"message":"OK","ttl":1,"data":{"max_time":0,"min_interval":31536000,"pull_interval":31536000,"keep_ids":[],"show":[],"list":[{}],"splash_request_id":""}}"
+^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/brand\/list\? header="content-type: application/json" data-type=text data="{"code":0,"message":"OK","ttl":1,"data":{"list":[]}}"
+
+# 搜索热搜/广场推广、活动横幅、会员广告物料拦截 (拦截搜索流商业提示)
+^https:\/\/ap[ip]\.bilibili\.com\/x\/(?:resource\/(?:top\/activity|patch\/tab(?:\/v2)?)|v2\/search\/square|vip\/ads\/materials)\? header="content-type: application/json" data-type=text data="{"code":-404,"message":"-404","ttl":1,"data":null}"
+
+# 搜索彩蛋商业动画拦截 (SearchEgg)
+^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.search\.v2\.Search\/SearchEgg$ header="content-type: application/grpc|grpc-status: 0" data-type=base64 data="AAAAAAA="
+
+# 搜索默认提示词与青少年模式提示 (覆盖 grpc 与 app 两个域名)
+^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus$ header="content-type: application/grpc|grpc-status: 0" data-type=base64 data="AAAAABMKEQgCEgl0ZWVuYWdlcnMgAioA"
+^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ header="content-type: application/grpc|grpc-status: 0" data-type=base64 data="AAAAACEaHeaQnOe0ouinhumikeOAgeeVquWJp+aIlnVw5Li7KAE="
+
+# 视频播放页活动横幅、带货卡片与物料投递
+^https:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive\? header="content-type: application/json" data-type=text data="{"code":0,"data":{"closeType":"close_win","container":[],"showTime":""},"message":"success"}"
+^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? header="content-type: application/json" data-type=text data="{}"
+^https:\/\/line3-h5-mobile-api\.biligame\.com\/game\/live\/large_card_material\? header="content-type: application/json" data-type=text data="{"code":0,"message":"success"}"
+
+# 视频暂停弹出广告 PlayPause (解决暂停弹出广告) + 播放结束推荐 ViewEndPage + 免流提示 TFInfo
+^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(?:view\.v1\.View\/TFInfo|viewunite\.v1\.View\/(?:PlayPause|ViewEndPage))$ header="content-type: application/grpc|grpc-status: 0" data-type=base64 data="AAAAAAA="
+
+[Body Rewrite]
+http-response-jq ^https:\/\/api\.live\.bilibili\.com\/xlive\/open-interface\/v2\/tracker\/conf\? '.data.domains=["wss://tracker.chat.bilibili.com"]'
+http-response-jq ^https:\/\/api\.bilibili\.com\/x\/pd-proxy\/tracker\? '.data[][]?="stun.chat.bilibili.com:3478"'
+http-response-jq ^https:\/\/api\.bilibili\.com\/pgc\/view\/v2\/app\/season\? 'del(.data.payment)'
+http-response-jq ^https:\/\/api\.bilibili\.com\/pgc\/page\/channel\? '.data.modules |= map(select(.type != "TIP") | if .type == "BANNER" then .module_data.items |= map(select(.url | startswith("https://www.bilibili.com/blackboard/era/") | not)) else . end)'
+
+[Script]
+# 空降助手
+bilibili.airborne = type=http-request,pattern=^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile$,argument="{"logLevel":"4"}",requires-body=1,binary-body-mode=1,max-size=-1,timeout=10,script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.request.js
+
+# 评论区置顶广告与播放器配置请求
+bilibili.protobuf.request = type=http-request,pattern=^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(?:app\.viewunite\.v1\.View\/View|main\.community\.reply\.v1\.Reply\/MainList)$,argument="{"purifyComment":1,"logLevel":"4"}",requires-body=1,binary-body-mode=1,max-size=-1,timeout=10,script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.request.js
+
+# 直播间净化
+bilibili.live = type=http-response,pattern=^https:\/\/api\.live\.bilibili\.com\/xlive\/(?:app-interface\/v2\/index\/feed|app-room\/v1\/index\/getInfoBy(?:Room|User))\?,requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.json.js
+
+# 首页Tab、信息流与开屏配置净化 (清理 feed/index 中的推广卡片与 tab)
+bilibili.json = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/(?:resource\/show\/tab\/v2|v2\/(?:splash\/(?:show|brand\/list|event\/list2)|feed\/index(?:\/story)?|account\/(?:mine(?:\/ipad)?|myinfo)))\?,argument="{"showCreatorHub":0}",requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.json.js
+
+# 全量 Protobuf 响应拦截：搜索流推广卡片过滤 (SearchAll)、播放页关联与横幅异步下发 (AIRelateAsync/RelatesFeed/View)、动态流去广告 (DynAll)
+bilibili.protobuf.response = type=http-response,pattern=^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(?:app\.(?:show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(?:unite)?\.v1\.View\/(?:View|ViewProgress|RelatesFeed|AIRelateAsync)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$,argument="{"displayUpList":"auto","purifyComment":1,"sponsorBlock":"bilibili.airborne","logLevel":"4"}",requires-body=1,binary-body-mode=1,max-size=-1,script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.response.js
+
+[MITM]
+hostname = %APPEND% grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, line3-h5-mobile-api.biligame.com

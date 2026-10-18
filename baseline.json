@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18 17:38:07 UTC",
+  "updated": "2026-10-18 17:55:21 UTC",
   "source_hashes": {
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "b0e4ce5d9aeeeebf598e7b353f040dd70518a068c290574390a9015c20d14163",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatOfficialAccount.sgmodule": "6c02ea57ab21760e7f744de6ade7caf8e8c92d26c48e40740157a0200154a54d",
@@ -7,7 +7,7 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partQ/QQMusic.sgmodule": "22d9ae859892ace66b99b3f5e5f5f214db60f9657adc5158e1a15dbaf7297d3f",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partT/Tencent.sgmodule": "831a745d40be8b347c6960eeb297ae809ef87bf4627b3727e061905ad2ce644c",
     "modules/XinYueClub.sgmodule": "7876d38524f3fd282785f04b416b0cac61b10f26102d2aad36ad53b9fb828ff1",
-    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/bilibili.sgmodule": "c65cfb2b5b0fdf9342488d6bdda918120903fcb7ac6399ce61cbc20af5caf860",
+    "modules/Bilibili.sgmodule": "7850b895c3d4e3568d2c20a6af2005eadd464e18423c22ee22bce2aed67c2759",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/Xiaohongshu.sgmodule": "6dc58305c0453a654d44def91a4d995cb4e5345f0c89dd703e98b19be1584038",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/Zhihu.sgmodule": "4f064915d1efc056df784f24a2f50baaa94f59be4d698597f561fef818b77964",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/weibo.module": "cbb427d9bbf7fbe1c3b7a383693f2291eeb97cdf3107e13f9e902f7ca5a266fd",

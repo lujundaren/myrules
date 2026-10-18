@@ -28,8 +28,8 @@ modules/XinYueClub.sgmodule
 
 
 # ----------------- 4. 社交、社区与资讯工具 -----------------
-# 哔哩哔哩 (Bilibili)：开屏广告、视频下方信息流推广、顶底栏精简
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/bilibili.sgmodule
+# 哔哩哔哩 (Bilibili)：开屏广告、搜索流推广提示、视频播放页横幅/带货卡片、暂停弹窗广告，支持空降助手
+modules/Bilibili.sgmodule
 
 # 小红书 (Xiaohongshu)：瀑布流商业推广笔记、开屏广告净化
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/Xiaohongshu.sgmodule
