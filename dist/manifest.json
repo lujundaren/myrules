@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18 12:22:43 UTC",
+  "generated": "2026-10-18 16:28:32 UTC",
   "sources_ok": 37,
   "sources_total": 37,
   "mitm_hosts": [
@@ -12,6 +12,7 @@
     "bgw.xinyue.qq.com",
     "*.xinyue.qq.com",
     "xinyue.qq.com",
+    "djcapp.game.qq.com",
     "*.gdt.qq.com",
     "119.29.29.29",
     "grpc.biliapi.net",
