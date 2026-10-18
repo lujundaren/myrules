@@ -9,22 +9,6 @@
     "us.l.qq.com",
     "y.gtimg.cn",
     "music.y.qq.com",
-    "btrace.qq.com",
-    "api2.helper.qq.com",
-    "*.beacon.qq.com",
-    "mi.gdt.qq.com",
-    "lives.l.qq.com",
-    "imgcache.qq.com",
-    "mtteve.beacon.qq.com",
-    "vv.video.qq.com",
-    "qt.qq.com",
-    "3gimg.qq.com",
-    "splashqqlive.gtimg.com",
-    "qzonestyle.gtimg.cn",
-    "discuz.gtimg.cn",
-    "bla.gtimg.com",
-    "mmgr.gtimg.com",
-    "bk.bingo.qq.com",
     "bgw.xinyue.qq.com",
     "grpc.biliapi.net",
     "app.bilibili.com",
@@ -97,10 +81,12 @@
     "psnlz.api.moji.com",
     "adlaunch.moji.com",
     "tnc*.zijieapi.com",
+    "wmapi.meituan.com",
+    "alita.waimai.meituan.com",
+    "portal-portm.meituan.com",
     "elemecdn.com",
     "fuss10.elemecdn.com",
     "cube.elemecdn.com",
-    "www1.elecfans.com",
     "nr-op.elemecdn.com",
     "m.client.10010.com",
     "m1.ad.10010.com",
@@ -116,6 +102,7 @@
     "sh-gateway.shihuo.cn",
     "static.shihuocdn.cn",
     "x.com",
+    "*.tiktokv.com",
     "*-spclient.spotify.com",
     "spclient.wg.spotify.com"
   ],
@@ -218,6 +205,14 @@
     },
     {
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/reddit.js",
+      "host": "raw.githubusercontent.com"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/js/TikTok.request.js",
+      "host": "raw.githubusercontent.com"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/js/TikTok.response.js",
       "host": "raw.githubusercontent.com"
     },
     {

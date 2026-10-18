@@ -17,20 +17,11 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/pa
 
 
 # ----------------- 3. QQ 与腾讯全系生态净化 -----------------
-# QQ音乐：开屏摇一摇广告、播放页弹窗与商业推荐流去除
+# QQ音乐：开屏摇一摇广告、播放页弹窗与商业推荐流去除（已含腾讯通用exapp拦截）
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partQ/QQMusic.sgmodule
-
-# QQ浏览器：首页开屏全屏广告、信息流商业推广及浮层弹窗过滤
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partQ/QQBrowser.sgmodule
-
-# 腾讯广告与遥测系统 (TencentAds)：覆盖QQ空间/动态/优量汇/灯塔广告跟踪
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partT/TencentAds.sgmodule
 
 # 腾讯系通用组件净化 (Tencent)：腾讯系应用内通用广告模块清理
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partT/Tencent.sgmodule
-
-# 腾讯视频 (TencentVideo)：开屏广告与播放界面腰封横幅推广去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partT/TencentVideo.sgmodule
 
 # 心悦俱乐部 (XinYueClub)：开屏与游戏推荐弹窗过滤
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/XinYueClub.sgmodule
@@ -101,11 +92,11 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/pa
 # 墨迹天气 (MojiWeather)：开屏广告、天气页浮窗与短视频、瀑布流商业推广、时景动态推荐及精简我的页面
 modules/MojiWeather.sgmodule
 
-# 美团 (Meituan)：首页弹窗红包、外卖底栏红点推广去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partM/Meituan.sgmodule
+# 美团 (Meituan)：开屏广告、首页浮标与运营推广弹窗过滤
+modules/Meituan.sgmodule
 
 # 饿了么 (Eleme)：首页开屏红包弹窗、搜索底纹与信息流推广去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partE/Eleme.sgmodule
+modules/Eleme.sgmodule
 
 # 中国联通 (ChinaUnicom)：营业厅开屏广告与账单页推广净化
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/ChinaUnicom.sgmodule
@@ -133,8 +124,8 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/XWebAds.
 # Reddit：官方客户端信息流广告过滤与推广帖子清理
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partR/Reddit.sgmodule
 
-# TikTok：海外版抖音信息流广告过滤与下载去水印
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partD/TikTok.sgmodule
+# TikTok：VirgilClyne 官方维护版，海外版抖音信息流广告过滤与解锁增强
+https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/modules/Fries.TikTok.sgmodule
 
 # Spotify：手机端/网页端播放音频与弹窗广告过滤
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partS/Spotify.sgmodule

@@ -1,0 +1,26 @@
+#!name=饿了么去广告
+#!desc=移除饿了么开屏广告、弹窗及首页推广
+#!author=奶思, Cuttlefish
+#!category=去广告
+
+[Rule]
+DOMAIN-SUFFIX,app-monitor.ele.me,REJECT
+DOMAIN-SUFFIX,client-api.ele.me,REJECT
+DOMAIN-SUFFIX,grand.ele.me,REJECT
+DOMAIN-SUFFIX,mobile-pubt.ele.me,REJECT
+DOMAIN-SUFFIX,newton-api.ele.me,REJECT
+
+[URL Rewrite]
+# 开屏图片与广告配置
+^https?:\/\/elemecdn\.com\/.+\/sitemap - reject-200
+^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/640\/h\/\d{3,4} - reject-200
+^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/750\/h\/\d{3,4} - reject-200
+^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize - reject-200
+^https?:\/\/cube\.elemecdn\.com\/\w\/\w{2}\/\w+mp4\.mp4\? - reject-200
+^https?:\/\/(nr-op|cube)\.elemecdn\.com\/.+\.jpeg\?x-oss-process=image\/resize - reject-200
+
+[Map Local]
+^https?:\/\/fuss10\.elemecdn\.com\/.+?\.mp4 data-type=tiny-gif status-code=200
+
+[MITM]
+hostname = %APPEND% elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, nr-op.elemecdn.com

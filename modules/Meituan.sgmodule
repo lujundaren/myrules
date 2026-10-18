@@ -1,0 +1,24 @@
+#!name=美团去广告
+#!desc=移除美团及美团外卖开屏广告、首页推广浮窗与数据上报
+#!author=Cuttlefish, blackmatrix7
+#!category=去广告
+
+[Rule]
+DOMAIN,ad.e.waimai.sankuai.com,REJECT
+DOMAIN,mads.meituan.com,REJECT
+DOMAIN,wmlog.meituan.com,REJECT
+DOMAIN,report.meituan.com,REJECT
+DOMAIN,analytics.meituan.net,REJECT
+DOMAIN,dreport.meituan.net,REJECT
+DOMAIN,d.meituan.net,REJECT
+DOMAIN-SUFFIX,analytics.meituan.net,REJECT
+
+[URL Rewrite]
+# 开屏广告与启动配置
+^https?:\/\/wmapi\.meituan\.com\/api\/v\d+\/loadInfo - reject-200
+^https?:\/\/alita\.waimai\.meituan\.com\/alita\/ad\/ - reject-200
+# 首页浮标与运营弹窗
+^https?:\/\/portal-portm\.meituan\.com\/ad\/ - reject-200
+
+[MITM]
+hostname = %APPEND% wmapi.meituan.com, alita.waimai.meituan.com, portal-portm.meituan.com

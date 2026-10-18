@@ -1234,16 +1234,14 @@ DOMAIN-SUFFIX,cdn2.moji002.com,REJECT
 DOMAIN-KEYWORD,me.api.moji.com,REJECT
 DOMAIN-KEYWORD,av1.xdrig.com,REJECT
 DOMAIN-KEYWORD,adash.man.aliyuncs.com,REJECT
-DOMAIN-SUFFIX,meituan.xn,REJECT
-DOMAIN-SUFFIX,meituan.yoga,REJECT
-DOMAIN-SUFFIX,meituangov.cn,REJECT
-DOMAIN-SUFFIX,report.meituan.com,REJECT
+DOMAIN,ad.e.waimai.sankuai.com,REJECT
+DOMAIN,mads.meituan.com,REJECT
+DOMAIN,wmlog.meituan.com,REJECT
+DOMAIN,report.meituan.com,REJECT
+DOMAIN,analytics.meituan.net,REJECT
+DOMAIN,dreport.meituan.net,REJECT
+DOMAIN,d.meituan.net,REJECT
 DOMAIN-SUFFIX,analytics.meituan.net,REJECT
-DOMAIN-SUFFIX,wmlog.meituan.com,REJECT
-DOMAIN-SUFFIX,ad.e.waimai.sankuai.com,REJECT
-DOMAIN-SUFFIX,mads.meituan.com,REJECT
-DOMAIN-SUFFIX,dreport.meituan.net,REJECT
-DOMAIN-SUFFIX,d.meituan.net,REJECT
 DOMAIN-SUFFIX,app-monitor.ele.me,REJECT
 DOMAIN-SUFFIX,client-api.ele.me,REJECT
 DOMAIN-SUFFIX,grand.ele.me,REJECT
@@ -1284,8 +1282,6 @@ DOMAIN-SUFFIX,m-adash.m.taobao.com,REJECT
 DOMAIN-SUFFIX,adashbc.m.taobao.com,REJECT
 AND,((URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"%E9%97%B2%E9%B1%BC*")),REJECT
 DOMAIN-KEYWORD,iyes.youku.com,REJECT
-DOMAIN-KEYWORD,bds.snssdk.com,REJECT
-DOMAIN-KEYWORD,p3.pstatp.com,REJECT
 
 [URL Rewrite]
 ^https?:\/\/us\.l\.qq\.com\/exapp - reject
@@ -1293,7 +1289,6 @@ DOMAIN-KEYWORD,p3.pstatp.com,REJECT
 ^https?:\/\/.+?\/music\/common\/upload\/t_splash_info\/ - reject
 ^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/music\/common\/upload\/t_splash_info\/ - reject
 ^https:\/\/music\.y\.qq\.com\/maproxy\/getPbCompressAd - reject
-^https?:\/\/us\.l\.qq\.com\/exapp\?spsa=\d - reject
 ^https:\/\/api\.zhihu\.com\/unlimited\/go\/my_card - reject
 ^https:\/\/api\.zhihu\.com\/ab\/api\/v1\/products\/zhihu\/platforms\/ios\/config - reject
 ^https:\/\/link\.zhihu\.com\/\?target=(?:https?)?(?:%3A|:)?(?:\/\/|%2F%2F)?(.*) http://$1 302
@@ -1349,15 +1344,15 @@ DOMAIN-KEYWORD,p3.pstatp.com,REJECT
 ^https?:\/\/stat\.moji\.com - reject-200
 ^https?:\/\/ugc\.moji001.com\/sns\/json\/profile\/get_unread - reject-200
 ^https:\/\/tnc.*zijieapi\.com\/get_domains - reject-200
-^https?:\/\/elemecdn\.com\/.+\/sitemap - reject
-^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/640\/h\/\d{3,4} - reject
-^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/750\/h\/\d{3,4} - reject
-^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_1\d{3},h_2\d{3}\/format,webp\/ - reject
-^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_6\d{2},h_8\d{2}\/format,webp\/ - reject
-^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{3},h_\d{4}\/format,webp\/ - reject
-^https?:\/\/cube\.elemecdn\.com\/\w\/\w{2}\/\w+mp4\.mp4\? - reject
-^https?:\/\/www1\.elecfans\.com\/www\/delivery\/ - reject
-^https?:\/\/(nr-op|cube)\.elemecdn\.com\/.+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{4,},h_\d{4,}\/($|format,webp\/$) - reject
+^https?:\/\/wmapi\.meituan\.com\/api\/v\d+\/loadInfo - reject-200
+^https?:\/\/alita\.waimai\.meituan\.com\/alita\/ad\/ - reject-200
+^https?:\/\/portal-portm\.meituan\.com\/ad\/ - reject-200
+^https?:\/\/elemecdn\.com\/.+\/sitemap - reject-200
+^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/640\/h\/\d{3,4} - reject-200
+^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/750\/h\/\d{3,4} - reject-200
+^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize - reject-200
+^https?:\/\/cube\.elemecdn\.com\/\w\/\w{2}\/\w+mp4\.mp4\? - reject-200
+^https?:\/\/(nr-op|cube)\.elemecdn\.com\/.+\.jpeg\?x-oss-process=image\/resize - reject-200
 ^https?:\/\/api\.(pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash - reject
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.playboy\.recommend\/1\.0 - reject
 ^https?:\/\/sh-gateway\.shihuo\.cn\/v\d\/services\/sh-adapi\/home\/(screen|ad) - reject
@@ -1596,10 +1591,14 @@ moji_my_page = type=http-response,pattern=^https?:\/\/.*api\.moji\.com\/json\/en
 同城页横幅广告 = type=http-response, pattern=^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.flow\.plat\.section, script-path=https://raw.githubusercontent.com/ishowshu/qx/refs/heads/main/script/goofish.js, requires-body=true
 X网页版去广告 = type=http-response, pattern=^https?:\/\/x\.com\/i\/api\/graphql\/[^\/]+\/(HomeTimeline|HomeLatestTimeline|TweetDetail), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/X/X_ads.js, requires-body=true
 reddit = type=http-response, pattern=^https?:\/\/gql(-fed)?\.reddit\.com, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/reddit.js, requires-body=true, timeout=60
+Fries.TikTok.tnc.get_domains.request = type=http-request, pattern=^https?:\/\/tnc(.+)\.tiktokv\.com\/get_domains\/v\d\/, engine=webview, script-path=https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/js/TikTok.request.js, argument=
+Fries.TikTok.tnc.get_domains.response = type=http-response, pattern=^https?:\/\/tnc(.+)\.tiktokv\.com\/get_domains\/v\d\/, requires-body=1, engine=webview, script-path=https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/js/TikTok.response.js, argument=
+Fries.TikTok.api.request = type=http-request, pattern=^https?:\/\/api(.+)\.tiktokv\.com\/(aweme|tiktok)\/v\d\/, engine=webview, script-path=https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/js/TikTok.request.js, argument=CountryCode={{{CountryCode}}}&Carrier={{{Carrier}}}
+Fries.TikTok.api.response = type=http-response, pattern=^https?:\/\/api(.+)\.tiktokv\.com\/(aweme|tiktok)\/v\d\/, requires-body=1, engine=webview, script-path=https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/js/TikTok.response.js, argument=
 Protobuf = type=http-response, pattern=^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service), script-path=https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.Dev.js, requires-body=true, binary-body-mode=true, timeout=3, argument="[{{{tab}}},{{{useractivity}}}]"
 
 [Header Rewrite]
 http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(interface\.v1\.(Teenagers\/ModeStatus|Search\/DefaultWords)|view\.v1\.View\/TFInfo|viewunite\.v1\.View\/ViewEndPage)$ header-add 'grpc-status' '0'
 
 [MITM]
-hostname = %APPEND% mp.weixin.qq.com, weixin110.qq.com, security.wechat.com, us.l.qq.com, y.gtimg.cn, music.y.qq.com, btrace.qq.com, api2.helper.qq.com, *.beacon.qq.com, mi.gdt.qq.com, lives.l.qq.com, imgcache.qq.com, mtteve.beacon.qq.com, vv.video.qq.com, qt.qq.com, 3gimg.qq.com, splashqqlive.gtimg.com, qzonestyle.gtimg.cn, discuz.gtimg.cn, bla.gtimg.com, mmgr.gtimg.com, bk.bingo.qq.com, bgw.xinyue.qq.com, grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, line3-h5-mobile-api.biligame.com, edith.xiaohongshu.com, www.xiaohongshu.com, ci.xiaohongshu.com, rec.xiaohongshu.com, so.xiaohongshu.com, api.zhihu.com, www.zhihu.com, appcloud2.zhihu.com, m-cloud.zhihu.com, zhuanlan.zhihu.com, link.zhihu.com, *.weibo.cn, *.weibo.com, weibo.com, api.douban.com, api.coolapk.com, www.coolapk.com, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, ios.wps.cn, mobile-pic.cache.iciba.com, ipv4.music.163.com, interface.music.163.com, interface3.music.163.com, interface9.music.163.com, -i.vip.iqiyi.com, *.iqiyi.com, acs.youku.com, push.m.youku.com, un-acs.youku.com, *.mgtv.com, m*.amap.com, optimus-ads.amap.com, amap-aos-info-nogw.amap.com, dss0.bdstatic.com, tb1.bdstatic.com, tb2.bdstatic.com, ss0.bdstatic.com, gss0.bdstatic.com, newclient.map.baidu.com, res.xiaojukeji.com, common.diditaxi.com.cn, hd.xiaojukeji.com, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, conf.diditaxi.com.cn, ad.12306.cn, gab.122.gov.cn, home.umetrip.com, discardrp.umetrip.com, startup.umetrip.com, oss.umetrip.com, *.api.moji.com, fcard.api.moji.com, vdo.api.moji.com, sns.api.moji.com, mme.api.moji.com, psnlz.api.moji.com, adlaunch.moji.com, tnc*.zijieapi.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, acs.m.goofish.com, g-acs.m.goofish.com, sh-gateway.shihuo.cn, static.shihuocdn.cn, x.com, *-spclient.spotify.com, spclient.wg.spotify.com
+hostname = %APPEND% mp.weixin.qq.com, weixin110.qq.com, security.wechat.com, us.l.qq.com, y.gtimg.cn, music.y.qq.com, bgw.xinyue.qq.com, grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, line3-h5-mobile-api.biligame.com, edith.xiaohongshu.com, www.xiaohongshu.com, ci.xiaohongshu.com, rec.xiaohongshu.com, so.xiaohongshu.com, api.zhihu.com, www.zhihu.com, appcloud2.zhihu.com, m-cloud.zhihu.com, zhuanlan.zhihu.com, link.zhihu.com, *.weibo.cn, *.weibo.com, weibo.com, api.douban.com, api.coolapk.com, www.coolapk.com, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, ios.wps.cn, mobile-pic.cache.iciba.com, ipv4.music.163.com, interface.music.163.com, interface3.music.163.com, interface9.music.163.com, -i.vip.iqiyi.com, *.iqiyi.com, acs.youku.com, push.m.youku.com, un-acs.youku.com, *.mgtv.com, m*.amap.com, optimus-ads.amap.com, amap-aos-info-nogw.amap.com, dss0.bdstatic.com, tb1.bdstatic.com, tb2.bdstatic.com, ss0.bdstatic.com, gss0.bdstatic.com, newclient.map.baidu.com, res.xiaojukeji.com, common.diditaxi.com.cn, hd.xiaojukeji.com, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, conf.diditaxi.com.cn, ad.12306.cn, gab.122.gov.cn, home.umetrip.com, discardrp.umetrip.com, startup.umetrip.com, oss.umetrip.com, *.api.moji.com, fcard.api.moji.com, vdo.api.moji.com, sns.api.moji.com, mme.api.moji.com, psnlz.api.moji.com, adlaunch.moji.com, tnc*.zijieapi.com, wmapi.meituan.com, alita.waimai.meituan.com, portal-portm.meituan.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, nr-op.elemecdn.com, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, acs.m.goofish.com, g-acs.m.goofish.com, sh-gateway.shihuo.cn, static.shihuocdn.cn, x.com, *.tiktokv.com, *-spclient.spotify.com, spclient.wg.spotify.com
