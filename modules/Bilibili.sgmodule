@@ -1,6 +1,6 @@
 #!name=哔哩哔哩净化增强
-#!desc=彻底移除B站开屏广告、搜索流推广提示、视频播放页横幅/带货卡片、暂停弹窗广告，支持空降助手
-#!author=kokoryh, 墨鱼
+#!desc=彻底移除B站开屏广告、搜索页起飞/推广/商单视频、播放页横幅与推广卡片、播放暂停弹窗、青少年模式弹窗、评论区与动态推广
+#!author=Biliverse, lujundaren
 #!category=去广告
 
 [Rule]
@@ -10,71 +10,74 @@ DOMAIN-SUFFIX,cm.bilibili.com,REJECT
 DOMAIN,ad.bilibili.com,REJECT
 DOMAIN-SUFFIX,ad.bilibili.com,REJECT
 DOMAIN,data.bilibili.com,REJECT
-DOMAIN,api.biliapi.com,REJECT
-DOMAIN,app.biliapi.com,REJECT
-DOMAIN,api.biliapi.net,REJECT
-DOMAIN,app.biliapi.net,REJECT
 AND,((DOMAIN-SUFFIX,chat.bilibili.com), (OR,((DOMAIN-KEYWORD,stun), (DOMAIN-KEYWORD,tracker), (DOMAIN-KEYWORD,p2p)))),REJECT
 
+[Map Local]
+# 搜索默认关键词 (返回空 gRPC 响应，杜绝搜索框推广词)
+^https?:\/\/(grpc\.biliapi\.net|app\.biliapi\.net|app\.bilibili\.com|app\.biliapi\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ data-type=base64 data="AAAAAAA=" status-code=200 header="Content-Type:application/grpc|Content-Length:5|grpc-status:0"
+# 去除搜索中的大家都在搜
+^https?:\/\/api\.vc\.bilibili\.com\/search_svr\/v\d\/Search\/recommend_words data-type=text data="{}" header="application/json"
+# 去除动态中的话题
+^https?:\/\/api\.vc\.bilibili\.com\/topic_svr\/v1\/topic_svr data-type=text data="{}" header="application/json"
+# 去除动态中的最常访问
+^https?:\/\/api\.vc\.bilibili\.com\/dynamic_svr\/v1\/dynamic_svr\/mix_uplist data-type=text data="{}" header="application/json"
+# 漫画与直播带货商业物料净化
+^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/Flash data-type=text data="{}" header="application/json"
+^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/ListFlash data-type=text data="{}" header="application/json"
+^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? data-type=text data="{}" header="application/json"
+# 番剧页弹窗广告
+^https:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive\? header="content-type: application/json" data-type=text data="{\"code\":0,\"data\":{\"closeType\":\"close_win\",\"container\":[],\"showTime\":\"\"},\"message\":\"success\"}"
+# 开屏广告秒关与闪屏配置
+^https:\/\/app\.bili(bili\.com|api\.net)\/x\/v2\/splash\/list\? header="content-type: application/json" data-type=text data="{\"code\":0,\"message\":\"OK\",\"ttl\":1,\"data\":{\"max_time\":0,\"min_interval\":31536000,\"pull_interval\":31536000,\"keep_ids\":[],\"show\":[],\"list\":[{}],\"splash_request_id\":\"\"}}"
+^https:\/\/app\.bili(bili\.com|api\.net)\/x\/v2\/splash\/brand\/list\? header="content-type: application/json" data-type=text data="{\"code\":0,\"message\":\"OK\",\"ttl\":1,\"data\":{\"list\":[]}}"
+# 搜索热搜/广场推广、活动横幅、会员广告物料拦截
+^https:\/\/(api|app)\.bili(bili\.com|api\.net)\/x\/(resource\/(top\/activity|patch\/tab(\/v2)?)|v2\/search\/square|vip\/ads\/materials)\? header="content-type: application/json" data-type=text data="{\"code\":-404,\"message\":\"-404\",\"ttl\":1,\"data\":null}"
+
 [URL Rewrite]
-# 1. 视频暂停弹出广告 PlayPause (Shadowrocket 原生 200 空载阻断，杜绝暂停弹窗)
-^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.viewunite\.v1\.View\/PlayPause - reject-200
-
-# 2. 搜索彩蛋商业动画 SearchEgg (彻底拦截搜索结果页顶部的商业动效与弹窗)
-^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.search\.v2\.Search\/SearchEgg - reject-200
-
-# 3. 搜索占位推荐词与青少年模式弹窗 DefaultWords & ModeStatus
-^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords - reject-200
-^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus - reject-200
-
-# 4. 视频播放免流提示与播放结束广告推荐 TFInfo & ViewEndPage
-^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(?:view\.v1\.View\/TFInfo|viewunite\.v1\.View\/ViewEndPage) - reject-200
-
-# 5. 商业广告计费与回传接口 cm.bilibili.com
-^https?:\/\/cm\.bilibili\.com\/ - reject-200
-
-# 6. 视频播放界面带货卡片、横幅广告与商业物料下发 (彻底消除播放器下方横幅与商品卡)
-^https?:\/\/api\.bilibili\.com\/pgc\/(?:activity\/deliver\/material\/receive|season\/(?:player\/(?:ogv\/)?cards|app\/related\/recommend)) - reject-dict
-^https?:\/\/api\.bilibili\.com\/x\/v2\/(?:view\/material|dm\/advertising) - reject-dict
-^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/ - reject-dict
+# 搜索彩蛋动画与活动弹窗拦截
+^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com|app\.biliapi\.net)\/bilibili\.app\.search\.v2\.Search\/SearchEgg - reject-200
+# 商业广告计费与回传接口
+^https?:\/\/cm\.bilibili\.com\/cm\/api\/(?:conversion\/mobile\/v2|fees\/wise) - reject-200
+^https?:\/\/mall\.bilibili\.com\/(?:detail\.html|mall-c-search\/) - reject-200
 ^https?:\/\/line3-h5-mobile-api\.biligame\.com\/game\/live\/large_card_material - reject-200
-^https?:\/\/mall\.bilibili\.com\/detail\.html - reject-200
-^https?:\/\/mall\.bilibili\.com\/mall-c-search\/ - reject-200
 
 [Header Rewrite]
-# 强制协商未压缩 gRPC，彻底杜绝 Shadowrocket 环境下 $utils.ungzip 缺失导致的解码异常
-http-request ^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/ header-replace grpc-accept-encoding identity
-http-request ^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/ header-replace accept-encoding identity
-
-[Map Local]
-# 开屏广告秒关与闪屏配置
-^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list\? header="content-type: application/json" data-type=text data="{"code":0,"message":"OK","ttl":1,"data":{"max_time":0,"min_interval":31536000,"pull_interval":31536000,"keep_ids":[],"show":[],"list":[{}],"splash_request_id":""}}"
-^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/brand\/list\? header="content-type: application/json" data-type=text data="{"code":0,"message":"OK","ttl":1,"data":{"list":[]}}"
-
-# 搜索热搜/广场推广、活动横幅、会员广告物料拦截 (拦截搜索流商业提示)
-^https:\/\/ap[ip]\.bilibili\.com\/x\/(?:resource\/(?:top\/activity|patch\/tab(?:\/v2)?)|v2\/search\/square|vip\/ads\/materials)\? header="content-type: application/json" data-type=text data="{"code":-404,"message":"-404","ttl":1,"data":null}"
+# 强制协商未压缩 gRPC，杜绝移动端解码异常
+http-request ^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com|app\.biliapi\.net)\/ header-replace grpc-accept-encoding identity
+http-request ^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com|app\.biliapi\.net)\/ header-replace accept-encoding identity
 
 [Body Rewrite]
+http-response-jq ^https:\/\/api\.bilibili\.com\/pgc\/view\/v2\/app\/season\? 'del(.data.payment)'
 http-response-jq ^https:\/\/api\.live\.bilibili\.com\/xlive\/open-interface\/v2\/tracker\/conf\? '.data.domains=["wss://tracker.chat.bilibili.com"]'
 http-response-jq ^https:\/\/api\.bilibili\.com\/x\/pd-proxy\/tracker\? '.data[][]?="stun.chat.bilibili.com:3478"'
-http-response-jq ^https:\/\/api\.bilibili\.com\/pgc\/view\/v2\/app\/season\? 'del(.data.payment)'
-http-response-jq ^https:\/\/api\.bilibili\.com\/pgc\/page\/channel\? '.data.modules |= map(select(.type != "TIP") | if .type == "BANNER" then .module_data.items |= map(select(.url | startswith("https://www.bilibili.com/blackboard/era/") | not)) else . end)'
 
 [Script]
-# 空降助手
-bilibili.airborne = type=http-request,pattern=^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile$,argument="{"logLevel":"4"}",requires-body=1,binary-body-mode=1,max-size=-1,timeout=10,script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.request.js
-
-# 评论区置顶广告与播放器配置请求
-bilibili.protobuf.request = type=http-request,pattern=^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(?:app\.viewunite\.v1\.View\/View|main\.community\.reply\.v1\.Reply\/MainList)$,argument="{"purifyComment":1,"logLevel":"4"}",requires-body=1,binary-body-mode=1,max-size=-1,timeout=10,script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.request.js
-
-# 直播间净化
-bilibili.live = type=http-response,pattern=^https:\/\/api\.live\.bilibili\.com\/xlive\/(?:app-interface\/v2\/index\/feed|app-room\/v1\/index\/getInfoBy(?:Room|User))\?,requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.json.js
-
-# 首页Tab、信息流与开屏配置净化 (清理 feed/index 中的推广卡片与 tab)
-bilibili.json = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/(?:resource\/show\/tab\/v2|v2\/(?:splash\/(?:show|brand\/list|event\/list2)|feed\/index(?:\/story)?|account\/(?:mine(?:\/ipad)?|myinfo)))\?,argument="{"showCreatorHub":0}",requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.json.js
-
-# 全量 Protobuf 响应拦截：搜索流推广卡片过滤 (SearchAll)、播放页关联与横幅异步下发 (AIRelateAsync/RelatesFeed/View)、动态流去广告 (DynAll)
-bilibili.protobuf.response = type=http-response,pattern=^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(?:app\.(?:show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(?:unite)?\.v1\.View\/(?:View|ViewProgress|RelatesFeed|AIRelateAsync)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$,argument="{"displayUpList":"auto","purifyComment":1,"sponsorBlock":"bilibili.airborne","logLevel":"4"}",requires-body=1,binary-body-mode=1,max-size=-1,script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.protobuf.response.js
+# 推荐页请求预处理
+bilibili.feed.request = type=http-request, pattern=^https?:\/\/app\.bili(bili\.com|api\.net)\/x\/v2\/feed\/index\?, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.request.js
+# 商业上报与追踪拦截
+bilibili.privacy.request = type=http-request, pattern=^https?:\/\/(cm\.bilibili\.com\/cm\/api\/(conversion\/mobile\/v2|fees\/wise)|adtrack\.qianwen\.com\/v3\/ad\/(show\/)?bilibili|tkio-redirect\.solar-engine\.com\/receive\/turl\/), script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.request.js
+# 首页信息流与开屏响应净化
+bilibili.response.json = type=http-response, pattern=^https?:\/\/app\.bili(bili\.com|api\.net)\/x\/v2\/(splash\/(brand\/list|event\/list2|list|show)|feed\/index(\/(relate\/)?story)?|search\/square), requires-body=1, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
+bilibili.response.rcmd = type=http-response, pattern=^https?:\/\/api\.bili(bili\.com|api\.net)\/x\/(web-interface\/wbi\/index\/top\/feed\/rcmd|vip\/ads\/materials)\?, requires-body=1, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
+bilibili.pgc.page.response.json = type=http-response, pattern=^https?:\/\/api\.bili(bili\.com|api\.net)\/pgc\/page\/(bangumi|cinema\/tab\?), requires-body=1, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
+bilibili.xlive.response.json = type=http-response, pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/(app-room\/v1\/index\/getInfoByRoom|app-interface\/v2\/(index\/feed|room\/recList)), requires-body=1, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
+# 视频播放页横幅/带货卡片/推荐流广告与暂停弹窗响应净化 (支持 View, AIRelateAsync, PlayPause, ViewEndPage, TFInfo)
+bilibili.view.response.grpc = type=http-response, pattern=^https?:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.app\.(view\.v1\.View\/(View|TFInfo|RelatesFeed|PlayerRelates|ViewProgress)|viewunite\.v1\.View\/(View|RelatesFeed|AIRelateAsync|ViewProgress|PlayPause|ViewEndPage)|playerunite\.v1\.Player\/PlayViewUnite)$, requires-body=1, binary-body-mode=1, max-size=262144, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
+# 动态流净化
+bilibili.dynamic.response.grpc = type=http-response, pattern=^https?:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/Dyn(All|Video)(Personal)?$, requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
+# 播放地址参数优化
+bilibili.playurl.response.grpc = type=http-response, pattern=^https?:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.app\.playurl\.v1\.PlayURL\/PlayView$, requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
+# 搜索结果净化 (拦截包含起飞火箭标、商业推荐理由、推广标签的视频卡及广告卡)
+bilibili.search.response.grpc = type=http-response, pattern=^https?:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$, requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
+# 弹幕净化
+bilibili.dm.response.grpc = type=http-response, pattern=^https:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.community\.service\.dm\.v1\.DM\/(DmView|DmSegMobile), requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
+# 青少年模式弹窗拦截
+bilibili.interface.response.grpc = type=http-response, pattern=^https:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus, requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
+# 评论区广告与置顶推广净化
+bilibili.reply.response.grpc = type=http-response, pattern=^https:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.main\.community\.reply\.v1\.Reply\/(MainList|DetailList|ReplyInfo)$, requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
+bilibili.reply.v2.response.grpc = type=http-response, pattern=^https:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.main\.community\.reply\.v2\.Reply\/SubjectDescription$, requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
+# PGC 播放器广告净化
+bilibili.pgc.response.grpc = type=http-response, pattern=^https:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.pgc\.gateway\.player\.v2\.PlayURL\/PlayView$, requires-body=1, binary-body-mode=1, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.response.js
 
 [MITM]
-hostname = %APPEND% grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, mall.bilibili.com, line3-h5-mobile-api.biligame.com
+hostname = %APPEND% app.bilibili.com, app.biliapi.net, app.biliapi.com, api.bilibili.com, api.biliapi.net, grpc.biliapi.net, api.live.bilibili.com, api.vc.bilibili.com, manga.bilibili.com, cm.bilibili.com, line3-h5-mobile-api.biligame.com, mall.bilibili.com
