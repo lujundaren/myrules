@@ -34,7 +34,6 @@ HEADER_NAME = "去广告规则增强版"
 ALLOWED_SCRIPT_HOSTS = {
     "raw.githubusercontent.com",  # GitHub 源
     "github.com",
-    "yfamilys.com",
     "klraw.pages.dev",            # 闲鱼第三方源
 }
 
