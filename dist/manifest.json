@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18 11:39:22 UTC",
+  "generated": "2026-10-18 11:54:48 UTC",
   "sources_ok": 40,
   "sources_total": 40,
   "mitm_hosts": [
@@ -89,6 +89,14 @@
     "discardrp.umetrip.com",
     "startup.umetrip.com",
     "oss.umetrip.com",
+    "*.api.moji.com",
+    "fcard.api.moji.com",
+    "vdo.api.moji.com",
+    "sns.api.moji.com",
+    "mme.api.moji.com",
+    "psnlz.api.moji.com",
+    "adlaunch.moji.com",
+    "tnc*.zijieapi.com",
     "elemecdn.com",
     "fuss10.elemecdn.com",
     "cube.elemecdn.com",
@@ -190,6 +198,10 @@
     },
     {
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/umetrip/umetrip_ads.js",
+      "host": "raw.githubusercontent.com"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/moji.js",
       "host": "raw.githubusercontent.com"
     },
     {

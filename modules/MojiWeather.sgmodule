@@ -1,0 +1,48 @@
+#!name=墨迹天气去广告
+#!desc=移除墨迹天气开屏广告、天气页浮窗与短视频、瀑布流商业推广、时景动态推荐及精简我的页面
+#!author=ddgksf2013, 可莉, 奶思
+#!category=去广告
+
+[Rule]
+DOMAIN,ad.api.moji.com,REJECT
+DOMAIN,adlaunch.moji.com,REJECT
+DOMAIN,ads.mojicdn.com,REJECT
+DOMAIN,v1.log.moji.com,REJECT
+DOMAIN-SUFFIX,fds.api.moji.com,REJECT
+DOMAIN-SUFFIX,app.moji001.com,REJECT
+DOMAIN-SUFFIX,ugc.moji001.com,REJECT
+DOMAIN-SUFFIX,cdn.moji002.com,REJECT
+DOMAIN-SUFFIX,cdn2.moji002.com,REJECT
+DOMAIN-KEYWORD,me.api.moji.com,REJECT
+DOMAIN-KEYWORD,av1.xdrig.com,REJECT
+DOMAIN-KEYWORD,adash.man.aliyuncs.com,REJECT
+
+[URL Rewrite]
+# 首页顶部浮窗推广
+^https?:\/\/.*api\.moji\.com\/flycard\/flyCard - reject-200
+# 首页底部短视频流
+^https?:\/\/.*api\.moji\.com\/shortvideo - reject-200
+# 商品推广
+^https?:\/\/.*api\.moji\.com\/json\/advertising_goods - reject-200
+# 屏蔽时景发现页
+^https?:\/\/.*api\.moji\.com\/forum - reject-200
+# 屏蔽时景关注
+^https?:\/\/.*api\.moji\.com\/user\/dynamic_v\d\/json\/someone_interest - reject-200
+# 广告统计上报与杂项推广
+^https?:\/\/ad\.api\.moji\.com\/ad\/log\/stat - reject-200
+^https?:\/\/ast\.api\.moji\.com\/assist\/ad\/moji\/stat - reject-200
+^https?:\/\/cdn\.moji\.com\/adlink\/ - reject-200
+^https?:\/\/cdn\.moji\.com\/advert\/ - reject-200
+^https?:\/\/cdn2\.moji002.com\/webpush\/ad2\/ - reject-200
+^https?:\/\/fds\.api\.moji\.com\/card\/recommend - reject-200
+^https?:\/\/show\.api\.moji\.com\/json\/showcase\/getAll - reject-200
+^https?:\/\/stat\.moji\.com - reject-200
+^https?:\/\/ugc\.moji001.com\/sns\/json\/profile\/get_unread - reject-200
+# 穿山甲/字节跳动广告下发
+^https:\/\/tnc.*zijieapi\.com\/get_domains - reject-200
+
+[Script]
+moji_my_page = type=http-response,pattern=^https?:\/\/.*api\.moji\.com\/json\/entrance\/list,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/moji.js
+
+[MITM]
+hostname = %APPEND% *.api.moji.com, fcard.api.moji.com, vdo.api.moji.com, sns.api.moji.com, mme.api.moji.com, psnlz.api.moji.com, adlaunch.moji.com, tnc*.zijieapi.com

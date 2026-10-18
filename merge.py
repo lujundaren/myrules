@@ -233,7 +233,12 @@ def main():
 
     for url in urls:
         try:
-            txt = fetch(url)
+            if url.startswith(("http://", "https://")):
+                txt = fetch(url)
+            else:
+                local_path = os.path.join(ROOT, url) if not os.path.isabs(url) else url
+                with open(local_path, encoding="utf-8") as f:
+                    txt = f.read()
         except Exception as e:  # noqa: BLE001
             print(f"WARN: 源拉取失败 {url}\n      {e}", file=sys.stderr)
             failed.append(url)
@@ -267,7 +272,17 @@ def main():
     for su in script_urls:
         entry = {"url": su, "host": host_of(su)}
         try:
-            body = fetch(su)
+            # 优先从本地仓库路径读取本仓库内维护的脚本，避免尚未推送时的 404
+            if "lujundaren/myrules/main/scripts/" in su:
+                rel = su.split("lujundaren/myrules/main/")[1]
+                local_f = os.path.join(ROOT, rel)
+                if os.path.exists(local_f):
+                    with open(local_f, encoding="utf-8") as f:
+                        body = f.read()
+                else:
+                    body = fetch(su)
+            else:
+                body = fetch(su)
             entry["body"] = body
             script_index[su] = sha256(body)
         except Exception as e:  # noqa: BLE001

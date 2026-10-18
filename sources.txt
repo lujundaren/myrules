@@ -98,8 +98,8 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/pa
 # 航旅纵横 (HangLvZongHeng)：开屏广告、首页推荐浮层与航班接送机弹窗去除
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partH/HangLvZongHeng.sgmodule
 
-# 墨迹天气 (MojiWeather)：开屏广告、天气页瀑布流商业广告与穿衣推广过滤
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partM/MojiWeather.sgmodule
+# 墨迹天气 (MojiWeather)：开屏广告、天气页浮窗与短视频、瀑布流商业推广、时景动态推荐及精简我的页面
+modules/MojiWeather.sgmodule
 
 # 美团 (Meituan)：首页弹窗红包、外卖底栏红点推广去除
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partM/Meituan.sgmodule

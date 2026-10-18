@@ -1,5 +1,5 @@
 #!name=去广告规则增强版
-#!desc=每日自动合并+安全校验 | 源 40 | MITM 107 | 脚本 25 | 2026-10-18 11:39:22 UTC
+#!desc=每日自动合并+安全校验 | 源 40 | MITM 115 | 脚本 26 | 2026-10-18 11:54:48 UTC
 #!category=广告拦截
 #!author=lujundaren
 
@@ -1222,20 +1222,18 @@ DOMAIN-SUFFIX,wss.haoyundmn.com,REJECT
 DOMAIN-SUFFIX,new.xiongzhangad.com,REJECT
 DOMAIN-SUFFIX,alexametrics.com,REJECT
 DOMAIN-KEYWORD,in-page-push,REJECT
-DOMAIN-KEYWORD,me.api.moji.com,REJECT
-DOMAIN-KEYWORD,android.bugly.qq.com,REJECT
-DOMAIN-KEYWORD,av1.xdrig.com,REJECT
-DOMAIN-KEYWORD,adash.man.aliyuncs.com,REJECT
 DOMAIN,ad.api.moji.com,REJECT
 DOMAIN,adlaunch.moji.com,REJECT
 DOMAIN,ads.mojicdn.com,REJECT
 DOMAIN,v1.log.moji.com,REJECT
-DOMAIN-SUFFIX,cdn.moji.com,REJECT
 DOMAIN-SUFFIX,fds.api.moji.com,REJECT
 DOMAIN-SUFFIX,app.moji001.com,REJECT
 DOMAIN-SUFFIX,ugc.moji001.com,REJECT
 DOMAIN-SUFFIX,cdn.moji002.com,REJECT
 DOMAIN-SUFFIX,cdn2.moji002.com,REJECT
+DOMAIN-KEYWORD,me.api.moji.com,REJECT
+DOMAIN-KEYWORD,av1.xdrig.com,REJECT
+DOMAIN-KEYWORD,adash.man.aliyuncs.com,REJECT
 DOMAIN-SUFFIX,meituan.xn,REJECT
 DOMAIN-SUFFIX,meituan.yoga,REJECT
 DOMAIN-SUFFIX,meituangov.cn,REJECT
@@ -1336,6 +1334,21 @@ DOMAIN-KEYWORD,p3.pstatp.com,REJECT
 ^https?:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery\/adver$ - reject
 ^https:\/\/oss\.umetrip\.com\/fs\/advert\/polite - reject
 ^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native - reject
+^https?:\/\/.*api\.moji\.com\/flycard\/flyCard - reject-200
+^https?:\/\/.*api\.moji\.com\/shortvideo - reject-200
+^https?:\/\/.*api\.moji\.com\/json\/advertising_goods - reject-200
+^https?:\/\/.*api\.moji\.com\/forum - reject-200
+^https?:\/\/.*api\.moji\.com\/user\/dynamic_v\d\/json\/someone_interest - reject-200
+^https?:\/\/ad\.api\.moji\.com\/ad\/log\/stat - reject-200
+^https?:\/\/ast\.api\.moji\.com\/assist\/ad\/moji\/stat - reject-200
+^https?:\/\/cdn\.moji\.com\/adlink\/ - reject-200
+^https?:\/\/cdn\.moji\.com\/advert\/ - reject-200
+^https?:\/\/cdn2\.moji002.com\/webpush\/ad2\/ - reject-200
+^https?:\/\/fds\.api\.moji\.com\/card\/recommend - reject-200
+^https?:\/\/show\.api\.moji\.com\/json\/showcase\/getAll - reject-200
+^https?:\/\/stat\.moji\.com - reject-200
+^https?:\/\/ugc\.moji001.com\/sns\/json\/profile\/get_unread - reject-200
+^https:\/\/tnc.*zijieapi\.com\/get_domains - reject-200
 ^https?:\/\/elemecdn\.com\/.+\/sitemap - reject
 ^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/640\/h\/\d{3,4} - reject
 ^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/750\/h\/\d{3,4} - reject
@@ -1571,6 +1584,7 @@ NetEaseCloudMusic_foll = type=http-response, pattern=^https?:\/\/(ipv4|interface
 微信小程序个人中心净化 = type=http-response, pattern=^https?:\/\/common\.diditaxi\.com\.cn\/common\/v5, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js, requires-body=true, timeout=60
 12306 = type=http-request, pattern=^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList, script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js, requires-body=true, timeout=60
 航旅纵横 = type=http-response, pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/umetrip/umetrip_ads.js, requires-body=true, timeout=60
+moji_my_page = type=http-response,pattern=^https?:\/\/.*api\.moji\.com\/json\/entrance\/list,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/moji.js
 淘宝 = type=http-response, pattern=^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body=true, timeout=60
 淘宝 = type=http-response, pattern=^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js, requires-body=true, timeout=60
 商品信息流广告 = type=http-response, pattern=^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/, script-path=https://raw.githubusercontent.com/ishowshu/qx/refs/heads/main/script/goofish.js, requires-body=true
@@ -1588,4 +1602,4 @@ Protobuf = type=http-response, pattern=^https:\/\/(?:\w+-spclient|spclient\.wg)\
 http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(interface\.v1\.(Teenagers\/ModeStatus|Search\/DefaultWords)|view\.v1\.View\/TFInfo|viewunite\.v1\.View\/ViewEndPage)$ header-add 'grpc-status' '0'
 
 [MITM]
-hostname = %APPEND% mp.weixin.qq.com, weixin110.qq.com, security.wechat.com, us.l.qq.com, y.gtimg.cn, music.y.qq.com, btrace.qq.com, api2.helper.qq.com, *.beacon.qq.com, mi.gdt.qq.com, lives.l.qq.com, imgcache.qq.com, mtteve.beacon.qq.com, vv.video.qq.com, qt.qq.com, 3gimg.qq.com, splashqqlive.gtimg.com, qzonestyle.gtimg.cn, discuz.gtimg.cn, bla.gtimg.com, mmgr.gtimg.com, bk.bingo.qq.com, bgw.xinyue.qq.com, grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, line3-h5-mobile-api.biligame.com, edith.xiaohongshu.com, www.xiaohongshu.com, ci.xiaohongshu.com, rec.xiaohongshu.com, so.xiaohongshu.com, api.zhihu.com, www.zhihu.com, appcloud2.zhihu.com, m-cloud.zhihu.com, zhuanlan.zhihu.com, link.zhihu.com, *.weibo.cn, *.weibo.com, weibo.com, api.douban.com, api.coolapk.com, www.coolapk.com, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, ios.wps.cn, mobile-pic.cache.iciba.com, ipv4.music.163.com, interface.music.163.com, interface3.music.163.com, interface9.music.163.com, -i.vip.iqiyi.com, *.iqiyi.com, acs.youku.com, push.m.youku.com, un-acs.youku.com, *.mgtv.com, m*.amap.com, optimus-ads.amap.com, amap-aos-info-nogw.amap.com, dss0.bdstatic.com, tb1.bdstatic.com, tb2.bdstatic.com, ss0.bdstatic.com, gss0.bdstatic.com, newclient.map.baidu.com, res.xiaojukeji.com, common.diditaxi.com.cn, hd.xiaojukeji.com, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, conf.diditaxi.com.cn, ad.12306.cn, gab.122.gov.cn, home.umetrip.com, discardrp.umetrip.com, startup.umetrip.com, oss.umetrip.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, acs.m.goofish.com, g-acs.m.goofish.com, sh-gateway.shihuo.cn, static.shihuocdn.cn, x.com, *-spclient.spotify.com, spclient.wg.spotify.com
+hostname = %APPEND% mp.weixin.qq.com, weixin110.qq.com, security.wechat.com, us.l.qq.com, y.gtimg.cn, music.y.qq.com, btrace.qq.com, api2.helper.qq.com, *.beacon.qq.com, mi.gdt.qq.com, lives.l.qq.com, imgcache.qq.com, mtteve.beacon.qq.com, vv.video.qq.com, qt.qq.com, 3gimg.qq.com, splashqqlive.gtimg.com, qzonestyle.gtimg.cn, discuz.gtimg.cn, bla.gtimg.com, mmgr.gtimg.com, bk.bingo.qq.com, bgw.xinyue.qq.com, grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, line3-h5-mobile-api.biligame.com, edith.xiaohongshu.com, www.xiaohongshu.com, ci.xiaohongshu.com, rec.xiaohongshu.com, so.xiaohongshu.com, api.zhihu.com, www.zhihu.com, appcloud2.zhihu.com, m-cloud.zhihu.com, zhuanlan.zhihu.com, link.zhihu.com, *.weibo.cn, *.weibo.com, weibo.com, api.douban.com, api.coolapk.com, www.coolapk.com, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, ios.wps.cn, mobile-pic.cache.iciba.com, ipv4.music.163.com, interface.music.163.com, interface3.music.163.com, interface9.music.163.com, -i.vip.iqiyi.com, *.iqiyi.com, acs.youku.com, push.m.youku.com, un-acs.youku.com, *.mgtv.com, m*.amap.com, optimus-ads.amap.com, amap-aos-info-nogw.amap.com, dss0.bdstatic.com, tb1.bdstatic.com, tb2.bdstatic.com, ss0.bdstatic.com, gss0.bdstatic.com, newclient.map.baidu.com, res.xiaojukeji.com, common.diditaxi.com.cn, hd.xiaojukeji.com, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, conf.diditaxi.com.cn, ad.12306.cn, gab.122.gov.cn, home.umetrip.com, discardrp.umetrip.com, startup.umetrip.com, oss.umetrip.com, *.api.moji.com, fcard.api.moji.com, vdo.api.moji.com, sns.api.moji.com, mme.api.moji.com, psnlz.api.moji.com, adlaunch.moji.com, tnc*.zijieapi.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, acs.m.goofish.com, g-acs.m.goofish.com, sh-gateway.shihuo.cn, static.shihuocdn.cn, x.com, *-spclient.spotify.com, spclient.wg.spotify.com
