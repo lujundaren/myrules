@@ -1,16 +1,50 @@
 #!name=心悦俱乐部去广告
-#!desc=移除心悦俱乐部开屏广告、首页活动弹窗、商业推广浮窗及游戏推荐弹窗
+#!desc=移除心悦俱乐部开屏闪屏广告、首页活动弹窗、广点通SDK及后台预加载广告
 #!author=Cuttlefish, blackmatrix7
 #!category=去广告
 
+[Rule]
+# 拦截腾讯 HTTPDNS 解析（防止后台借由 IP 直连绕过域名拦截静默预下载开屏广告）
+DOMAIN,httpdns.pro.qq.com,REJECT
+DOMAIN,httpdns.c.qq.com,REJECT
+DOMAIN,httpdns.gdt.qq.com,REJECT
+DOMAIN-SUFFIX,httpdns.pro,REJECT
+IP-CIDR,119.29.29.29/32,REJECT,no-resolve
+IP-CIDR,119.29.29.98/32,REJECT,no-resolve
+IP-CIDR,119.29.29.99/32,REJECT,no-resolve
+IP-CIDR,182.254.116.0/24,REJECT,no-resolve
+IP-CIDR,182.254.118.0/24,REJECT,no-resolve
+
+# 拦截腾讯优量汇广告联盟 (GDT SDK) 与开屏分发
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
+DOMAIN-SUFFIX,gdtimg.com,REJECT
+DOMAIN-SUFFIX,adsmind.gdtimg.com,REJECT
+DOMAIN-SUFFIX,adsmind.ugdtimg.com,REJECT
+DOMAIN-SUFFIX,qzs.gdtimg.com,REJECT
+DOMAIN-SUFFIX,pgdt.gtimg.com,REJECT
+DOMAIN-SUFFIX,splashqqlive.gtimg.com,REJECT
+
 [URL Rewrite]
-# 拦截开屏闪屏与首页弹窗推广
-^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\..*(PopFlash|Splash|Flash|Banner|Advertise) - reject-200
+# 1. 拦截腾讯 HTTPDNS 接口
+^https?:\/\/119\.29\.29\.29\/d - reject
+^https?:\/\/httpdns.*\.qq\.com\/ - reject
+
+# 2. 拦截心悦开屏广告、闪屏物料、弹窗与推广接口（支持大小写模糊匹配 (?i) ）
+^https?:\/\/.*xinyue\.qq\.com\/xyapi\..*(?i)(popflash|splash|flash|banner|advertise|startup|launch|screen) - reject-200
+^https?:\/\/.*xinyue\.qq\.com\/.*(?i)(splash|popup|adlink|advert) - reject-200
+
+# 3. 拦截闪屏静态素材预下载
+^https?:\/\/game\.gtimg\.cn\/images\/tgclub\/.*(?i)(splash|flash|popup|ad) - reject-200
+^https?:\/\/.*gtimg\.(com|cn)\/.*(?i)(splash|popflash) - reject-200
+
+# 4. 拦截优量汇 GDT 接口
+^https?:\/\/.*\.gdt\.qq\.com\/ - reject-200
+^https?:\/\/.*\.gdtimg\.com\/ - reject-200
 
 [Map Local]
 # 兜底：返回标准合法空 JSON 响应，防止 App 报错降级展示本地旧缓存
-^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/(GetIndexPopFlash|GetIndexSplash|GetFlashScreen|GetPopFlash) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.(AdService|BannerService)\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/(?i)(GetIndexPopFlash|GetIndexSplash|GetFlashScreen|GetPopFlash|GetSplash) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.(?i)(AdService|BannerService|PopupService)\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 [MITM]
-hostname = %APPEND% bgw.xinyue.qq.com
+hostname = %APPEND% bgw.xinyue.qq.com, *.xinyue.qq.com, xinyue.qq.com, *.gdt.qq.com, 119.29.29.29
