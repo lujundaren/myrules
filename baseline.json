@@ -1,6 +1,7 @@
 {
-  "updated": "2026-10-18 20:46:03 UTC",
+  "updated": "2026-10-18 21:01:50 UTC",
   "source_hashes": {
+    "modules/general.sgmodule": "ab177005109f9dbdda1443e2b760ad11d17c4bb57d56aef6e940352d337b6f79",
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "b0e4ce5d9aeeeebf598e7b353f040dd70518a068c290574390a9015c20d14163",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatOfficialAccount.sgmodule": "6c02ea57ab21760e7f744de6ade7caf8e8c92d26c48e40740157a0200154a54d",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatUnlockLinkRestrict.sgmodule": "6f0df4c6a44a3063a92f7718f19bff9d91e3c71d0cf55ae39e43f04656ed163e",

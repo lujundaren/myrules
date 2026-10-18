@@ -4,6 +4,9 @@
 # ==============================================================================
 
 # ----------------- 1. 全局广告拦截与基础防护 (必须置顶) -----------------
+# General 通用基础规则：阻断 UDP 443 (QUIC/HTTP3)，强制应用回退 TCP 以保证 MITM 与去广告 100% 生效
+modules/general.sgmodule
+
 # 秋风 AWAvenue：全 App 第三方广告 SDK/跟踪器/HTTPDNS 纯域名拦截（无 MITM，零风控风险）
 https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module
 
