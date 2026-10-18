@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18 11:29:27 UTC",
+  "updated": "2026-10-18 11:39:22 UTC",
   "source_hashes": {
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "b0e4ce5d9aeeeebf598e7b353f040dd70518a068c290574390a9015c20d14163",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatOfficialAccount.sgmodule": "6c02ea57ab21760e7f744de6ade7caf8e8c92d26c48e40740157a0200154a54d",
@@ -37,7 +37,6 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partP/Pinduoduo.sgmodule": "3042090a0b36ab0d248a765e0e6f1737a8d993ecaa6eab16d24145c6447795dc",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/XianYu.sgmodule": "40fb852def1a961a3c48b2ed0eb4f798a52f90a05a905c1b4f51435a8c20e0cf",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partS/ShiHuo.sgmodule": "00456018c1448d9d4ee7b939ec45b49d722b6f3fa998529774c882478d8bbfb1",
-    "https://raw.githubusercontent.com/lujundaren/myrules/main/modules/YouTubeAd.sgmodule": "d5340b2cfa6498be122d74bb6869bdc9a60f94e5d5d08ae4642ca7e790573a34",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/XWebAds.module": "858a6d01cefdb013ea99328c6d383b6bff04426d8f8d6abc734ee52258a8a595",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partR/Reddit.sgmodule": "8eb2a9c9e5b9b95196996d2df39bb7719f3ab279a169d083f898939075e5c6b1",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partD/TikTok.sgmodule": "373618a37a3a87ffa19031a24e5625a6f2e85d038e8f248f16b38c5370264dca",
@@ -66,7 +65,6 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/umetrip/umetrip_ads.js": "7a0f7976a4b8f47649684cc382832e425610e924e0fdc11ea2e06b1ebd2cbacf",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js": "4cf62100424886068a5470daecec319e93ccd034c647d79a9daaa72bbbc341bb",
     "https://raw.githubusercontent.com/ishowshu/qx/refs/heads/main/script/goofish.js": "5f17dc551da355b79d25d390ef88acafd0ce757f14740e7f0dcd6bd4398918a9",
-    "https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js": "f98483d5f5017514f82502253c0db5ce2d4ffb7839887aa2cadc22666f5a7f12",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/X/X_ads.js": "c6cd92e41ccc24cda6fbadcc3cefb1538294353ad809c40855cb1224f8bf2a6a",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/reddit.js": "3178f057b758e8e5fa20477c8abde707fa367482f63553be833773dd33aec3ed",
     "https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.Dev.js": "e13a47f0c527065c5c4012e2a32b0e537ec113cb1d6c0ad7b6154aa31729adb4"
@@ -176,11 +174,6 @@
     "g-acs.m.goofish.com",
     "sh-gateway.shihuo.cn",
     "static.shihuocdn.cn",
-    "-redirector*.googlevideo.com",
-    "*.googlevideo.com",
-    "www.youtube.com",
-    "s.youtube.com",
-    "youtubei.googleapis.com",
     "x.com",
     "*-spclient.spotify.com",
     "spclient.wg.spotify.com"
