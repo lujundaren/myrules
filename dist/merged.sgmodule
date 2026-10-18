@@ -1,5 +1,5 @@
 #!name=去广告规则增强版
-#!desc=每日自动合并+安全校验 | 源 37 | MITM 107 | 脚本 28 | 2026-10-18 19:54:17 UTC
+#!desc=每日自动合并 | 源 37 | MITM 107 | 脚本 28 | 2026-10-18 20:33:43 UTC
 #!category=广告拦截
 #!author=lujundaren
 
@@ -1402,6 +1402,9 @@ DOMAIN-KEYWORD,iyes.youku.com,REJECT
 ^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad header
 ^https:\/\/gae2-spclient\.spotify\.com:443\/ad - reject
 
+[Header Rewrite]
+http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(interface\.v1\.(Teenagers\/ModeStatus|Search\/DefaultWords)|view\.v1\.View\/TFInfo|viewunite\.v1\.View\/ViewEndPage)$ header-add 'grpc-status' '0'
+
 [Map Local]
 ^https?:\/\/mp\.weixin\.qq\.com\/mp\/cps_product_info\?action data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/y\.gtimg\.cn\/music\/common\/\/upload\/kg_ad/.*?\d{4}\.jpg data-type=tiny-gif status-code=200
@@ -1640,9 +1643,6 @@ Fries.TikTok.tnc.get_domains.response = type=http-response, pattern=^https?:\/\/
 Fries.TikTok.api.request = type=http-request, pattern=^https?:\/\/api(.+)\.tiktokv\.com\/(aweme|tiktok)\/v\d\/, engine=webview, script-path=https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/js/TikTok.request.js, argument=CountryCode={{{CountryCode}}}&Carrier={{{Carrier}}}
 Fries.TikTok.api.response = type=http-response, pattern=^https?:\/\/api(.+)\.tiktokv\.com\/(aweme|tiktok)\/v\d\/, requires-body=1, engine=webview, script-path=https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/js/TikTok.response.js, argument=
 Protobuf = type=http-response, pattern=^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service), script-path=https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.Dev.js, requires-body=true, binary-body-mode=true, timeout=3, argument="[{{{tab}}},{{{useractivity}}}]"
-
-[Header Rewrite]
-http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(interface\.v1\.(Teenagers\/ModeStatus|Search\/DefaultWords)|view\.v1\.View\/TFInfo|viewunite\.v1\.View\/ViewEndPage)$ header-add 'grpc-status' '0'
 
 [MITM]
 hostname = %APPEND% mp.weixin.qq.com, weixin110.qq.com, security.wechat.com, us.l.qq.com, y.gtimg.cn, music.y.qq.com, bgw.xinyue.qq.com, *.xinyue.qq.com, xinyue.qq.com, djcapp.game.qq.com, *.gdt.qq.com, 119.29.29.29, grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, line3-h5-mobile-api.biligame.com, edith.xiaohongshu.com, www.xiaohongshu.com, ci.xiaohongshu.com, rec.xiaohongshu.com, so.xiaohongshu.com, api.zhihu.com, www.zhihu.com, appcloud2.zhihu.com, m-cloud.zhihu.com, zhuanlan.zhihu.com, link.zhihu.com, *.weibo.cn, *.weibo.com, weibo.com, api.douban.com, api.coolapk.com, www.coolapk.com, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, ios.wps.cn, mobile-pic.cache.iciba.com, ipv4.music.163.com, interface.music.163.com, interface3.music.163.com, interface9.music.163.com, -i.vip.iqiyi.com, *.iqiyi.com, acs.youku.com, push.m.youku.com, un-acs.youku.com, *.mgtv.com, m*.amap.com, optimus-ads.amap.com, amap-aos-info-nogw.amap.com, dss0.bdstatic.com, tb1.bdstatic.com, tb2.bdstatic.com, ss0.bdstatic.com, gss0.bdstatic.com, newclient.map.baidu.com, res.xiaojukeji.com, common.diditaxi.com.cn, hd.xiaojukeji.com, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, conf.diditaxi.com.cn, ad.12306.cn, gab.122.gov.cn, home.umetrip.com, discardrp.umetrip.com, startup.umetrip.com, oss.umetrip.com, *.api.moji.com, fcard.api.moji.com, vdo.api.moji.com, sns.api.moji.com, mme.api.moji.com, psnlz.api.moji.com, adlaunch.moji.com, tnc*.zijieapi.com, wmapi.meituan.com, alita.waimai.meituan.com, portal-portm.meituan.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, nr-op.elemecdn.com, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, acs.m.goofish.com, g-acs.m.goofish.com, sh-gateway.shihuo.cn, static.shihuocdn.cn, x.com, *.tiktokv.com, *-spclient.spotify.com, spclient.wg.spotify.com
