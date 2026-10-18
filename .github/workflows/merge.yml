@@ -1,0 +1,61 @@
+name: merge-adblock
+
+on:
+  schedule:
+    # 每天 19:17 UTC（北京时间 03:17），避开整点 GitHub Actions 拥堵
+    - cron: "17 19 * * *"
+  workflow_dispatch: {}
+  push:
+    paths:
+      - merge.py
+      - sources.txt
+      - .github/workflows/merge.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: merge-adblock
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Build + 安全校验
+        id: build
+        run: |
+          set +e
+          python3 merge.py
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: 提交（仅安全通过 exit 0）
+        if: steps.build.outputs.code == '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          for i in 1 2 3; do
+            git fetch -q origin main
+            git reset -q --mixed origin/main
+            git add dist/merged.sgmodule dist/manifest.json baseline.json
+            if git diff --staged --quiet; then
+              echo "无变化，跳过提交"; exit 0
+            fi
+            git commit -q -m "chore: auto-merge $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push && exit 0
+            echo "push 第 $i 次失败（远端被并发推进），重试…"; sleep 3
+          done
+          echo "push 多次失败"; exit 1
+
+      - name: 标红 job（任何非 0 退出）
+        if: steps.build.outputs.code != '0'
+        run: |
+          echo "merge.py 退出码=${{ steps.build.outputs.code }}（2=安全风险停更，1=运行错误）"
+          exit 1
