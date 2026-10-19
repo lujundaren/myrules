@@ -14,7 +14,7 @@ modules/Block_HTTPDNS.sgmodule
 modules/Block_Advertisers.sgmodule
 
 # 可莉生态高频应用与小程序去广告补充：补齐微信小程序、番茄小说、喜马拉雅、全民K歌、Soul、彩云天气、叮咚买菜、七猫、快看等
-modules/Kelee_Enhance.sgmodule
+#modules/Kelee_Enhance.sgmodule
 
 # 秋风 AWAvenue：全 App 第三方广告 SDK/跟踪器/HTTPDNS 纯域名拦截（无 MITM，零风控风险）
 https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module
