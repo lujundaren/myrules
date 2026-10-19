@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19 08:29:50 UTC",
+  "generated": "2026-10-19 08:39:22 UTC",
   "sources_ok": 40,
   "sources_total": 40,
   "mitm_hosts": [
@@ -5400,10 +5400,6 @@
     },
     {
       "url": "https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.Dev.js",
-      "host": "raw.githubusercontent.com"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/AdguardTeam/Scriptlets/master/dist/scriptlets.js",
       "host": "raw.githubusercontent.com"
     }
   ]

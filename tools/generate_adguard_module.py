@@ -142,14 +142,6 @@ def main():
     out_lines.extend(rewrite_rules)
     out_lines.append("")
 
-    # 添加针对通用网页防反去广告与常见广告注入的 Script
-    out_lines.extend([
-        "[Script]",
-        "# 通用 anti-adblock 状态重置与网页防反去广告探测注入",
-        "adguard.antiadblock = type=http-response,pattern=^https?:\\/\\/.*\\.(?:googleapis|googlesyndication|doubleclick)\\.com\\/.*status,requires-body=1,max-size=131072,script-path=https://raw.githubusercontent.com/AdguardTeam/Scriptlets/master/dist/scriptlets.js",
-        "",
-    ])
-
     if sorted_mitm:
         out_lines.append("[MITM]")
         out_lines.append("hostname = %APPEND% " + ", ".join(sorted_mitm))
