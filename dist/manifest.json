@@ -1,7 +1,7 @@
 {
-  "generated": "2026-10-19 11:30:50 UTC",
-  "sources_ok": 42,
-  "sources_total": 42,
+  "generated": "2026-10-19 12:59:56 UTC",
+  "sources_ok": 41,
+  "sources_total": 41,
   "mitm_hosts": [
     "-i.vip.iqiyi.com",
     "-redirector*.googlevideo.com",
@@ -12,173 +12,9 @@
     "images.pinduoduo.com",
     "t-dsp.pinduoduo.com",
     "video-dsp.pddpic.com",
-    "*-spclient.spotify.com",
-    "*.boxjs.com",
-    "*.boxjs.net",
-    "*.iqiyi.com",
-    "114.115.217.129",
-    "3pp.starbucks.com.cn",
-    "aag.enmonster.com",
-    "acs.m.taobao.com",
-    "activity.yonghuivip.com",
-    "ad.12306.cn",
-    "ad.maoyan.com",
-    "ad.xiaotucc.com",
-    "ads.ishansong.com",
-    "ai.amap.com",
-    "alittle-tea.oss-cn-shanghai.aliyuncs.com",
-    "api-fouth-mem.huazhu.com",
-    "api-marketing.zhinengxiyifang.cn",
-    "api-shoulei-ssl.xunlei.com",
-    "api.bilibili.com",
-    "api.hellobike.com",
-    "api.hengdianfilm.com",
-    "api.hongyibo.com.cn",
-    "api.kuaidihelp.com",
-    "api.live.bilibili.com",
-    "api.m.jd.com",
-    "api.maoyan.com",
-    "api.mcd.cn",
-    "api.pinduoduo.com",
-    "api.prod.dj.mstand.cn",
-    "api.songguo7.com",
-    "api.spotify.com",
-    "api.szbgcx.cn",
-    "api.yonghuivip.com",
-    "api.zhihu.com",
-    "apiproxy.zuche.com",
-    "apis.alenable.com",
-    "app.95504.net",
-    "app.bilibili.com",
-    "app.homeinns.com",
-    "apple-api.com",
-    "applets.jtexpress.com.cn",
-    "appuser-static.huolala.cn",
-    "as.xiaojukeji.com",
-    "bbs.mobileapi.hupu.com",
-    "boxjs.com",
-    "boxjs.net",
-    "c.pc.qq.com",
-    "capis*.didapinche.com",
-    "cappapi.alittle-tea.com",
-    "cbd-gateway-service-applets.hualala.com",
-    "ccmsupport-sz.tenpay.com",
-    "center.amap.com",
-    "cgi.connect.qq.com",
-    "chong.qq.com",
-    "ci.xiaohongshu.com",
-    "coco-com.e.verystar.net",
-    "conf-m-ssl.xunlei.com",
-    "creditcardapp.bankcomm.com",
-    "customer-app.sto.cn",
-    "daijia.kuaidadi.com",
-    "damang.api.mgtv.com",
-    "dc?.bz.mgtv.com",
-    "dock.tenchii.com",
-    "dsp.fcbox.com",
-    "edith.xiaohongshu.com",
-    "fairy.mobileapi.hupu.com",
-    "file.dian.so",
-    "flow.dmall.com",
-    "fscdn.zto.com",
-    "games.mobileapi.hupu.com",
-    "goblin.hupu.com",
-    "gql-fed.reddit.com",
-    "gql.reddit.com",
-    "grpc.biliapi.net",
-    "guide-acs.m.taobao.com",
-    "gw-passenger-wap.01zhuanche.com",
-    "h5.qzone.qq.com",
-    "hb-boom.api.mgtv.com",
-    "hdgateway.zto.com",
-    "heic.alicdn.com",
-    "home.umetrip.com",
-    "htwkop.xiaojukeji.com",
-    "images.qmai.cn",
-    "lawsonapi.yorentown.com",
-    "line3-h5-mobile-api.biligame.com",
-    "m-cloud.zhihu.com",
-    "m.baidu.com",
-    "m.ctrip.com",
-    "m.youtube.com",
-    "m5-zb.amap.com",
-    "m5.amap.com",
-    "mapi.xiaotucc.com",
-    "mbmodule-openapi.paas.cmbchina.com",
-    "mcsp.cloudpnr.com",
-    "me.bz.mgtv.com",
-    "member.lxjchina.com.cn",
-    "miniapp.sexytea2013.com",
-    "minicap.caocaokeji.cn",
-    "minifm.maxxipoint.com",
-    "minipro.95504.net",
-    "miniprogram.ishansong.com",
-    "mkt-gateway.tuhu.cn",
-    "mobile-api.imlaidian.com",
-    "mobile-thor.api.mgtv.com",
-    "mobile.12306.cn",
-    "mobile.api.hunantv.com",
-    "mobile.api.mgtv.com",
-    "mobileso.bz.mgtv.com",
     "mp.weixin.qq.com",
-    "music.youtube.com",
-    "mxsa.mxbc.net",
-    "ne.gdsz.sinopec.com",
-    "newton.gumingnc.com",
-    "page-info.zhihu.com",
-    "pan.baidu.com",
-    "passenger.t3go.cn",
-    "passengerapi.saicmobility.com",
-    "pingtas.qq.com",
-    "plt.yorentown.com",
-    "poplayer.template.alibaba.com",
-    "push.m.youku.com",
-    "qapi.huolala.cn",
-    "r2.gzyct.com",
-    "rec.xiaohongshu.com",
-    "res.hongyibo.com.cn",
-    "res.pizzahut.com.cn",
-    "rms.meituan.com",
-    "s.jiediankeji.com",
-    "saas-ad.cloudpnr.com",
-    "sauron-report.yonghuivip.com",
-    "security.wechat.com",
-    "smarket.dian.so",
-    "sns.amap.com",
-    "so.xiaohongshu.com",
-    "spclient.wg.spotify.com",
-    "sto-customer-app.oss-cn-shanghai.aliyuncs.com",
-    "supplier-api.imdada.cn",
-    "suyun-guest.daojia.com",
-    "tbgapplet.carlsberg.asia",
-    "tianshu.qq.com",
-    "tm-api.pin-dao.cn",
-    "tv.youtube.com",
-    "ucmp.sf-express.com",
-    "ump.ems.com.cn",
-    "un-acs.youku.com",
-    "vod-movie.maoyan.com",
-    "vv.video.qq.com",
-    "weatherkit.apple.com",
-    "webapi.qmai.cn",
-    "webchatapp.fcbox.com",
-    "wechat-api.i-xiaoma.com.cn",
     "weixin110.qq.com",
-    "www.baidu.com",
-    "www.deppon.com",
-    "www.xiaohongshu.com",
-    "www.youtube.com",
-    "www.zhihu.com",
-    "wx.10086.cn",
-    "wx.bthhotels.com",
-    "wx.maoyan.com",
-    "wx.online-cmcc.cn",
-    "wxapp.bestwehotel.com",
-    "wxproj.seeyouyima.com",
-    "wxs-weixin.sd.zhumanggroup.com",
-    "xiaobai.app",
-    "youtubei.googleapis.com",
-    "zhida.zhihu.com",
+    "security.wechat.com",
     "us.l.qq.com",
     "y.gtimg.cn",
     "music.y.qq.com",
@@ -188,7 +24,20 @@
     "djcapp.game.qq.com",
     "*.gdt.qq.com",
     "119.29.29.29",
+    "grpc.biliapi.net",
+    "app.bilibili.com",
+    "api.bilibili.com",
+    "api.live.bilibili.com",
+    "line3-h5-mobile-api.biligame.com",
+    "edith.xiaohongshu.com",
+    "www.xiaohongshu.com",
+    "ci.xiaohongshu.com",
+    "rec.xiaohongshu.com",
+    "so.xiaohongshu.com",
+    "api.zhihu.com",
+    "www.zhihu.com",
     "appcloud2.zhihu.com",
+    "m-cloud.zhihu.com",
     "zhuanlan.zhihu.com",
     "link.zhihu.com",
     "*.weibo.cn",
@@ -197,6 +46,7 @@
     "api.douban.com",
     "api.coolapk.com",
     "www.coolapk.com",
+    "pan.baidu.com",
     "ndstatic.cdn.bcebos.com",
     "staticsns.cdn.bcebos.com",
     "issuecdn.baidupcs.com",
@@ -209,7 +59,10 @@
     "interface.music.163.com",
     "interface3.music.163.com",
     "interface9.music.163.com",
+    "*.iqiyi.com",
     "acs.youku.com",
+    "push.m.youku.com",
+    "un-acs.youku.com",
     "*.mgtv.com",
     "m*.amap.com",
     "optimus-ads.amap.com",
@@ -224,9 +77,12 @@
     "common.diditaxi.com.cn",
     "hd.xiaojukeji.com",
     "freight.xiaojukeji.com",
+    "daijia.kuaidadi.com",
     "ct.xiaojukeji.com",
     "conf.diditaxi.com.cn",
+    "ad.12306.cn",
     "gab.122.gov.cn",
+    "home.umetrip.com",
     "discardrp.umetrip.com",
     "startup.umetrip.com",
     "oss.umetrip.com",
@@ -248,6 +104,10 @@
     "m.client.10010.com",
     "m1.ad.10010.com",
     "res.mall.10010.cn",
+    "acs.m.taobao.com",
+    "guide-acs.m.taobao.com",
+    "poplayer.template.alibaba.com",
+    "api.pinduoduo.com",
     "api.yangkeduo.com",
     "mobile.yangkeduo.com",
     "acs.m.goofish.com",
@@ -255,159 +115,15 @@
     "sh-gateway.shihuo.cn",
     "static.shihuocdn.cn",
     "*.googlevideo.com",
+    "www.youtube.com",
     "s.youtube.com",
+    "youtubei.googleapis.com",
     "x.com",
-    "*.tiktokv.com"
+    "*.tiktokv.com",
+    "*-spclient.spotify.com",
+    "spclient.wg.spotify.com"
   ],
   "scripts": [
-    {
-      "url": "https://kelee.one/Resource/JavaScript/JD/JD_remove_ads.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/HUPU/HUPU_remove_ads.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/Spotify/Spotify_response.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/Spotify/Spotify_request.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/Spotify/Translate_response.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/Spotify/External_Lyrics_response.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/RedPaper/RedPaper_remove_ads.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_request.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_response.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Composite_Subtitles_response.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/BaiduSearch/BaiduSearchHomePage_remove_ads.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/CommonScript/replace-body.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/Taobao/Taobao_remove_ads.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/WexinMiniPrograms/kff/kff.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/WexinMiniPrograms/ems/ems.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/WexinMiniPrograms/xiaotucc/xiaotucc.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/WexinMiniPrograms/FamilyMart/FamilyMart.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/WexinMiniPrograms/lawson/lawson.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/WexinMiniPrograms/chayanyuese/chayanyuese_remove_ads.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/WexinMiniPrograms/coco/coco.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/WexinMiniPrograms/qingju/qingju.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/WexinMiniPrograms/alittle-tea/alittle-tea.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/WexinMiniPrograms/M_Stand/M_Stand.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/WexinMiniPrograms/T3/T3.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/WexinMiniPrograms/ming/ming.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/Umetrip/Umetrip_remove_ads.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js",
-      "host": "raw.githubusercontent.com"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/Spotify/Spotify_remove_ads.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/12306/12306_remove_ads.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/Bilibili/Bilibili_proto_request_kokoryh.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/Bilibili/Bilibili_proto_response_kokoryh.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/Bilibili/Bilibili_json_kokoryh.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/IPATool/AppStoreAPI.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/IPATool/Installer.js",
-      "host": "kelee.one"
-    },
-    {
-      "url": "https://github.com/NSRingo/WeatherKit/releases/download/v3.1.0/response.bundle.js",
-      "host": "github.com"
-    },
-    {
-      "url": "https://kelee.one/Resource/JavaScript/Weixin/Weixin_external_links_unlock.js",
-      "host": "kelee.one"
-    },
     {
       "url": "https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js",
       "host": "raw.githubusercontent.com"
