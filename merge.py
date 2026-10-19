@@ -187,6 +187,16 @@ def write_report(notes, ok, total):
 
 
 def main():
+    # 前置同步：自动拉取最新的 AdGuard 全平台通用规则并刷新精细化模块
+    adguard_generator = os.path.join(ROOT, "tools", "generate_adguard_module.py")
+    if os.path.exists(adguard_generator):
+        try:
+            print("正在前置同步 AdGuard 官方全平台规则...")
+            import subprocess
+            subprocess.run([sys.executable, adguard_generator], check=True, timeout=120)
+        except Exception as e:  # noqa: BLE001
+            print(f"WARN: AdGuard 前置同步跳过或失败: {e}", file=sys.stderr)
+
     with open(SOURCES_FILE, encoding="utf-8") as f:
         urls = [l.strip() for l in f if l.strip() and not l.startswith("#")]
 
