@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19 08:29:19 UTC",
+  "updated": "2026-10-19 08:29:50 UTC",
   "source_hashes": {
     "modules/general.sgmodule": "f2e5ce77af1fbb32fa2e6810bd03120619d262c25c230b54c36a3f357df0edf0",
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "b0e4ce5d9aeeeebf598e7b353f040dd70518a068c290574390a9015c20d14163",
@@ -40,7 +40,7 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partR/Reddit.sgmodule": "8eb2a9c9e5b9b95196996d2df39bb7719f3ab279a169d083f898939075e5c6b1",
     "https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/modules/Fries.TikTok.sgmodule": "c95e7f4e96b10339a84b694d4becf6c1a7ce2671763d5a3b1469c3ed0a1477ea",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partS/Spotify.sgmodule": "17e56a05d76f93b5417a098aba901716656aca981a3126729996ed3e674aa17d",
-    "modules/AdGuard_Refined.sgmodule": "bc57823378771de942e12dc06fdeb10619a66719a142562a0601e594cfdcba61"
+    "modules/AdGuard_Refined.sgmodule": "87bd088f12217be9e3c323c2723007e5ba66f665c1e155680e5b4c06afa3476e"
   },
   "scripts": {
     "https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js": "79098ac4d2eb7932c9b2b45ac7891469703626855e5d13ab4374af52cc48983e",
