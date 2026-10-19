@@ -17,6 +17,7 @@ import time
 import urllib.parse
 import urllib.request
 from collections import OrderedDict
+from concurrent.futures import ThreadPoolExecutor
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SOURCES_FILE = os.path.join(ROOT, "sources.txt")
@@ -43,12 +44,12 @@ def fetch(url, retries=2, binary=False):
     for i in range(retries):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req, timeout=15) as r:
+            with urllib.request.urlopen(req, timeout=10) as r:
                 data = r.read()
                 return data if binary else data.decode("utf-8", "replace")
         except Exception as e:  # noqa: BLE001
             last = e
-            time.sleep(1.5 * (i + 1))
+            time.sleep(1.0 * (i + 1))
     raise RuntimeError(f"fetch failed after {retries}: {last}")
 
 
@@ -205,17 +206,24 @@ def main():
     source_hashes = {}
     script_urls = []
     ok, failed = 0, []
-
-    for url in urls:
+    def load_one_source(u):
         try:
-            if url.startswith(("http://", "https://")):
-                txt = fetch(url)
+            if u.startswith(("http://", "https://")):
+                t = fetch(u)
             else:
-                local_path = os.path.join(ROOT, url) if not os.path.isabs(url) else url
+                local_path = os.path.join(ROOT, u) if not os.path.isabs(u) else u
                 with open(local_path, encoding="utf-8") as f:
-                    txt = f.read()
+                    t = f.read()
+            return u, t, None
         except Exception as e:  # noqa: BLE001
-            print(f"WARN: 源拉取失败 {url}\n      {e}", file=sys.stderr)
+            return u, None, str(e)
+
+    with ThreadPoolExecutor(max_workers=10) as pool:
+        fetched_sources = list(pool.map(load_one_source, urls))
+
+    for url, txt, err in fetched_sources:
+        if err or txt is None:
+            print(f"WARN: 源拉取失败 {url}\n      {err}", file=sys.stderr)
             failed.append(url)
             continue
         ok += 1
@@ -244,12 +252,9 @@ def main():
     script_urls = list(dict.fromkeys(script_urls))
 
     # 扫描与记录每个远程脚本哈希
-    scripts = []
-    script_index = {}
-    for su in script_urls:
+    def load_one_script(su):
         entry = {"url": su, "host": host_of(su)}
         try:
-            # 优先从本地仓库路径读取本仓库内维护的脚本，避免尚未推送时的 404
             if "lujundaren/myrules/main/scripts/" in su:
                 rel = su.split("lujundaren/myrules/main/")[1]
                 local_f = os.path.join(ROOT, rel)
@@ -261,10 +266,21 @@ def main():
             else:
                 body = fetch(su)
             entry["body"] = body
-            script_index[su] = sha256(body)
+            h = sha256(body)
+            return su, entry, h
         except Exception as e:  # noqa: BLE001
             entry["fetch_error"] = str(e)
+            return su, entry, None
+
+    with ThreadPoolExecutor(max_workers=10) as pool:
+        fetched_scripts = list(pool.map(load_one_script, script_urls))
+
+    scripts = []
+    script_index = {}
+    for su, entry, h in fetched_scripts:
         scripts.append(entry)
+        if h:
+            script_index[su] = h
 
     baseline = load_baseline()
     notes = diff_notes(baseline, source_hashes, script_index)
