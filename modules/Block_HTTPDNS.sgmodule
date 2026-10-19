@@ -1,6 +1,6 @@
 #!name=HTTPDNS拦截器
-#!desc=拦截主流平台与各App的HTTPDNS直连解析服务，确保所有DNS查询均在客户端本地DNS框架下工作，杜绝绕过去广告。来源：hub.kelee.one
-#!author=可莉🅥
+#!desc=拦截主流平台与各App的HTTPDNS直连解析服务，确保所有DNS查询均在客户端本地DNS框架下工作，杜绝绕过去广告 | 本地插件 1 | 规则 159 | 重写 6 | 脚本 0 | MITM 4
+#!author=可莉🅥 / 本地转换
 #!category=去广告
 
 [Rule]
@@ -134,7 +134,6 @@ DOMAIN, httpdns-sdk.n.netease.com, REJECT
 DOMAIN, httpdns.yunxindns.com, REJECT
 DOMAIN, lofter.httpdns.c.163.com, REJECT
 DOMAIN, music.httpdns.c.163.com, REJECT
-DOMAIN, httpdns.yunxindns.com, REJECT
 IP-CIDR, 59.111.239.61/32, REJECT, no-resolve
 IP-CIDR, 59.111.239.62/32, REJECT, no-resolve
 IP-CIDR, 115.236.121.51/32, REJECT, no-resolve
@@ -157,7 +156,6 @@ IP-CIDR, 116.85.2.41/32, REJECT, no-resolve
 IP-CIDR, 116.85.3.39/32, REJECT, no-resolve
 IP-CIDR, 123.207.209.142/32, REJECT, no-resolve
 IP-CIDR, 139.199.240.84/32, REJECT, no-resolve
-DOMAIN, httpdns.zybang.com, REJECT
 DOMAIN, serveraddr.service.kugou.com, REJECT
 DOMAIN, twns.p2ptun.qq.com, REJECT
 DOMAIN, tp2p.kg.qq.com, REJECT
@@ -165,7 +163,6 @@ IP-CIDR, 81.71.61.216/32, REJECT, no-resolve
 DOMAIN, httpdns.immomo.com, REJECT
 URL-REGEX, "^http:\/\/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?):\d+\/httpdns\/", REJECT
 URL-REGEX, "^http:\/\/\[[0-9a-fA-F:]+\]:\d+\/httpdns\/", REJECT
-DOMAIN, httpdns.zybang.com, REJECT
 
 [URL Rewrite]
 ^https?:\/\/appconf\.mail\.163\.com\/mailmaster\/api\/http\/urlConfig\.do$ reject-dict
