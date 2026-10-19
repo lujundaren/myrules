@@ -15,8 +15,8 @@ import time
 import urllib.request
 
 SOURCES = [
-    ("AdGuard Base (iOS Optimized)", "https://filters.adtidy.org/ios/filters/2_optimized.txt"),
-    ("AdGuard Mobile (iOS Optimized)", "https://filters.adtidy.org/ios/filters/11_optimized.txt"),
+    ("AdGuard Base (Universal Standard)", "https://filters.adtidy.org/windows/filters/2.txt"),
+    ("AdGuard Mobile (Universal Standard)", "https://filters.adtidy.org/windows/filters/11.txt"),
 ]
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
