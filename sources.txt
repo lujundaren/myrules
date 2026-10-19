@@ -136,5 +136,3 @@ https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/modules/Fries.Ti
 # Spotify：手机端/网页端播放音频与弹窗广告过滤
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partS/Spotify.sgmodule
 
-# ----------------- 9. AdGuard 官方精细化规则增强 -----------------
-modules/AdGuard_Refined.sgmodule
