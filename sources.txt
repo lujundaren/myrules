@@ -8,10 +8,10 @@
 modules/general.sgmodule
 
 # HTTPDNS 拦截器 (Kelee)：拦截主流平台与各App的 HTTPDNS 直连解析，杜绝绕过 DNS 与 MITM 框架
-modules/Block_HTTPDNS.sgmodule
+#modules/Block_HTTPDNS.sgmodule
 
 # 移动广告平台拦截器 (Kelee)：全网主流移动广告 SDK/联盟拦截（穿山甲、优量汇、快手联盟、百度联盟、泛连等）
-modules/Block_Advertisers.sgmodule
+#modules/Block_Advertisers.sgmodule
 
 # 可莉生态高频应用与小程序去广告补充：补齐微信小程序、番茄小说、喜马拉雅、全民K歌、Soul、彩云天气、叮咚买菜、七猫、快看等
 #modules/Kelee_Enhance.sgmodule
