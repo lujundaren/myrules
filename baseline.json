@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23 19:43:27 UTC",
+  "updated": "2026-10-23 19:46:06 UTC",
   "source_hashes": {
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "8b749aa552c65b6da62df95d4d7193bcb3f8fb92ba43542896f185c692270122",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatOfficialAccount.sgmodule": "6c02ea57ab21760e7f744de6ade7caf8e8c92d26c48e40740157a0200154a54d",
@@ -34,7 +34,6 @@
     "modules/Meituan.sgmodule": "6184d302866b6d97f64bc297a453ab85fbddddd74518bf3b43a997d4b932a472",
     "modules/Eleme.sgmodule": "30b0330b7ef5baf259a1268af4aaeb249550bacaa7bfce40edb004436453f2c1",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/ChinaUnicom.sgmodule": "b57ecebe682a8db5096615d63a5ab6755c7b16263c126c0b094ac4b8262d832f",
-    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/ChinaMobile.sgmodule": "a7956b3653fa9c3c6d0b3dfb3a3c14dfdb8ed2916a36165ad1a670c321c08933",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partY/UnionPayCloudPay.sgmodule": "ea112707d0b1f1761f2c53a7b47cabcfac65238ed63afd9bcc48d92214bfc73f",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partG/ICBC.sgmodule": "779f19183d02a095642b95a57d897e0d92151d12ba2ecfbdf3ea463bd5c2a88f",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partU/UJing.sgmodule": "ae076e45968c9eff26b2748f101b1719e7cb8d21a3c3f3cb6c797665d0edc24c",
@@ -187,8 +186,6 @@
     "m.client.10010.com",
     "m1.ad.10010.com",
     "res.mall.10010.cn",
-    "client.app.coc.10086.cn",
-    "app.10086.cn",
     "v.icbc.com.cn",
     "api-marketing.zhinengxiyifang.cn",
     "adsoss.zhinengxiyifang.cn",
