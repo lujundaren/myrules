@@ -1,7 +1,7 @@
 {
-  "generated": "2026-10-23 19:37:56 UTC",
-  "sources_ok": 46,
-  "sources_total": 46,
+  "generated": "2026-10-23 19:43:27 UTC",
+  "sources_ok": 47,
+  "sources_total": 47,
   "mitm_hosts": [
     "-i.vip.iqiyi.com",
     "-redirector*.googlevideo.com",
@@ -17,6 +17,9 @@
     "djcapp.game.qq.com",
     "*.gdt.qq.com",
     "119.29.29.29",
+    "www.binance.info",
+    "www.yingwangtech.net",
+    "www.binance.com",
     "grpc.biliapi.net",
     "app.bilibili.com",
     "api.bilibili.com",

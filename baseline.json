@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23 19:37:56 UTC",
+  "updated": "2026-10-23 19:43:27 UTC",
   "source_hashes": {
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "8b749aa552c65b6da62df95d4d7193bcb3f8fb92ba43542896f185c692270122",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatOfficialAccount.sgmodule": "6c02ea57ab21760e7f744de6ade7caf8e8c92d26c48e40740157a0200154a54d",
@@ -7,6 +7,7 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partQ/QQMusic.sgmodule": "22d9ae859892ace66b99b3f5e5f5f214db60f9657adc5158e1a15dbaf7297d3f",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partT/Tencent.sgmodule": "831a745d40be8b347c6960eeb297ae809ef87bf4627b3727e061905ad2ce644c",
     "modules/XinYueClub.sgmodule": "7876d38524f3fd282785f04b416b0cac61b10f26102d2aad36ad53b9fb828ff1",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/Binance.sgmodule": "392c729931868e39ecce22055fa5f81a948434faa101e0b4b5d5d39b7128f7b6",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/bilibili.sgmodule": "c65cfb2b5b0fdf9342488d6bdda918120903fcb7ac6399ce61cbc20af5caf860",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/Xiaohongshu.sgmodule": "6dc58305c0453a654d44def91a4d995cb4e5345f0c89dd703e98b19be1584038",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/Zhihu.sgmodule": "4f064915d1efc056df784f24a2f50baaa94f59be4d698597f561fef818b77964",
@@ -95,6 +96,9 @@
     "djcapp.game.qq.com",
     "*.gdt.qq.com",
     "119.29.29.29",
+    "www.binance.info",
+    "www.yingwangtech.net",
+    "www.binance.com",
     "grpc.biliapi.net",
     "app.bilibili.com",
     "api.bilibili.com",
