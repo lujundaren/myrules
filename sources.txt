@@ -40,6 +40,9 @@ modules/XinYueClub.sgmodule
 
 
 # ----------------- 4. 社交、社区、资讯与学习工具 -----------------
+# 币安 (Binance)：开屏广告与活动营销弹窗净化
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/Binance.sgmodule
+
 # 哔哩哔哩 (Bilibili)：开屏广告、视频下方信息流推广、顶底栏精简
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/bilibili.sgmodule
 
