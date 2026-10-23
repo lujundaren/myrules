@@ -125,8 +125,8 @@ modules/Eleme.sgmodule
 # 中国联通 (ChinaUnicom)：营业厅开屏广告与账单页推广净化
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/ChinaUnicom.sgmodule
 
-# 中国移动 (ChinaMobile)：掌上营业厅开屏广告、悬浮窗与推广列表去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/ChinaMobile.sgmodule
+# 中国移动 (ChinaMobile)：上游规则拦截 startInit 核心初始化接口导致话费流量无法刷新，默认停用以保障正常业务
+#https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/ChinaMobile.sgmodule
 
 # 云闪付 (UnionPay)：开屏全屏广告与首页运营活动弹窗去除
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partY/UnionPayCloudPay.sgmodule
