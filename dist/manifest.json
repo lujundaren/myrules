@@ -1,7 +1,7 @@
 {
-  "generated": "2026-10-22 22:19:12 UTC",
-  "sources_ok": 38,
-  "sources_total": 38,
+  "generated": "2026-10-23 19:37:56 UTC",
+  "sources_ok": 46,
+  "sources_total": 46,
   "mitm_hosts": [
     "-i.vip.iqiyi.com",
     "-redirector*.googlevideo.com",
@@ -48,6 +48,14 @@
     "rp.hpplay.cn",
     "ios.wps.cn",
     "mobile-pic.cache.iciba.com",
+    "api.club.lenovo.cn",
+    "oxadmin.cp.com.cn",
+    "*.pstatp.com",
+    "amemv.com",
+    "musical.com",
+    "snssdk.com",
+    "tiktokv.com",
+    "dsp.toutiao.com",
     "ipv4.music.163.com",
     "interface.music.163.com",
     "interface3.music.163.com",
@@ -97,6 +105,13 @@
     "m.client.10010.com",
     "m1.ad.10010.com",
     "res.mall.10010.cn",
+    "client.app.coc.10086.cn",
+    "app.10086.cn",
+    "v.icbc.com.cn",
+    "api-marketing.zhinengxiyifang.cn",
+    "adsoss.zhinengxiyifang.cn",
+    "ads.zhinengxiyifang.cn",
+    "api.m.jd.com",
     "acs.m.taobao.com",
     "guide-acs.m.taobao.com",
     "poplayer.template.alibaba.com",
@@ -199,6 +214,10 @@
     },
     {
       "url": "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/moji.js",
+      "host": "raw.githubusercontent.com"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/jd.js",
       "host": "raw.githubusercontent.com"
     },
     {
