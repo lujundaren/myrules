@@ -39,7 +39,7 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/pa
 modules/XinYueClub.sgmodule
 
 
-# ----------------- 4. 社交、社区与资讯工具 -----------------
+# ----------------- 4. 社交、社区、资讯与学习工具 -----------------
 # 哔哩哔哩 (Bilibili)：开屏广告、视频下方信息流推广、顶底栏精简
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/bilibili.sgmodule
 
@@ -67,8 +67,17 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/pa
 # WPS Office：开屏全屏广告、模板推荐与会员推广弹窗过滤
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WPS.sgmodule
 
+# 联想 (Lenovo)：开屏广告与商城推荐净化
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partL/Lenovo.sgmodule
+
+# 牛津词典系列 (Oxford ALD)：首页下方横幅与开屏商业广告去除
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partN/OxfordALD10th.sgmodule
+
 
 # ----------------- 5. 影音媒体与视听娱乐 -----------------
+# 抖音 / 字节跳动 (ByteDance)：开屏广告、信息流推广与数据埋点上报拦截
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/ByteDance.sgmodule
+
 # 网易云音乐 (NetEaseCloudMusic)：开屏广告、播放器界面广告、播客推广过滤
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/NetEaseCloudMusic.sgmodule
 
@@ -82,7 +91,7 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/pa
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partM/MangoTV.sgmodule
 
 
-# ----------------- 6. 生活服务、出行地图与运营商 -----------------
+# ----------------- 6. 生活服务、出行地图、金融与运营商 -----------------
 # 高德地图 (AutoNavi)：首页浮层、图层推广、打车优惠券弹窗去除
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partG/AutoNavi.sgmodule
 
@@ -113,8 +122,23 @@ modules/Eleme.sgmodule
 # 中国联通 (ChinaUnicom)：营业厅开屏广告与账单页推广净化
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/ChinaUnicom.sgmodule
 
+# 中国移动 (ChinaMobile)：掌上营业厅开屏广告、悬浮窗与推广列表去除
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/ChinaMobile.sgmodule
+
+# 云闪付 (UnionPay)：开屏全屏广告与首页运营活动弹窗去除
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partY/UnionPayCloudPay.sgmodule
+
+# 中国工商银行 (ICBC)：手机银行广告浮窗与横幅推广净化
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partG/ICBC.sgmodule
+
+# U净 (UJing)：海尔智能洗衣开屏广告与营销弹窗拦截
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partU/UJing.sgmodule
+
 
 # ----------------- 7. 电商购物与二手闲置 -----------------
+# 京东 (JD)：开屏广告、首页推广横幅、浮标及我的页面精简（保留商品搜索与下单，不影响正常使用）
+modules/JD.sgmodule
+
 # 淘宝 (Taobao)：开屏动画、首页活动弹窗浮层去除
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partT/Taobao.sgmodule
 
@@ -144,4 +168,3 @@ https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/modules/Fries.Ti
 
 # Spotify：手机端/网页端播放音频与弹窗广告过滤
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partS/Spotify.sgmodule
-

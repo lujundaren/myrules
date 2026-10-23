@@ -1,0 +1,18 @@
+#!name=京东去广告
+#!desc=移除京东开屏广告、首页推广横幅、浮标及我的页面多余推广，保留商品搜索、推荐流与下单支付功能，不影响正常购物使用。
+#!author=RuCu6, Maasea, lujundaren
+#!category=去广告
+
+[Rule]
+URL-REGEX,^http:\/\/\w{32}\.jddebug\.com\/diagnose\?,REJECT
+
+[URL Rewrite]
+# 搜索框默认词与搜索推荐（保留用户手动搜索功能）
+^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06]) reject-dict
+
+[Script]
+# 京东开屏与页面净化脚本（去除开屏闪屏、物流页推广、首页下拉二楼与悬浮动图）
+jd_remove_ads = type=http-response,pattern=^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/jd.js
+
+[MITM]
+hostname = %APPEND% api.m.jd.com
