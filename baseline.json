@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24 07:51:39 UTC",
+  "updated": "2026-10-24 08:07:45 UTC",
   "source_hashes": {
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "8b749aa552c65b6da62df95d4d7193bcb3f8fb92ba43542896f185c692270122",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatOfficialAccount.sgmodule": "6c02ea57ab21760e7f744de6ade7caf8e8c92d26c48e40740157a0200154a54d",
@@ -8,7 +8,7 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partT/Tencent.sgmodule": "831a745d40be8b347c6960eeb297ae809ef87bf4627b3727e061905ad2ce644c",
     "modules/XinYueClub.sgmodule": "7876d38524f3fd282785f04b416b0cac61b10f26102d2aad36ad53b9fb828ff1",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/Binance.sgmodule": "392c729931868e39ecce22055fa5f81a948434faa101e0b4b5d5d39b7128f7b6",
-    "modules/Bilibili.sgmodule": "8aac55b0a691640c6bdde23dfc494b2bb5fe25d938b502dda631bf16dde90295",
+    "modules/Bilibili.sgmodule": "8f821ca3b7fd40b699469746a9122bfef599c13f1b8dd7f99bdc9992ac308901",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/Xiaohongshu.sgmodule": "6dc58305c0453a654d44def91a4d995cb4e5345f0c89dd703e98b19be1584038",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/Zhihu.sgmodule": "4f064915d1efc056df784f24a2f50baaa94f59be4d698597f561fef818b77964",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/weibo.module": "cbb427d9bbf7fbe1c3b7a383693f2291eeb97cdf3107e13f9e902f7ca5a266fd",
@@ -34,7 +34,7 @@
     "modules/Meituan.sgmodule": "6184d302866b6d97f64bc297a453ab85fbddddd74518bf3b43a997d4b932a472",
     "modules/Eleme.sgmodule": "30b0330b7ef5baf259a1268af4aaeb249550bacaa7bfce40edb004436453f2c1",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/ChinaUnicom.sgmodule": "b57ecebe682a8db5096615d63a5ab6755c7b16263c126c0b094ac4b8262d832f",
-    "modules/ChinaMobile.sgmodule": "0b6cf03b761a160e11cd4a6f3d7b431fbba51ba0aea28e68023fdec08b2b2e79",
+    "modules/ChinaMobile.sgmodule": "9c3df35bc94f41250d95cacd85d357e498987f2f8330136619ab4cda8575859f",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partY/UnionPayCloudPay.sgmodule": "ea112707d0b1f1761f2c53a7b47cabcfac65238ed63afd9bcc48d92214bfc73f",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partG/ICBC.sgmodule": "779f19183d02a095642b95a57d897e0d92151d12ba2ecfbdf3ea463bd5c2a88f",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partU/UJing.sgmodule": "ae076e45968c9eff26b2748f101b1719e7cb8d21a3c3f3cb6c797665d0edc24c",
@@ -101,6 +101,8 @@
     "grpc.biliapi.net",
     "app.bilibili.com",
     "api.bilibili.com",
+    "app.biliapi.net",
+    "api.biliapi.net",
     "api.live.bilibili.com",
     "www.bilibili.com",
     "line3-h5-mobile-api.biligame.com",

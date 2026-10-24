@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24 07:51:39 UTC",
+  "generated": "2026-10-24 08:07:45 UTC",
   "sources_ok": 47,
   "sources_total": 47,
   "mitm_hosts": [
@@ -23,6 +23,8 @@
     "grpc.biliapi.net",
     "app.bilibili.com",
     "api.bilibili.com",
+    "app.biliapi.net",
+    "api.biliapi.net",
     "api.live.bilibili.com",
     "www.bilibili.com",
     "line3-h5-mobile-api.biligame.com",
