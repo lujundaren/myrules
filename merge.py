@@ -203,6 +203,7 @@ def main():
 
     buckets, seen = OrderedDict(), {}
     mitm_hosts = []
+    enable_h2 = False
     source_hashes = {}
     script_urls = []
     ok, failed = 0, []
@@ -231,6 +232,8 @@ def main():
         for name, lines in parse_sections(txt).items():
             if name.lower() == "mitm":
                 mitm_hosts += mitm_hosts_from(lines)
+                if any(re.match(r"^\s*h2\s*=\s*true", l, re.I) for l in lines):
+                    enable_h2 = True
                 continue
             if name.lower() == "script":
                 script_urls += extract_script_paths(lines)
@@ -305,6 +308,8 @@ def main():
         out.append("")
     if mitm_hosts:
         out.append("[MITM]")
+        if enable_h2:
+            out.append("h2 = true")
         out.append("hostname = %APPEND% " + ", ".join(mitm_hosts))
         out.append("")
 
