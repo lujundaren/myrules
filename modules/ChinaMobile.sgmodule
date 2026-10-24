@@ -21,6 +21,9 @@ DOMAIN-WILDCARD,ggx*.miguvideo.com,REJECT
 # 中国移动广告联盟与官方广告投放域名（开屏静态物料与广告联盟SDK）
 DOMAIN,adxserver.ad.cmvideo.cn,REJECT
 DOMAIN,ggadjust.cmvideo.cn,REJECT
+DOMAIN,ggc.cmvideo.cn,REJECT
+DOMAIN,ggtagbuffer.cmvideo.cn,REJECT
+DOMAIN,ggtagcache.cmvideo.cn,REJECT
 DOMAIN-SUFFIX,ad.cmvideo.cn,REJECT
 DOMAIN,ad.mcloud.139.com,REJECT
 DOMAIN,da.mmarket.com,REJECT
@@ -31,12 +34,13 @@ DOMAIN,gg.10086.cn,REJECT
 DOMAIN,cdn.cmgadx.com,REJECT
 DOMAIN-SUFFIX,cmgadx.com,REJECT
 DOMAIN-SUFFIX,beizi.biz,REJECT
+DOMAIN,dc.cmicapm.com,REJECT
 
-[URL Rewrite]
-# 咪咕与139开屏广告接口拦截
-^https?:\/\/aikanvod\.miguvideo\.com\/video\/p\/i_adverse - reject-200
-^https?:\/\/dsp\.aikan\.miguvideo\.com\/ - reject-200
-^https?:\/\/ad\.mcloud\.139\.com\/ - reject-200
+[Map Local]
+# 咪咕与139开屏广告接口本地映射（返回合规空数据结构，彻底消除本地缓存回退）
+^https?:\/\/aikanvod\.miguvideo\.com\/video\/p\/i_adverse(Interface|OfSsp)\.jsp header="content-type: application/json" data-type=text data="{\"returnCode\":\"0000\",\"message\":\"success\",\"body\":{\"adList\":[],\"splash\":[]}}"
+^https?:\/\/dsp\.aikan\.miguvideo\.com\/ header="content-type: application/json" data-type=text data="{\"returnCode\":\"0000\",\"body\":{}}"
+^https?:\/\/ad\.mcloud\.139\.com\/ header="content-type: application/json" data-type=text data="{\"code\":\"0\",\"data\":[]}"
 
 [MITM]
 # 严禁将 client.app.coc.10086.cn 或任何 10086.cn 核心业务域名加入 MITM，避免触发 SSL Pinning 导致话费流量查询失败
