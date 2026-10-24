@@ -171,3 +171,4 @@ https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/modules/Fries.Ti
 
 # Spotify：手机端/网页端播放音频与弹窗广告过滤
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partS/Spotify.sgmodule
+# Last updated: 2026-10-24 REA & Hopper deep analysis update for Bilibili and ChinaMobile
