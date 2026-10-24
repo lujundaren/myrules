@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24 12:57:42 UTC",
+  "generated": "2026-10-24 13:15:26 UTC",
   "sources_ok": 47,
   "sources_total": 47,
   "mitm_hosts": [
@@ -20,12 +20,17 @@
     "www.binance.info",
     "www.yingwangtech.net",
     "www.binance.com",
-    "grpc.biliapi.net",
-    "app.bilibili.com",
-    "api.bilibili.com",
-    "app.biliapi.net",
-    "api.biliapi.net",
+    "biliverse.github.io",
+    "manga.bilibili.com",
     "api.live.bilibili.com",
+    "api.vc.bilibili.com",
+    "app.bilibili.com",
+    "app.biliapi.net",
+    "app.biliapi.com",
+    "api.bilibili.com",
+    "api.biliapi.net",
+    "grpc.biliapi.net",
+    "cm.bilibili.com",
     "www.bilibili.com",
     "line3-h5-mobile-api.biligame.com",
     "edith.xiaohongshu.com",
@@ -144,12 +149,8 @@
       "host": "raw.githubusercontent.com"
     },
     {
-      "url": "https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.json.js",
-      "host": "raw.githubusercontent.com"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.protobuf.response.js",
-      "host": "raw.githubusercontent.com"
+      "url": "https://cdn.jsdelivr.net/gh/lujundaren/myrules@main/scripts/bilibili.response.bundle.js",
+      "host": "cdn.jsdelivr.net"
     },
     {
       "url": "https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js",
