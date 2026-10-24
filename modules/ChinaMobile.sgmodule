@@ -1,17 +1,29 @@
 #!name=中国移动去广告
-#!desc=基于 REA 逆向工程精准去除中国移动App咪咕聚合广告SDK开屏与广告联盟物料，彻底移除核心业务域名MITM，保证话费与流量查询100%秒级刷新，稳定拦截开屏。
+#!desc=基于 REA 逆向全面阻断咪咕广告SDK、中国移动云盘广告(139 MCloud)、CMVideo ADX广告联盟与官方营销网关，彻底移除核心业务域名MITM，保证话费与流量查询100%秒级刷新，稳定去除开屏。
 #!author=lujundaren
 #!category=去广告
 
 [Rule]
-# 咪咕视频聚合广告SDK与DSP开屏分发（REA逆向定位：MGPolymerAdSDK & AIKAdvertiseStartPageRequest）
+# 咪咕视频聚合广告SDK与DSP开屏分发（REA逆向定位：MGPolymerAdSDK、AIKAdvertise、UmspSplash）
 DOMAIN,dsp.aikan.miguvideo.com,REJECT
 DOMAIN,gginvasdk.miguvideo.com,REJECT
 DOMAIN,ggstaticcache.miguvideo.com,REJECT
+DOMAIN,ggadoffline.miguvideo.com,REJECT
 DOMAIN,scache.cmam.migu.cn,REJECT
+DOMAIN,logs.aikan.miguvideo.com,REJECT
+DOMAIN,gw.aikan.miguvideo.com,REJECT
+DOMAIN,uem.migu.cn,REJECT
+DOMAIN,uemweb.migu.cn,REJECT
+DOMAIN,hippo.migu.cn,REJECT
+DOMAIN,hound.migu.cn,REJECT
 DOMAIN-WILDCARD,ggx*.miguvideo.com,REJECT
 
-# 中国移动广告联盟与官方广告投放域名（开屏静态物料与SDK）
+# 中国移动广告联盟与官方广告投放域名（开屏静态物料与广告联盟SDK）
+DOMAIN,adxserver.ad.cmvideo.cn,REJECT
+DOMAIN,ggadjust.cmvideo.cn,REJECT
+DOMAIN-SUFFIX,ad.cmvideo.cn,REJECT
+DOMAIN,ad.mcloud.139.com,REJECT
+DOMAIN,da.mmarket.com,REJECT
 DOMAIN,ad.10086.cn,REJECT
 DOMAIN,m1.ad.10086.cn,REJECT
 DOMAIN,ads.10086.cn,REJECT
@@ -21,9 +33,11 @@ DOMAIN-SUFFIX,cmgadx.com,REJECT
 DOMAIN-SUFFIX,beizi.biz,REJECT
 
 [URL Rewrite]
-# 咪咕SSP与开屏接口拦截（爱看开屏广告接口）
+# 咪咕与139开屏广告接口拦截
 ^https?:\/\/aikanvod\.miguvideo\.com\/video\/p\/i_adverse - reject-200
+^https?:\/\/dsp\.aikan\.miguvideo\.com\/ - reject-200
+^https?:\/\/ad\.mcloud\.139\.com\/ - reject-200
 
 [MITM]
 # 严禁将 client.app.coc.10086.cn 或任何 10086.cn 核心业务域名加入 MITM，避免触发 SSL Pinning 导致话费流量查询失败
-hostname = %APPEND% aikanvod.miguvideo.com
+hostname = %APPEND% aikanvod.miguvideo.com, dsp.aikan.miguvideo.com, ad.mcloud.139.com
