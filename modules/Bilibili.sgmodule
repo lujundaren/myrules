@@ -1,0 +1,25 @@
+#!name=哔哩哔哩去广告
+#!desc=基于 Mach-O 逆向工程精准去除开屏闪屏广告、首页推荐流商业推广与活动弹窗，保留原版底部导航、全高清视频播放与正常搜索功能，不影响正常使用。
+#!author=lujundaren
+#!category=去广告
+
+[Rule]
+# 哔哩哔哩商业广告系统与追踪（逆向定位：cm.bilibili.com 广告分发、转化与跳转）
+DOMAIN,cm.bilibili.com,REJECT
+DOMAIN,dataflow.biliapi.com,REJECT
+DOMAIN-WILDCARD,*pcdn*.biliapi.net,REJECT
+
+[URL Rewrite]
+# 活动弹窗与营销浮层
+^https?:\/\/app\.bilibili\.com\/x\/resource\/top\/activity - reject-200
+^https?:\/\/app\.bilibili\.com\/x\/resource\/pop\/up - reject-200
+^https?:\/\/app\.bilibili\.com\/x\/resource\/deeplink\/ad - reject-200
+^https?:\/\/api\.bilibili\.com\/x\/vas\/dlc_act\/card\/splash_info - reject-200
+^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/brand\/(list|config) - reject-200
+
+[Script]
+# 开屏广告、首页推荐流推广与搜索广告过滤（原生 JS 强健处理，绝不篡改导航栏与账户数据）
+bilibili_ads = type=http-response,pattern=^https?:\/\/(app|api)\.bilibili\.com\/x\/v2\/(splash\/(show|list|event\/list2)|feed\/index|search\?),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.js
+
+[MITM]
+hostname = %APPEND% app.bilibili.com, api.bilibili.com
