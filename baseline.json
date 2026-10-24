@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24 08:07:45 UTC",
+  "updated": "2026-10-24 12:57:42 UTC",
   "source_hashes": {
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "8b749aa552c65b6da62df95d4d7193bcb3f8fb92ba43542896f185c692270122",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatOfficialAccount.sgmodule": "6c02ea57ab21760e7f744de6ade7caf8e8c92d26c48e40740157a0200154a54d",
@@ -8,7 +8,7 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partT/Tencent.sgmodule": "831a745d40be8b347c6960eeb297ae809ef87bf4627b3727e061905ad2ce644c",
     "modules/XinYueClub.sgmodule": "7876d38524f3fd282785f04b416b0cac61b10f26102d2aad36ad53b9fb828ff1",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/Binance.sgmodule": "392c729931868e39ecce22055fa5f81a948434faa101e0b4b5d5d39b7128f7b6",
-    "modules/Bilibili.sgmodule": "8f821ca3b7fd40b699469746a9122bfef599c13f1b8dd7f99bdc9992ac308901",
+    "modules/Bilibili.sgmodule": "21d18bd55da3ab263855b294f8f41a2f09f86a5d955c165d3f8af61cd5b1990b",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/Xiaohongshu.sgmodule": "6dc58305c0453a654d44def91a4d995cb4e5345f0c89dd703e98b19be1584038",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/Zhihu.sgmodule": "4f064915d1efc056df784f24a2f50baaa94f59be4d698597f561fef818b77964",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/weibo.module": "cbb427d9bbf7fbe1c3b7a383693f2291eeb97cdf3107e13f9e902f7ca5a266fd",
@@ -52,7 +52,7 @@
   "scripts": {
     "https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js": "79098ac4d2eb7932c9b2b45ac7891469703626855e5d13ab4374af52cc48983e",
     "https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.json.js": "32ba00da58c598c4419e7cc86f50acf0279a1c819fa6e3f2a851e6582001a5b8",
-    "https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.response.js": "d9a09789a9f2153c27b0a435064dfdcf1723a36f20451a075e37c4f8f21d338f",
+    "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.protobuf.response.js": "461f597e1e9559ebfa6780beaad834ec5056c87d2fd1f4d5e0a1bbd9e75a35ae",
     "https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js": "318d89bce1117edb26a93b383804e195649ec4674a04efa9e3ddb4ef7f34b498",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhihu/zhihu.js": "544fd88207b9d7005bb5cf427a1994028f91a95a65fde3db72a501983bff99f4",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/weibo/weibo_ads.js": "0f1f3eba5b2c96f4f089525ad033b578b6a18a2fd99eb95409e5b0816f4a4b34",
@@ -72,7 +72,7 @@
     "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/moji.js": "5a88bc64c47d122d374f188f84df7aca3102ce45daffadc31dd741ee70e03c82",
     "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/jd.js": "c029c4151fe73b3a6f660d0933393d1b6afd1969651f01a88d5a357abfdd7cb4",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js": "4cf62100424886068a5470daecec319e93ccd034c647d79a9daaa72bbbc341bb",
-    "https://raw.githubusercontent.com/ishowshu/qx/refs/heads/main/script/goofish.js": "5f17dc551da355b79d25d390ef88acafd0ce757f14740e7f0dcd6bd4398918a9",
+    "https://raw.githubusercontent.com/ishowshu/qx/refs/heads/main/script/goofish.js": "d76d0a65d975a523ad4bb62c5d90dc9898a5a93ad79cf03dea01150705792b20",
     "https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js": "f98483d5f5017514f82502253c0db5ce2d4ffb7839887aa2cadc22666f5a7f12",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/X/X_ads.js": "c6cd92e41ccc24cda6fbadcc3cefb1538294353ad809c40855cb1224f8bf2a6a",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/reddit.js": "3178f057b758e8e5fa20477c8abde707fa367482f63553be833773dd33aec3ed",

@@ -1,5 +1,5 @@
 #!name=去广告规则增强版
-#!desc=每日自动合并 | 源 47 | MITM 134 | 脚本 29 | 2026-10-24 08:07:45 UTC
+#!desc=每日自动合并 | 源 47 | MITM 134 | 脚本 29 | 2026-10-24 12:57:42 UTC
 #!category=广告拦截
 #!author=lujundaren
 
@@ -1496,9 +1496,6 @@ AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
 ^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad header
 ^https:\/\/gae2-spclient\.spotify\.com:443\/ad - reject
 
-[Header Rewrite]
-http-response ^https:\/\/(grpc\.biliapi\.net|(app|api)\.(bilibili\.com|biliapi\.net))\/bilibili\.app\.(interface\.v1\.(Teenagers\/ModeStatus|Search\/DefaultWords)|view\.v1\.View\/TFInfo|viewunite\.v1\.View\/(PlayPause|ViewEndPage|FloorAdSearch))$ header-add 'grpc-status' '0'
-
 [Map Local]
 ^https?:\/\/mp\.weixin\.qq\.com\/mp\/cps_product_info\?action data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/y\.gtimg\.cn\/music\/common\/\/upload\/kg_ad/.*?\d{4}\.jpg data-type=tiny-gif status-code=200
@@ -1506,9 +1503,8 @@ http-response ^https:\/\/(grpc\.biliapi\.net|(app|api)\.(bilibili\.com|biliapi\.
 ^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/(?:GetIndexPopFlash|GetIndexSplash|GetFlashScreen|GetPopFlash|GetSplash|GetPopup|GetAd) data-type=text data="{\"result\":0,\"msg\":\"ok\",\"data\":{}}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.(?:AdService|BannerService|PopupService)\/ data-type=text data="{\"result\":0,\"msg\":\"ok\",\"data\":{}}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/www\.(binance|yingwangtech)\.(com|info|net)\/bapi\/composite\/v1\/public\/market\/holiday-atmosphere data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/(grpc\.biliapi\.net|(app|api)\.(bilibili\.com|biliapi\.net))\/bilibili\.app\.(view\.v1\.View\/TFInfo|viewunite\.v1\.View\/(PlayPause|ViewEndPage|FloorAdSearch))$ header="content-type: application/grpc|grpc-status: 0" data-type=base64 data="AAAAAAA="
-^https:\/\/(grpc\.biliapi\.net|(app|api)\.(bilibili\.com|biliapi\.net))\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus$ header="content-type: application/grpc|grpc-status: 0" data-type=base64 data="AAAAABMKEQgCEgl0ZWVuYWdlcnMgAioA"
-^https:\/\/(grpc\.biliapi\.net|(app|api)\.(bilibili\.com|biliapi\.net))\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ header="content-type: application/grpc|grpc-status: 0" data-type=base64 data="AAAAACEaHeaQnOe0ouinhumikeOAgeeVquWJp+aIlnVw5Li7KAE="
+^https:\/\/(grpc\.biliapi\.net|(app|api)\.(bilibili\.com|biliapi\.net))\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus$ header="content-type: application/grpc" data-type=base64 data="AAAAABMKEQgCEgl0ZWVuYWdlcnMgAioA"
+^https:\/\/(grpc\.biliapi\.net|(app|api)\.(bilibili\.com|biliapi\.net))\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ header="content-type: application/grpc" data-type=base64 data="AAAAACEaHeaQnOe0ouinhumikeOAgeeVquWJp+aIlnVw5Li7KAE="
 ^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? header="content-type: application/json" data-type=text data="{}"
 ^https:\/\/line3-h5-mobile-api\.biligame\.com\/game\/live\/large_card_material\? header="content-type: application/json" data-type=text data="{}"
 ^https:\/\/(ap[ip]\.bilibili\.com|(app|api)\.biliapi\.net)\/x\/(resource\/(top\/activity|patch\/tab(\/v2)?)|v2\/search\/square|vip\/ads\/materials)\? header="content-type: application/json" data-type=text data="{\"code\":-404,\"message\":\"-404\",\"ttl\":1,\"data\":null}"
@@ -1644,7 +1640,7 @@ http-response-jq ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.circle
 [Script]
 UnblockURLinWeChat-解除微信链接限制 = type=http-response, pattern=^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js, requires-body=true, timeout=60
 bilibili.live = type=http-response, pattern=^https:\/\/api\.live\.bilibili\.com\/xlive\/(app-interface\/v2\/index\/feed|app-room\/v1\/index\/getInfoBy(Room|User))\?, script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.json.js, requires-body=true
-bilibili.protobuf = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|(app|api)\.(bilibili\.com|biliapi\.net))\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed|AIRelateAsync)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$, script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, argument="{\"displayUpList\":\"show\",\"purifyComment\":true,\"sponsorBlock\":\"#\",\"logLevel\":\"4\"}"
+bilibili.protobuf = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|(app|api)\.(bilibili\.com|biliapi\.net))\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed|AIRelateAsync|PlayPause|FloorAdSearch|ViewEndPage|TFInfo)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, argument="{\"displayUpList\":\"show\",\"purifyComment\":true,\"sponsorBlock\":\"#\",\"logLevel\":\"4\"}"
 小红书搜索页 = type=http-response, pattern=^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/(banner|hot)_list, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60
 小红书搜索页 = type=http-response, pattern=^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/(hint|trending)\?, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60
 小红书搜索页 = type=http-response, pattern=^https?:\/\/(so|edith)\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/notes\?, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60
