@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24 04:04:57 UTC",
+  "generated": "2026-10-24 05:02:01 UTC",
   "sources_ok": 47,
   "sources_total": 47,
   "mitm_hosts": [
@@ -111,6 +111,7 @@
     "clientaccess.10086.cn",
     "client.app.coc.10086.cn",
     "app.10086.cn",
+    "aikanvod.miguvideo.com",
     "wap.js.10086.cn",
     "m.sd.10086.cn",
     "gd.10086.cn",
