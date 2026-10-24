@@ -43,8 +43,8 @@ modules/XinYueClub.sgmodule
 # 币安 (Binance)：开屏广告与活动营销弹窗净化
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/Binance.sgmodule
 
-# 哔哩哔哩 (Bilibili)：开屏广告、视频下方信息流推广、顶底栏精简
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/bilibili.sgmodule
+# 哔哩哔哩 (Bilibili)：保留原版元素与TAB设定，补全视频暂停广告、详情页横幅与搜索推广视频拦截
+modules/Bilibili.sgmodule
 
 # 小红书 (Xiaohongshu)：瀑布流商业推广笔记、开屏广告净化
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/Xiaohongshu.sgmodule
