@@ -1,5 +1,5 @@
 #!name=中国移动去广告
-#!desc=基于 REA 逆向全面阻断咪咕广告SDK、中国移动云盘广告(139 MCloud)、CMVideo ADX广告联盟与官方营销网关，彻底移除核心业务域名MITM，保证话费与流量查询100%秒级刷新，稳定去除开屏。
+#!desc=基于 REA 逆向全面阻断咪咕广告SDK、中国移动云盘广告(139 MCloud)、CMVideo ADX广告联盟与官方营销网关，阻断咪咕HTTPDNS防绕过，彻底移除核心业务域名MITM，保证话费与流量查询100%秒级刷新，稳定去除开屏。
 #!author=lujundaren
 #!category=去广告
 
@@ -17,6 +17,18 @@ DOMAIN,uemweb.migu.cn,REJECT
 DOMAIN,hippo.migu.cn,REJECT
 DOMAIN,hound.migu.cn,REJECT
 DOMAIN-WILDCARD,ggx*.miguvideo.com,REJECT
+
+# 咪咕展示广告与配置接口（REA逆向提取：display/v3/all/static, display/v4/static）
+DOMAIN,display-sc.miguvideo.com,REJECT
+DOMAIN,display2-sc.miguvideo.com,REJECT
+DOMAIN,display.miguvideo.com,REJECT
+
+# 阻断咪咕HTTPDNS服务，防止客户端通过直连IP绕过域名拦截规则
+DOMAIN,app-sc.miguvideo.com,REJECT
+DOMAIN,app2-sc.miguvideo.com,REJECT
+DOMAIN,common-sc.miguvideo.com,REJECT
+DOMAIN,common2-sc.miguvideo.com,REJECT
+DOMAIN,dns.app.coc.10086.cn,REJECT
 
 # 中国移动广告联盟与官方广告投放域名（开屏静态物料与广告联盟SDK）
 DOMAIN,adxserver.ad.cmvideo.cn,REJECT

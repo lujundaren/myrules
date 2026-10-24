@@ -1,6 +1,6 @@
 # ==============================================================================
 # 去广告模块合并源列表 (sources.txt)
-# 产物：dist/merged.sgmodule（由 GitHub Actions 每日自动拉取重新合并 - 2026-10-24 16:08）
+# 产物：dist/merged.sgmodule（由 GitHub Actions 每日自动拉取重新合并 - 2026-10-24 21:15）
 # ==============================================================================
 
 # ----------------- 1. 全局广告拦截与基础防护 (必须置顶) -----------------
@@ -171,4 +171,4 @@ https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/modules/Fries.Ti
 
 # Spotify：手机端/网页端播放音频与弹窗广告过滤
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partS/Spotify.sgmodule
-# Last updated: 2026-10-24 REA & Hopper deep analysis update for Bilibili and ChinaMobile
+# Last updated: 2026-10-24 REA & Hopper binary HTTPDNS and Shadowrocket h2 WebKit engine fix
