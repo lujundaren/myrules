@@ -1,5 +1,5 @@
 #!name=中国移动去广告
-#!desc=基于 REA 逆向全面阻断咪咕广告SDK、中国移动云盘广告(139 MCloud)、CMVideo ADX广告联盟与官方营销网关，阻断咪咕HTTPDNS防绕过，彻底移除核心业务域名MITM，保证话费与流量查询100%秒级刷新，稳定去除开屏。
+#!desc=基于 REA 逆向全面阻断咪咕广告SDK、中国移动云盘广告(139 MCloud)、CMVideo ADX广告联盟、穿山甲SDK与官方营销网关，阻断多通道HTTPDNS防绕过，彻底移除核心业务域名MITM，保证话费与流量查询100%秒级刷新，稳定去除开屏。
 #!author=lujundaren
 #!category=去广告
 
@@ -23,20 +23,27 @@ DOMAIN,display-sc.miguvideo.com,REJECT
 DOMAIN,display2-sc.miguvideo.com,REJECT
 DOMAIN,display.miguvideo.com,REJECT
 
-# 阻断咪咕HTTPDNS服务，防止客户端通过直连IP绕过域名拦截规则
+# 阻断多通道HTTPDNS防绕过（防止客户端绕过域名拦截规则直连IP）
 DOMAIN,app-sc.miguvideo.com,REJECT
 DOMAIN,app2-sc.miguvideo.com,REJECT
 DOMAIN,common-sc.miguvideo.com,REJECT
 DOMAIN,common2-sc.miguvideo.com,REJECT
 DOMAIN,dns.app.coc.10086.cn,REJECT
+DOMAIN,httpdns.qq.com,REJECT
+DOMAIN,httpdns.msdk.qq.com,REJECT
+DOMAIN,dns.alidns.com,REJECT
+IP-CIDR,119.29.29.29/32,REJECT
+IP-CIDR,203.107.1.1/24,REJECT
 
 # 中国移动广告联盟与官方广告投放域名（开屏静态物料与广告联盟SDK）
+DOMAIN,img.cmvideo.cn,REJECT
 DOMAIN,adxserver.ad.cmvideo.cn,REJECT
 DOMAIN,ggadjust.cmvideo.cn,REJECT
 DOMAIN,ggc.cmvideo.cn,REJECT
 DOMAIN,ggtagbuffer.cmvideo.cn,REJECT
 DOMAIN,ggtagcache.cmvideo.cn,REJECT
 DOMAIN-SUFFIX,ad.cmvideo.cn,REJECT
+DOMAIN-SUFFIX,cmvideo.cn,REJECT
 DOMAIN,ad.mcloud.139.com,REJECT
 DOMAIN,da.mmarket.com,REJECT
 DOMAIN,ad.10086.cn,REJECT
@@ -47,6 +54,12 @@ DOMAIN,cdn.cmgadx.com,REJECT
 DOMAIN-SUFFIX,cmgadx.com,REJECT
 DOMAIN-SUFFIX,beizi.biz,REJECT
 DOMAIN,dc.cmicapm.com,REJECT
+
+# 穿山甲/字节跳动移动广告SDK（REA逆向定位：loadCsjAd、isCsjAd）
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
+DOMAIN-SUFFIX,pglstatp.com,REJECT
 
 [Map Local]
 # 咪咕与139开屏广告接口本地映射（返回合规空数据结构，彻底消除本地缓存回退）
