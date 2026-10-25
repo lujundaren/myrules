@@ -1,10 +1,14 @@
 {
-  "generated": "2026-10-25 19:23:02 UTC",
-  "sources_ok": 47,
-  "sources_total": 47,
+  "generated": "2026-10-25 19:39:15 UTC",
+  "sources_ok": 49,
+  "sources_total": 49,
   "mitm_hosts": [
     "-i.vip.iqiyi.com",
     "-redirector*.googlevideo.com",
+    "appconf.mail.163.com",
+    "gw-cn.jiaoliuqu.com",
+    "msglb.91160.com",
+    "ucdc2-upaas.uc.cn",
     "mp.weixin.qq.com",
     "weixin110.qq.com",
     "security.wechat.com",
