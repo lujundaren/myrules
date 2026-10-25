@@ -1,10 +1,10 @@
 #!name=中国移动去广告
-#!desc=基于 REA 逆向全面阻断咪咕广告SDK、中国移动云盘广告(139 MCloud)、CMVideo ADX广告联盟、穿山甲SDK与官方营销网关，阻断多通道HTTPDNS防绕过，彻底移除核心业务域名MITM，保证话费与流量查询100%秒级刷新，稳定去除开屏。
+#!desc=基于 Hopper 逆向全面阻断咪咕广告SDK、中国移动云盘广告(139 MCloud)、CMVideo ADX广告联盟、穿山甲SDK与官方营销网关，阻断多通道HTTPDNS防绕过，彻底移除核心业务域名MITM，保证话费与流量查询100%秒级刷新，稳定去除开屏。
 #!author=lujundaren
 #!category=去广告
 
 [Rule]
-# 咪咕视频聚合广告SDK与DSP开屏分发（REA逆向定位：MGPolymerAdSDK、AIKAdvertise、UmspSplash）
+# 咪咕视频聚合广告SDK与DSP开屏分发（Hopper逆向定位：MGPolymerAdSDK、AIKAdvertise、UmspSplash）
 DOMAIN,dsp.aikan.miguvideo.com,REJECT
 DOMAIN,gginvasdk.miguvideo.com,REJECT
 DOMAIN,ggstaticcache.miguvideo.com,REJECT
@@ -18,7 +18,7 @@ DOMAIN,hippo.migu.cn,REJECT
 DOMAIN,hound.migu.cn,REJECT
 DOMAIN-WILDCARD,ggx*.miguvideo.com,REJECT
 
-# 咪咕展示广告与配置接口（REA逆向提取：display/v3/all/static, display/v4/static）
+# 咪咕展示广告与配置接口
 DOMAIN,display-sc.miguvideo.com,REJECT
 DOMAIN,display2-sc.miguvideo.com,REJECT
 DOMAIN,display.miguvideo.com,REJECT
@@ -29,11 +29,6 @@ DOMAIN,app2-sc.miguvideo.com,REJECT
 DOMAIN,common-sc.miguvideo.com,REJECT
 DOMAIN,common2-sc.miguvideo.com,REJECT
 DOMAIN,dns.app.coc.10086.cn,REJECT
-DOMAIN,httpdns.qq.com,REJECT
-DOMAIN,httpdns.msdk.qq.com,REJECT
-DOMAIN,dns.alidns.com,REJECT
-IP-CIDR,119.29.29.29/32,REJECT
-IP-CIDR,203.107.1.1/24,REJECT
 
 # 中国移动广告联盟与官方广告投放域名（开屏静态物料与广告联盟SDK）
 DOMAIN,img.cmvideo.cn,REJECT
@@ -55,18 +50,30 @@ DOMAIN-SUFFIX,cmgadx.com,REJECT
 DOMAIN-SUFFIX,beizi.biz,REJECT
 DOMAIN,dc.cmicapm.com,REJECT
 
-# 穿山甲/字节跳动移动广告SDK（REA逆向定位：loadCsjAd、isCsjAd）
+# 穿山甲 / 字节跳动移动广告SDK
 DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
 DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
 DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
 DOMAIN-SUFFIX,pglstatp.com,REJECT
 
+[URL Rewrite]
+# 开屏启动营销网关与浮层拦截（仅拦截广告营销网关 clientaccess，绝不影响 client.app.coc 核心业务）
+^https?:\/\/clientaccess\.10086\.cn\/biz-orange\/DN\/init\/startInit - reject-200
+^https?:\/\/(client\.app\.coc|app|clientaccess)\.10086\.cn\/biz-orange\/DN\/emotionMarket - reject-200
+^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/explorePage\/getAdverList - reject-200
+
+# 省级营业厅开屏广告
+^https?:\/\/wap\.js\.10086\.cn\/jsmccClient\/cd\/market_content\/api\/v\d\/market_content\.page\.query - reject-200
+^https?:\/\/m\.sd\.10086\.cn\/zapi\/app_common\/homeWelcome\/welcome\.do - reject-200
+^https?:\/\/gd\.10086\.cn\/gmccapp\/serv\/\?servicename=GMCCAPP_704_002_001_001 - reject-200
+^https?:\/\/gx\.10086\.cn\/zt-portal\/gxhzg\/portal\/app\/api\/v - reject-200
+
 [Map Local]
-# 咪咕与139开屏广告接口本地映射（返回合规空数据结构，彻底消除本地缓存回退）
-^https?:\/\/aikanvod\.miguvideo\.com\/video\/p\/i_adverse(Interface|OfSsp)\.jsp header="content-type: application/json" data-type=text data="{\"returnCode\":\"0000\",\"message\":\"success\",\"body\":{\"adList\":[],\"splash\":[]}}"
-^https?:\/\/dsp\.aikan\.miguvideo\.com\/ header="content-type: application/json" data-type=text data="{\"returnCode\":\"0000\",\"body\":{}}"
-^https?:\/\/ad\.mcloud\.139\.com\/ header="content-type: application/json" data-type=text data="{\"code\":\"0\",\"data\":[]}"
+# 咪咕与139开屏广告接口本地映射（符合 Shadowrocket 语法，带 200 状态码）
+^https?:\/\/aikanvod\.miguvideo\.com\/video\/p\/i_adverse(Interface|OfSsp)\.jsp data-type=text data="{\"returnCode\":\"0000\",\"message\":\"success\",\"body\":{\"adList\":[],\"splash\":[]}}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/dsp\.aikan\.miguvideo\.com\/.* data-type=text data="{\"returnCode\":\"0000\",\"body\":{}}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/ad\.mcloud\.139\.com\/.* data-type=text data="{\"code\":\"0\",\"data\":[]}" status-code=200 header="Content-Type:application/json"
 
 [MITM]
-# 严禁将 client.app.coc.10086.cn 或任何 10086.cn 核心业务域名加入 MITM，避免触发 SSL Pinning 导致话费流量查询失败
-hostname = %APPEND% aikanvod.miguvideo.com, dsp.aikan.miguvideo.com, ad.mcloud.139.com
+h2 = true
+hostname = %APPEND% aikanvod.miguvideo.com, dsp.aikan.miguvideo.com, ad.mcloud.139.com, clientaccess.10086.cn, wap.js.10086.cn, m.sd.10086.cn, gd.10086.cn, gx.10086.cn
