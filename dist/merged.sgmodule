@@ -1,5 +1,5 @@
 #!name=去广告规则增强版
-#!desc=每日自动合并 | 源 47 | MITM 142 | 脚本 31 | 2026-10-25 21:46:02 UTC
+#!desc=每日自动合并 | 源 47 | MITM 142 | 脚本 31 | 2026-10-26 05:19:03 UTC
 #!category=广告拦截
 #!author=lujundaren
 
@@ -1520,7 +1520,7 @@ AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
 ^https:\/\/gae2-spclient\.spotify\.com:443\/ad - reject
 
 [Header Rewrite]
-http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(interface\.v1\.(Teenagers\/ModeStatus|Search\/DefaultWords)|view\.v1\.View\/TFInfo|viewunite\.v1\.View\/ViewEndPage)$ header-add 'grpc-status' '0'
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(interface\.v1\.(Teenagers\/ModeStatus|Search\/DefaultWords)|view(unite)?\.v1\.View\/(TFInfo|ViewEndPage|PlayPause|FloorAdSearch))$ header-add 'grpc-status' '0'
 
 [Map Local]
 ^https?:\/\/mp\.weixin\.qq\.com\/mp\/cps_product_info\?action data-type=text data="{}" header="Content-Type:application/json"
@@ -1529,16 +1529,16 @@ http-response ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(interface\.v1\.(Tee
 ^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/(?:GetIndexPopFlash|GetIndexSplash|GetFlashScreen|GetPopFlash|GetSplash|GetPopup|GetAd) data-type=text data="{\"result\":0,\"msg\":\"ok\",\"data\":{}}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.(?:AdService|BannerService|PopupService)\/ data-type=text data="{\"result\":0,\"msg\":\"ok\",\"data\":{}}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/www\.(binance|yingwangtech)\.(com|info|net)\/bapi\/composite\/v1\/public\/market\/holiday-atmosphere data-type=text data="{}" header="Content-Type:application/json"
-^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus$ data-type=base64 data="AAAAABMKEQgCEgl0ZWVuYWdlcnMgAioA" header="Content-Type:text/plain"
-^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ data-type=base64 data="AAAAACEaHeaQnOe0ouinhumikeOAgeeVquWJp+aIlnVw5Li7KAE=" header="Content-Type:text/plain"
-^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(view\.v1\.View\/TFInfo|viewunite\.v1\.View\/ViewEndPage)$ data-type=base64 data="AAAAAAA=" header="Content-Type:text/plain"
+^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus$ data-type=base64 data="AAAAABMKEQgCEgl0ZWVuYWdlcnMgAioA" header="Content-Type:text/plain"
+^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ data-type=base64 data="AAAAACEaHeaQnOe0ouinhumikeOAgeeVquWJp+aIlnVw5Li7KAE=" header="Content-Type:text/plain"
+^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(view\.v1\.View\/(TFInfo|PlayPause)|viewunite\.v1\.View\/(ViewEndPage|PlayPause|FloorAdSearch))$ data-type=base64 data="AAAAAAA=" header="Content-Type:text/plain"
 ^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/line3-h5-mobile-api\.biligame\.com\/game\/live\/large_card_material\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/ap[ip]\.bilibili\.com\/x\/(resource\/(top\/activity|patch\/tab(\/v2)?)|v2\/search\/square|vip\/ads\/materials)\? data-type=text data="{\"code\":-404,\"message\":\"-404\",\"ttl\":1,\"data\":null}" status-code=200 header="Content-Type:application/json"
+^https:\/\/ap[ip]\.bilibili\.com\/x\/(resource\/(top\/activity|patch\/tab(\/v2)?)|v2\/search\/square|vip\/ads\/materials|v2\/view\/material)\? data-type=text data="{\"code\":-404,\"message\":\"-404\",\"ttl\":1,\"data\":null}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive\? data-type=text data="{\"code\":0,\"data\":{\"closeType\":\"close_win\",\"container\":[],\"showTime\":\"\"},\"message\":\"success\"}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/api\.bilibili\.com\/pgc\/pay\/iaa\/ad\/(request|redeem)\? data-type=text data="{\"code\":0,\"data\":{},\"message\":\"0\"}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/line3-h5-mobile-api\.biligame\.com\/game\/center\/h5\/small\/game\/advertising_position\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/app\.bilibili\.com\/x\/v2\/view\/ad\/dislike\? data-type=text data="{\"code\":0,\"message\":\"0\"}" status-code=200 header="Content-Type:application/json"
+^https:\/\/app\.bilibili\.com\/x\/v2\/view\/ad\/(dislike|playpause)\? data-type=text data="{\"code\":0,\"message\":\"0\"}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/cm\.bilibili\.com\/.* data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v1\/surprisebox\/(?:get_style|open|submit_action) data-type=text data="{}" header="Content-Type:application/json"
 ^https?:\/\/www\.(xiaohongshu|rnote)\.com\/api\/marketing\/box\/trigger\? data-type=text data="{}" header="Content-Type:application/json"
@@ -1660,7 +1660,7 @@ bilibili_channel = type=http-response,pattern=^https:\/\/api\.bilibili\.com\/pgc
 bilibili.airborne = type=http-request, pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile$, script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.request.js, requires-body=true, binary-body-mode=true, timeout=10, argument=[true]
 bilibili.request = type=http-request, pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.viewunite\.v1\.View\/View|main\.community\.reply\.v1\.Reply\/MainList)$, script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.request.js, requires-body=true, binary-body-mode=true, timeout=10, argument="[{purifyComment}, true]"
 bilibili.live = type=http-response, pattern=^https:\/\/api\.live\.bilibili\.com\/xlive\/(app-interface\/v2\/index\/feed|app-room\/v1\/index\/getInfoBy(Room|User))\?, script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.json.js, requires-body=true
-bilibili.protobuf = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$, script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, argument="[{displayUpList}, {purifyComment}, true, true]"
+bilibili.protobuf = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed|AIRelateAsync|FloorAdSearch|PlayPause|ViewEndPage|TFInfo)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, argument="[{displayUpList}, {purifyComment}, true, true]"
 小红书搜索页 = type=http-response, pattern=^https?:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/search\/(banner|hot)_list, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60
 小红书搜索页 = type=http-response, pattern=^https?:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/search\/(hint|trending)\?, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60
 小红书搜索页 = type=http-response, pattern=^https?:\/\/(so|edith)\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/search\/notes\?, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60

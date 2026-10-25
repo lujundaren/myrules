@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-25 21:46:02 UTC",
+  "generated": "2026-10-26 05:19:03 UTC",
   "sources_ok": 47,
   "sources_total": 47,
   "mitm_hosts": [
@@ -164,7 +164,7 @@
       "host": "raw.githubusercontent.com"
     },
     {
-      "url": "https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.response.js",
+      "url": "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.protobuf.response.js",
       "host": "raw.githubusercontent.com"
     },
     {

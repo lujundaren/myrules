@@ -127,20 +127,32 @@ if (body) {
       }
     }
 
-    // 6. 视频详情页横幅广告与相关推荐推广过滤【补全】
+    // 6. 视频详情页横幅广告、暂停广告物料与相关推荐推广过滤【补全】
     else if (url.includes('/x/v2/view')) {
       if (obj.data) {
+        // 移除播放器横幅、活动浮层与商业模块
         delete obj.data.activity_banner;
         delete obj.data.activity_banner_info;
         delete obj.data.cm;
         delete obj.data.cm_config;
         delete obj.data.special_cell;
+        delete obj.data.elec; // 充电鸣谢与带货打赏
+        delete obj.data.tag_info; // 商业导购标签
+        delete obj.data.commercial_tags;
+        delete obj.data.view_addit; // 底部浮层组件
+        delete obj.data.ad_info;
+        delete obj.data.banner_item;
+        delete obj.data.player_icon; // 播放器活动装扮与图标
+        delete obj.data.arc_heat; // 热度推广上报
         obj.data.cms = [];
+        
+        // 过滤播放页视频下方相关推荐 (Relates) 中的商业推广、游戏推荐、带货卡片
         if (Array.isArray(obj.data.relates)) {
           obj.data.relates = obj.data.relates.filter(r => {
             if (r.goto && r.goto !== 'av') return false;
-            if (r.is_ad) return false;
-            if (r.ad_info) return false;
+            if (r.is_ad || r.ad_info || r.cm_stock) return false;
+            if (r.card_type && /banner|cm|game|live|special|course/i.test(r.card_type)) return false;
+            if (r.badge && /广告|推广|合作|游戏/i.test(r.badge)) return false;
             return true;
           });
         }
