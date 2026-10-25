@@ -22,18 +22,18 @@ https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWA
 
 # ----------------- 2. 微信生态与小程序优化 -----------------
 # 微信公众号文章内嵌广告与底部推广过滤
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatOfficialAccount.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partW/WeChatOfficialAccount.srmodule
 
 # 微信外链拦截限制解锁（自动跳过“非微信官方网页”中间提示页）
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WeChatUnlockLinkRestrict.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partW/WeChatUnlockLinkRestrict.srmodule
 
 
 # ----------------- 3. QQ 与腾讯全系生态净化 -----------------
 # QQ音乐：开屏摇一摇广告、播放页弹窗与商业推荐流去除（已含腾讯通用exapp拦截）
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partQ/QQMusic.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partQ/QQMusic.srmodule
 
 # 腾讯系通用组件净化 (Tencent)：腾讯系应用内通用广告模块清理
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partT/Tencent.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partT/Tencent.srmodule
 
 # 心悦俱乐部 (XinYueClub)：开屏闪屏广告、首页活动弹窗与商业推广过滤
 modules/XinYueClub.sgmodule
@@ -41,77 +41,77 @@ modules/XinYueClub.sgmodule
 
 # ----------------- 4. 社交、社区、资讯与学习工具 -----------------
 # 币安 (Binance)：开屏广告与活动营销弹窗净化
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/Binance.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partB/Binance.srmodule
 
 # 哔哩哔哩 (Bilibili)：完整保留原版页面元素与TAB设定，补全视频暂停广告、详情页横幅与搜索推广视频拦截
 modules/Bilibili.sgmodule
 
 # 小红书 (Xiaohongshu)：瀑布流商业推广笔记、开屏广告净化
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/Xiaohongshu.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partX/Xiaohongshu.srmodule
 
 # 知乎 (Zhihu)：信息流商业推广、推荐列表穿插广告过滤
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/Zhihu.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partZ/Zhihu.srmodule
 
 # 新浪微博 (Weibo)：开屏全屏广告、时间线广告卡片与超话热门推广净化
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/weibo.module
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/weibo.srmodule
 
 # 豆瓣 (Douban)：开屏广告、书影音详情页商业推广卡片去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partD/Douban.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partD/Douban.srmodule
 
 # 酷安 (Coolapk)：开屏头条广告、应用评论区赞助卡片净化
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partK/Coolapk.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partK/Coolapk.srmodule
 
 # 夸克 (Quark)：开屏动画广告、首页搜索底纹、资讯流广告去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partK/Quark.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partK/Quark.srmodule
 
 # 百度网盘 (BaiduNetdisk)：开屏广告、浮层弹窗及首页商业推广横幅
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/BaiduNetdisk.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partB/BaiduNetdisk.srmodule
 
 # WPS Office：开屏全屏广告、模板推荐与会员推广弹窗过滤
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/WPS.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partW/WPS.srmodule
 
 # 联想 (Lenovo)：开屏广告与商城推荐净化
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partL/Lenovo.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partL/Lenovo.srmodule
 
 # 牛津词典系列 (Oxford ALD)：首页下方横幅与开屏商业广告去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partN/OxfordALD10th.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partN/OxfordALD10th.srmodule
 
 
 # ----------------- 5. 影音媒体与视听娱乐 -----------------
 # 抖音 / 字节跳动 (ByteDance)：开屏广告、信息流推广与数据埋点上报拦截
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/ByteDance.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partZ/ByteDance.srmodule
 
 # 网易云音乐 (NetEaseCloudMusic)：开屏广告、播放器界面广告、播客推广过滤
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partW/NetEaseCloudMusic.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partW/NetEaseCloudMusic.srmodule
 
 # 爱奇艺 (iQIYI)：开屏广告与播放前贴片广告拦截
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partA/iQIYI.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partA/iQIYI.srmodule
 
 # 优酷视频 (Youku)：开屏广告、暂停广告及信息流推广卡片去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partY/Youku.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partY/Youku.srmodule
 
 # 芒果TV (MangoTV)：开屏视频广告、播放前贴片广告与信息流广告拦截
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partM/MangoTV.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partM/MangoTV.srmodule
 
 
 # ----------------- 6. 生活服务、出行地图、金融与运营商 -----------------
 # 高德地图 (AutoNavi)：首页浮层、图层推广、打车优惠券弹窗去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partG/AutoNavi.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partG/AutoNavi.srmodule
 
 # 百度地图 (BaiduMaps)：打车浮标、路线推荐商业广告、首页悬浮窗去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partB/BaiduMaps.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partB/BaiduMaps.srmodule
 
 # 滴滴出行 (DiDi)：路线规划页弹窗、腰封及红包推广过滤
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partD/DiDiChuxing.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partD/DiDiChuxing.srmodule
 
 # 铁路12306：开屏全屏广告、首页顶栏轮播广告与接驳打车推广去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/part1/12306.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/part1/12306.srmodule
 
 # 交管12123：开屏广告去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/part1/12123.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/part1/12123.srmodule
 
 # 航旅纵横 (HangLvZongHeng)：开屏广告、首页推荐浮层与航班接送机弹窗去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partH/HangLvZongHeng.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partH/HangLvZongHeng.srmodule
 
 # 墨迹天气 (MojiWeather)：开屏广告、天气页浮窗与短视频、瀑布流商业推广、时景动态推荐及精简我的页面
 modules/MojiWeather.sgmodule
@@ -123,19 +123,19 @@ modules/Meituan.sgmodule
 modules/Eleme.sgmodule
 
 # 中国联通 (ChinaUnicom)：营业厅开屏广告与账单页推广净化
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partZ/ChinaUnicom.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partZ/ChinaUnicom.srmodule
 
 # 中国移动 (ChinaMobile)：稳定去除开屏广告与悬浮窗（不干扰 client.app.coc，保留话费流量正常刷新）
 modules/ChinaMobile.sgmodule
 
 # 云闪付 (UnionPay)：开屏全屏广告与首页运营活动弹窗去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partY/UnionPayCloudPay.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partY/UnionPayCloudPay.srmodule
 
 # 中国工商银行 (ICBC)：手机银行广告浮窗与横幅推广净化
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partG/ICBC.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partG/ICBC.srmodule
 
 # U净 (UJing)：海尔智能洗衣开屏广告与营销弹窗拦截
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partU/UJing.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partU/UJing.srmodule
 
 
 # ----------------- 7. 电商购物与二手闲置 -----------------
@@ -143,16 +143,16 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/pa
 modules/JD.sgmodule
 
 # 淘宝 (Taobao)：开屏动画、首页活动弹窗浮层去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partT/Taobao.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partT/Taobao.srmodule
 
 # 拼多多 (Pinduoduo)：开屏广告、大促全屏红包弹窗与浮标去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partP/Pinduoduo.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partP/Pinduoduo.srmodule
 
 # 闲鱼 (XianYu)：首页穿插广告、商品瀑布流中的推广商品过滤
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partX/XianYu.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partX/XianYu.srmodule
 
 # 识货 (ShiHuo)：开屏全屏广告、商品列表推广标签净化
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partS/ShiHuo.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partS/ShiHuo.srmodule
 
 
 # ----------------- 8. 常用国际流行应用 -----------------
@@ -161,15 +161,15 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/pa
 modules/YouTubeAd.sgmodule
 
 # X / Twitter：信息流推广推文、赞助商广告净化
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/XWebAds.module
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/XWebAds.srmodule
 
 # Reddit：官方客户端信息流广告过滤与推广帖子清理
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partR/Reddit.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partR/Reddit.srmodule
 
 # TikTok：VirgilClyne 官方维护版，海外版抖音信息流广告过滤与解锁增强
 https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/modules/Fries.TikTok.sgmodule
 
 # Spotify：手机端/网页端播放音频与弹窗广告过滤
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/partS/Spotify.sgmodule
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partS/Spotify.srmodule
 # Last updated: 2026-10-25 19:11:34 UTC - Shadowrocket h2 WebKit engine and JS script support
 # Updated at 2026-10-25T18:50:47Z
