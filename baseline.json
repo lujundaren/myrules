@@ -1,8 +1,6 @@
 {
-  "updated": "2026-10-25 19:39:15 UTC",
+  "updated": "2026-10-25 20:20:33 UTC",
   "source_hashes": {
-    "modules/general.sgmodule": "f2e5ce77af1fbb32fa2e6810bd03120619d262c25c230b54c36a3f357df0edf0",
-    "modules/Block_HTTPDNS.sgmodule": "15739e4bc2374f9032d9776d81df601c27f3a33b047904255631a622221e1cae",
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "8b749aa552c65b6da62df95d4d7193bcb3f8fb92ba43542896f185c692270122",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partW/WeChatOfficialAccount.srmodule": "85f6fea3805867aa5d9bae2330237df66d40c3f0792aa7ef8ca2f74485350ba4",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partW/WeChatUnlockLinkRestrict.srmodule": "45f0f9ec2e52c1983028f43be849894111b45ddf2a16274f432c1cc861c247f8",
@@ -87,10 +85,6 @@
   "mitm_hosts": [
     "-i.vip.iqiyi.com",
     "-redirector*.googlevideo.com",
-    "appconf.mail.163.com",
-    "gw-cn.jiaoliuqu.com",
-    "msglb.91160.com",
-    "ucdc2-upaas.uc.cn",
     "mp.weixin.qq.com",
     "weixin110.qq.com",
     "security.wechat.com",
