@@ -129,10 +129,10 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/s
 modules/ChinaMobile.sgmodule
 
 # 云闪付 (UnionPay)：开屏全屏广告与首页运营活动弹窗去除
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partY/UnionPayCloudPay.srmodule
+#https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partY/UnionPayCloudPay.srmodule
 
 # 中国工商银行 (ICBC)：手机银行广告浮窗与横幅推广净化
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partG/ICBC.srmodule
+#https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partG/ICBC.srmodule
 
 # U净 (UJing)：海尔智能洗衣开屏广告与营销弹窗拦截
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partU/UJing.srmodule
