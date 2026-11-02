@@ -123,10 +123,10 @@ modules/Meituan.sgmodule
 modules/Eleme.sgmodule
 
 # 中国联通 (ChinaUnicom)：营业厅开屏广告与账单页推广净化
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partZ/ChinaUnicom.srmodule
+#https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partZ/ChinaUnicom.srmodule
 
 # 中国移动 (ChinaMobile)：稳定去除开屏广告与悬浮窗（不干扰 client.app.coc，保留话费流量正常刷新）
-modules/ChinaMobile.sgmodule
+#modules/ChinaMobile.sgmodule
 
 # 云闪付 (UnionPay)：开屏全屏广告与首页运营活动弹窗去除
 #https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partY/UnionPayCloudPay.srmodule
