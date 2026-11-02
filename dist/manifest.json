@@ -1,7 +1,7 @@
 {
-  "generated": "2026-11-01 22:47:22 UTC",
-  "sources_ok": 47,
-  "sources_total": 47,
+  "generated": "2026-11-02 06:44:55 UTC",
+  "sources_ok": 45,
+  "sources_total": 45,
   "mitm_hosts": [
     "-i.vip.iqiyi.com",
     "-redirector*.googlevideo.com",
@@ -122,7 +122,6 @@
     "m.sd.10086.cn",
     "gd.10086.cn",
     "gx.10086.cn",
-    "v.icbc.com.cn",
     "api-marketing.zhinengxiyifang.cn",
     "adsoss.zhinengxiyifang.cn",
     "ads.zhinengxiyifang.cn",
