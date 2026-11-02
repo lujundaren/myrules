@@ -1,5 +1,5 @@
 #!name=去广告规则增强版
-#!desc=每日自动合并 | 源 45 | MITM 141 | 脚本 31 | 2026-11-02 06:44:55 UTC
+#!desc=每日自动合并 | 源 43 | MITM 130 | 脚本 31 | 2026-11-02 07:24:43 UTC
 #!category=广告拦截
 #!author=lujundaren
 
@@ -1323,48 +1323,6 @@ DOMAIN-SUFFIX,client-api.ele.me,REJECT
 DOMAIN-SUFFIX,grand.ele.me,REJECT
 DOMAIN-SUFFIX,mobile-pubt.ele.me,REJECT
 DOMAIN-SUFFIX,newton-api.ele.me,REJECT
-DOMAIN-SUFFIX,m1.ad.10010.com,REJECT
-DOMAIN,dsp.aikan.miguvideo.com,REJECT
-DOMAIN,gginvasdk.miguvideo.com,REJECT
-DOMAIN,ggstaticcache.miguvideo.com,REJECT
-DOMAIN,ggadoffline.miguvideo.com,REJECT
-DOMAIN,scache.cmam.migu.cn,REJECT
-DOMAIN,logs.aikan.miguvideo.com,REJECT
-DOMAIN,gw.aikan.miguvideo.com,REJECT
-DOMAIN,uem.migu.cn,REJECT
-DOMAIN,uemweb.migu.cn,REJECT
-DOMAIN,hippo.migu.cn,REJECT
-DOMAIN,hound.migu.cn,REJECT
-DOMAIN-WILDCARD,ggx*.miguvideo.com,REJECT
-DOMAIN,display-sc.miguvideo.com,REJECT
-DOMAIN,display2-sc.miguvideo.com,REJECT
-DOMAIN,display.miguvideo.com,REJECT
-DOMAIN,app-sc.miguvideo.com,REJECT
-DOMAIN,app2-sc.miguvideo.com,REJECT
-DOMAIN,common-sc.miguvideo.com,REJECT
-DOMAIN,common2-sc.miguvideo.com,REJECT
-DOMAIN,dns.app.coc.10086.cn,REJECT
-DOMAIN,img.cmvideo.cn,REJECT
-DOMAIN,adxserver.ad.cmvideo.cn,REJECT
-DOMAIN,ggadjust.cmvideo.cn,REJECT
-DOMAIN,ggc.cmvideo.cn,REJECT
-DOMAIN,ggtagbuffer.cmvideo.cn,REJECT
-DOMAIN,ggtagcache.cmvideo.cn,REJECT
-DOMAIN-SUFFIX,ad.cmvideo.cn,REJECT
-DOMAIN-SUFFIX,cmvideo.cn,REJECT
-DOMAIN,ad.mcloud.139.com,REJECT
-DOMAIN,da.mmarket.com,REJECT
-DOMAIN,ad.10086.cn,REJECT
-DOMAIN,m1.ad.10086.cn,REJECT
-DOMAIN,ads.10086.cn,REJECT
-DOMAIN,gg.10086.cn,REJECT
-DOMAIN,cdn.cmgadx.com,REJECT
-DOMAIN-SUFFIX,cmgadx.com,REJECT
-DOMAIN,dc.cmicapm.com,REJECT
-DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
-DOMAIN-SUFFIX,pglstatp.com,REJECT
 URL-REGEX,^http:\/\/\w{32}\.jddebug\.com\/diagnose\?,REJECT
 DOMAIN-SUFFIX,apoll.m.taobao.com,REJECT
 DOMAIN-SUFFIX,h-adashx.ut.taobao.com,REJECT
@@ -1491,13 +1449,6 @@ AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
 ^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize - reject-200
 ^https?:\/\/cube\.elemecdn\.com\/\w\/\w{2}\/\w+mp4\.mp4\? - reject-200
 ^https?:\/\/(nr-op|cube)\.elemecdn\.com\/.+\.jpeg\?x-oss-process=image\/resize - reject-200
-^https?:\/\/clientaccess\.10086\.cn\/biz-orange\/DN\/init\/startInit - reject-200
-^https?:\/\/(client\.app\.coc|app|clientaccess)\.10086\.cn\/biz-orange\/DN\/emotionMarket - reject-200
-^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/explorePage\/getAdverList - reject-200
-^https?:\/\/wap\.js\.10086\.cn\/jsmccClient\/cd\/market_content\/api\/v\d\/market_content\.page\.query - reject-200
-^https?:\/\/m\.sd\.10086\.cn\/zapi\/app_common\/homeWelcome\/welcome\.do - reject-200
-^https?:\/\/gd\.10086\.cn\/gmccapp\/serv\/\?servicename=GMCCAPP_704_002_001_001 - reject-200
-^https?:\/\/gx\.10086\.cn\/zt-portal\/gxhzg\/portal\/app\/api\/v - reject-200
 ^https?:\/\/api-marketing\.zhinengxiyifang\.cn\/api\/v2\/cloudcode\/wechat\/bid - reject
 ^https?:\/\/adsoss\.zhinengxiyifang\.cn\/ads - reject
 ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06]) reject-dict
@@ -1600,15 +1551,6 @@ https?:\/\/(ipv4|interface\d?)\.music\.163.com\/e?api\/ad data-type=text data="{
 ^https?:\/\/gss0\.bdstatic\.com\/.+?\/static\/wiseindex\/img\/bd_red_packet\.png data-type=tiny-gif
 ^https?:\/\/hd\.xiaojukeji\.com\/d data-type=text data="{}" header="Content-Type:application/json"
 ^https?:\/\/fuss10\.elemecdn\.com\/.+?\.mp4 data-type=tiny-gif status-code=200
-^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) data-type=tiny-gif
-^https?:\/\/m\.client\.10010\.com\/mobileService\/customer\/getclientconfig\.htm data-type=text data="{}" header="Content-Type:application/json"
-^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getHomePageAd|getWelcomeAd) data-type=tiny-gif
-^https?:\/\/[^(apple|10010)]+\.(com|cn)\/(a|A)d(s|v)?(\/|\.js) data-type=tiny-gif
-^https?:\/\/m1\.ad\.10010\.com\/noticeMag\/images\/imageUpload\/2\d{3} data-type=tiny-gif
-^https?:\/\/res\.mall\.10010\.cn\/mall\/common\/js\/fa\.js?referer= data-type=tiny-gif
-^https?:\/\/aikanvod\.miguvideo\.com\/video\/p\/i_adverse(Interface|OfSsp)\.jsp data-type=text data="{\"returnCode\":\"0000\",\"message\":\"success\",\"body\":{\"adList\":[],\"splash\":[]}}" status-code=200 header="Content-Type:application/json"
-^https?:\/\/dsp\.aikan\.miguvideo\.com\/.* data-type=text data="{\"returnCode\":\"0000\",\"body\":{}}" status-code=200 header="Content-Type:application/json"
-^https?:\/\/ad\.mcloud\.139\.com\/.* data-type=text data="{\"code\":\"0\",\"data\":[]}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/ads\.zhinengxiyifang\.cn\/api\/v1\.1\/ads\/* data-type=text data=" "
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv data-type=text data="{}" header="Content-Type:application/json"
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise data-type=text data="{}" header="Content-Type:application/json"
@@ -1766,4 +1708,4 @@ Protobuf = type=http-response, pattern=^https:\/\/(?:\w+-spclient|spclient\.wg)\
 
 [MITM]
 h2 = true
-hostname = %APPEND% -i.vip.iqiyi.com, -redirector*.googlevideo.com, mp.weixin.qq.com, weixin110.qq.com, security.wechat.com, us.l.qq.com, y.gtimg.cn, music.y.qq.com, bgw.xinyue.qq.com, *.xinyue.qq.com, xinyue.qq.com, djcapp.game.qq.com, *.gdt.qq.com, 119.29.29.29, www.binance.info, www.yingwangtech.net, www.binance.com, grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, line3-h5-mobile-api.biligame.com, cm.bilibili.com, edith.xiaohongshu.com, www.xiaohongshu.com, ci.xiaohongshu.com, rec.xiaohongshu.com, so.xiaohongshu.com, edith.rnote.com, www.rnote.com, ci.rnote.com, so.rnote.com, rec.rnote.com, api.zhihu.com, www.zhihu.com, appcloud2.zhihu.com, m-cloud.zhihu.com, zhuanlan.zhihu.com, link.zhihu.com, *.weibo.cn, *.weibo.com, weibo.com, api.douban.com, api.coolapk.com, www.coolapk.com, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, ios.wps.cn, mobile-pic.cache.iciba.com, api.club.lenovo.cn, oxadmin.cp.com.cn, *.pstatp.com, amemv.com, musical.com, snssdk.com, tiktokv.com, dsp.toutiao.com, ipv4.music.163.com, interface.music.163.com, interface3.music.163.com, interface9.music.163.com, *.iqiyi.com, acs.youku.com, push.m.youku.com, un-acs.youku.com, *.mgtv.com, m*.amap.com, optimus-ads.amap.com, amap-aos-info-nogw.amap.com, dss0.bdstatic.com, tb1.bdstatic.com, tb2.bdstatic.com, ss0.bdstatic.com, gss0.bdstatic.com, newclient.map.baidu.com, res.xiaojukeji.com, common.diditaxi.com.cn, hd.xiaojukeji.com, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, conf.diditaxi.com.cn, ad.12306.cn, gab.122.gov.cn, home.umetrip.com, discardrp.umetrip.com, startup.umetrip.com, oss.umetrip.com, *.api.moji.com, fcard.api.moji.com, vdo.api.moji.com, sns.api.moji.com, mme.api.moji.com, psnlz.api.moji.com, adlaunch.moji.com, tnc*.zijieapi.com, wmapi.meituan.com, alita.waimai.meituan.com, portal-portm.meituan.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, nr-op.elemecdn.com, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, aikanvod.miguvideo.com, dsp.aikan.miguvideo.com, ad.mcloud.139.com, clientaccess.10086.cn, wap.js.10086.cn, m.sd.10086.cn, gd.10086.cn, gx.10086.cn, api-marketing.zhinengxiyifang.cn, adsoss.zhinengxiyifang.cn, ads.zhinengxiyifang.cn, api.m.jd.com, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, acs.m.goofish.com, g-acs.m.goofish.com, sh-gateway.shihuo.cn, static.shihuocdn.cn, *.googlevideo.com, www.youtube.com, s.youtube.com, youtubei.googleapis.com, x.com, *.tiktokv.com, *-spclient.spotify.com, spclient.wg.spotify.com
+hostname = %APPEND% -i.vip.iqiyi.com, -redirector*.googlevideo.com, mp.weixin.qq.com, weixin110.qq.com, security.wechat.com, us.l.qq.com, y.gtimg.cn, music.y.qq.com, bgw.xinyue.qq.com, *.xinyue.qq.com, xinyue.qq.com, djcapp.game.qq.com, *.gdt.qq.com, 119.29.29.29, www.binance.info, www.yingwangtech.net, www.binance.com, grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, line3-h5-mobile-api.biligame.com, cm.bilibili.com, edith.xiaohongshu.com, www.xiaohongshu.com, ci.xiaohongshu.com, rec.xiaohongshu.com, so.xiaohongshu.com, edith.rnote.com, www.rnote.com, ci.rnote.com, so.rnote.com, rec.rnote.com, api.zhihu.com, www.zhihu.com, appcloud2.zhihu.com, m-cloud.zhihu.com, zhuanlan.zhihu.com, link.zhihu.com, *.weibo.cn, *.weibo.com, weibo.com, api.douban.com, api.coolapk.com, www.coolapk.com, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, ios.wps.cn, mobile-pic.cache.iciba.com, api.club.lenovo.cn, oxadmin.cp.com.cn, *.pstatp.com, amemv.com, musical.com, snssdk.com, tiktokv.com, dsp.toutiao.com, ipv4.music.163.com, interface.music.163.com, interface3.music.163.com, interface9.music.163.com, *.iqiyi.com, acs.youku.com, push.m.youku.com, un-acs.youku.com, *.mgtv.com, m*.amap.com, optimus-ads.amap.com, amap-aos-info-nogw.amap.com, dss0.bdstatic.com, tb1.bdstatic.com, tb2.bdstatic.com, ss0.bdstatic.com, gss0.bdstatic.com, newclient.map.baidu.com, res.xiaojukeji.com, common.diditaxi.com.cn, hd.xiaojukeji.com, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, conf.diditaxi.com.cn, ad.12306.cn, gab.122.gov.cn, home.umetrip.com, discardrp.umetrip.com, startup.umetrip.com, oss.umetrip.com, *.api.moji.com, fcard.api.moji.com, vdo.api.moji.com, sns.api.moji.com, mme.api.moji.com, psnlz.api.moji.com, adlaunch.moji.com, tnc*.zijieapi.com, wmapi.meituan.com, alita.waimai.meituan.com, portal-portm.meituan.com, elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, nr-op.elemecdn.com, api-marketing.zhinengxiyifang.cn, adsoss.zhinengxiyifang.cn, ads.zhinengxiyifang.cn, api.m.jd.com, acs.m.taobao.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, api.pinduoduo.com, api.yangkeduo.com, mobile.yangkeduo.com, acs.m.goofish.com, g-acs.m.goofish.com, sh-gateway.shihuo.cn, static.shihuocdn.cn, *.googlevideo.com, www.youtube.com, s.youtube.com, youtubei.googleapis.com, x.com, *.tiktokv.com, *-spclient.spotify.com, spclient.wg.spotify.com
