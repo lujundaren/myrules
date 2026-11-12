@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-11 00:02:02 UTC",
+  "generated": "2026-11-12 01:31:57 UTC",
   "sources_ok": 43,
   "sources_total": 43,
   "mitm_hosts": [
@@ -48,6 +48,8 @@
     "api.douban.com",
     "api.coolapk.com",
     "www.coolapk.com",
+    "open-cms-api.uc.cn",
+    "open-cms-api.quark.cn",
     "pan.baidu.com",
     "ndstatic.cdn.bcebos.com",
     "staticsns.cdn.bcebos.com",
@@ -130,6 +132,8 @@
     "s.youtube.com",
     "youtubei.googleapis.com",
     "x.com",
+    "gql.reddit.com",
+    "gql-fed.reddit.com",
     "*.tiktokv.com",
     "*-spclient.spotify.com",
     "spclient.wg.spotify.com"
