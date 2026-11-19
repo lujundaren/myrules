@@ -81,11 +81,12 @@ if (body) {
     // 4. 开屏广告秒跳
     else if (url.includes('/x/v2/splash/')) {
       if (obj.data) {
+        const _showType = typeof obj.data.show;
         delete obj.data.show;
         delete obj.data.event_list;
         delete obj.data.preload;
         delete obj.data.account;
-        obj.data.show = [];
+        obj.data.show = (_showType === 'boolean') ? false : ((_showType === 'number') ? 0 : []);
         obj.data.event_list = [];
         obj.data.max_time = 0;
         obj.data.min_interval = 31536000;
@@ -144,6 +145,13 @@ if (body) {
         delete obj.data.banner_item;
         delete obj.data.player_icon; // 播放器活动装扮与图标
         delete obj.data.arc_heat; // 热度推广上报
+        delete obj.data.pause_ad_data; // 暂停广告物料（服务端下发兜底）
+        delete obj.data.pause_bcm_ad_info;
+        delete obj.data.story_ad_info; // Story 广告信息
+        delete obj.data.relate_cm; // 相关推荐推广位
+        delete obj.data.pad_relate_cm; // Pad 相关推荐推广位
+        delete obj.data.cm_stock;
+        delete obj.data.ad_json;
         obj.data.cms = [];
         
         // 过滤播放页视频下方相关推荐 (Relates) 中的商业推广、游戏推荐、带货卡片
@@ -175,10 +183,39 @@ if (body) {
             if (i.linktype && /_ad_?$/i.test(i.linktype)) return false;
             if (i.card_goto && /_?ad/i.test(i.card_goto)) return false;
             if (i.ad_info) return false;
+            if (i.business_id || i.business_type) return false;
             return true;
           });
         }
       }
+    }
+
+    // 7.1 首页/频道页 Banner 广告位（REA: /x/v2/banner）
+    else if (url.includes('/x/v2/banner')) {
+      if (obj.data) {
+        if (Array.isArray(obj.data.banners)) obj.data.banners = [];
+        if (Array.isArray(obj.data.items)) obj.data.items = [];
+        delete obj.data.banner_item;
+        delete obj.data.ad_info;
+      }
+    }
+
+    // 7.2 弹幕广告配置（REA: /x/v2/dm/ad）
+    else if (url.includes('/x/v2/dm/ad')) {
+      if (obj.data) {
+        obj.data = {};
+      }
+    }
+
+    // 7.3 弹窗 / 浮层 / Deeplink 广告（REA: pandora/popup, push/popup/config, resource/pop/up, resource/deeplink/ad）
+    else if (url.includes('/x/pandora/popup') || url.includes('/x/push/popup/config') || url.includes('/x/resource/pop/up') || url.includes('/x/resource/deeplink/ad')) {
+      if (obj.data) obj.data = {};
+      if (obj.config) obj.config = {};
+    }
+
+    // 7.4 开屏活动卡片（REA: /x/vas/dlc_act/card/splash_info）
+    else if (url.includes('/x/vas/dlc_act/card/splash_info')) {
+      if (obj.data) obj.data = {};
     }
 
     // 8. 皮肤装备去广告
