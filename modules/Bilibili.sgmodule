@@ -7,6 +7,8 @@
 # 商业广告投放与回传（REA：cm.bilibili.com 仅承载广告投放/落地，直接 REJECT 最省流）
 DOMAIN,cm.bilibili.com,REJECT
 DOMAIN,dataflow.biliapi.com,REJECT
+# PCDN 节点（原模块规则，按用户要求原样保留；PCDN 节点会插播推广，拦截后视频回落到官方 CDN）
+DOMAIN-WILDCARD,*pcdn*.biliapi.net,REJECT
 AND,((DOMAIN-SUFFIX,chat.bilibili.com),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWORD,tracker)))),REJECT
 
 [Header Rewrite]
