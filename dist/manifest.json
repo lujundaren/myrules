@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-19 01:12:17 UTC",
+  "generated": "2026-11-19 17:08:26 UTC",
   "sources_ok": 43,
   "sources_total": 43,
   "mitm_hosts": [
@@ -22,10 +22,14 @@
     "www.binance.com",
     "grpc.biliapi.net",
     "app.bilibili.com",
+    "app.biliapi.net",
+    "app.biliapi.com",
     "api.bilibili.com",
+    "api.biliapi.net",
+    "api.biliapi.com",
     "api.live.bilibili.com",
     "line3-h5-mobile-api.biligame.com",
-    "cm.bilibili.com",
+    "miniapp.bilibili.com",
     "edith.xiaohongshu.com",
     "www.xiaohongshu.com",
     "ci.xiaohongshu.com",
