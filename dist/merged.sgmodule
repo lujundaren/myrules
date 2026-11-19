@@ -1,5 +1,5 @@
 #!name=去广告规则增强版
-#!desc=每日自动合并 | 源 43 | MITM 138 | 脚本 31 | 2026-11-19 17:08:26 UTC
+#!desc=每日自动合并 | 源 43 | MITM 138 | 脚本 31 | 2026-11-19 18:19:16 UTC
 #!category=广告拦截
 #!author=lujundaren
 
@@ -1101,6 +1101,7 @@ DOMAIN-SUFFIX,qzs.gdtimg.com,REJECT
 DOMAIN,sdkreport.e.qq.com,REJECT
 DOMAIN,cm.bilibili.com,REJECT
 DOMAIN,dataflow.biliapi.com,REJECT
+DOMAIN-WILDCARD,*pcdn*.biliapi.net,REJECT
 AND,((DOMAIN-SUFFIX,chat.bilibili.com),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWORD,tracker)))),REJECT
 DOMAIN,ads-img-qc.xhscdn.com,REJECT
 DOMAIN,ads-img-al.xhscdn.com, REJECT
