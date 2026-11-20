@@ -33,6 +33,24 @@ function _isAdAny(b,st,en){if(en-st<3||b[st]!==10)return!1;var p={i:st+1},n;try{
 function _clean(b,d){var F;try{F=_pf(b,0,b.length);}catch(_){return {ch:!1,b:b};}var out=[],ch=!1,i;for(i=0;i<F.length;i++){var f=F[i];if(f.wt!==2){out.push({s:f.hs,e:f.end});continue;}if(_isAdAny(b,f.vs,f.ve)){ch=!0;continue;}var sub=b.subarray(f.vs,f.ve);if(d>0&&_adHit(sub)){var r=_clean(sub,d-1);if(r.ch){out.push({no:f.no,wt:2,content:r.b});ch=!0;continue;}}out.push({s:f.hs,e:f.end});}return {ch:ch,b:ch?_bld(b,out):b};}
 function _mangle(b){var out=b.slice(0),bad="bilibili.ad.v1.",good="bilibili.xx.v1.",i,j,off=0;while(!0){var at=-1;outer:for(;off<=out.length-bad.length;off++){for(j=0;j<bad.length;j++){if(out[off+j]!==bad.charCodeAt(j))continue outer;}at=off;break;}if(at<0)break;for(j=0;j<good.length;j++)out[at+j]=good.charCodeAt(j);off=at+good.length;}return out;}
 function _stripAdModules(buf){if(!buf||buf.length<8||!_adHit(buf))return buf;try{var r=_clean(buf,8).b;if(_adHit(r))r=_mangle(r);return r;}catch(_){return buf;}}
+/* Drop selected top-level length-delimited fields without disturbing the
+   remaining protobuf bytes.  Used for container fields which would otherwise
+   be round-tripped from protobuf-ts unknown fields after being cleared.
+     view.v1.ViewReply.cm_under_player      = 48
+     viewunite.v1.ViewReply.cm              = 7
+     viewunite.v1.AIRelateAsyncReply.cm     = 1 */
+function _dropWireFields(buf, fields){
+  if(!buf||!buf.length||!fields)return buf;
+  var F;
+  try{F=_pf(buf,0,buf.length);}catch(_){return buf;}
+  var out=[],changed=false;
+  for(var i=0;i<F.length;i++){
+    var f=F[i];
+    if(f.wt===2&&fields.indexOf(f.no)>=0){changed=true;continue;}
+    out.push({s:f.hs,e:f.end});
+  }
+  return changed?_bld(buf,out):buf;
+}
 
 var fi=(a,e)=>{let t=Kt.fromBinary(a.response.bodyBytes);return t.qoe=void 0,t.activityMeta.length=0,t.command?.commandDms.length&&(t.command.commandDms.length=0),a.response.bodyBytes=Kt.toBinary(t),e()},pi=(a,e)=>{let{purifyComment:t}=a.argument,n=tn.fromBinary(a.response.bodyBytes);n.cm=void 0,n.mixedCards.length=0;let r=[3,5];if(n.subjectTopCards=n.subjectTopCards.filter(i=>!r.includes(i.type)),t){let i=/https:\/\/b23\.tv\/(?:cm|mall)/,f=/淘宝|某宝|天猫|京东|狗东|拼多多|饿了么|美团|转转|妙界|神气小鹿/;n.topReplies=n.topReplies.filter(s=>{let o=s.content?.urls||{},l=s.content?.message||"";return!Object.keys(o).some(u=>i.test(u))&&!i.test(l)&&!f.test(l)})}return a.response.bodyBytes=tn.toBinary(n),e()},ui=(a,e)=>{let t=pn.fromBinary(a.response.bodyBytes);return t.viewInfo&&(t.viewInfo.tryWatchPromptBar=void 0),t.playExtConf?.castTips&&(t.playExtConf.castTips={code:0,message:""}),a.response.bodyBytes=pn.toBinary(t),e()};var _chkAd=(item)=>{
   if(item.linktype&&/_ad_?/i.test(item.linktype))return true;
@@ -50,5 +68,98 @@ var fi=(a,e)=>{let t=Kt.fromBinary(a.response.bodyBytes);return t.qoe=void 0,t.a
   }
   return false;
 };
+function _unknownText(entry){
+  var data=entry&&entry.data;
+  if(!data||!data.length)return "";
+  var p={i:0},n;
+  try{n=_vi(data,p,data.length);}catch(_){return "";}
+  if(n<0||p.i+n>data.length)return "";
+  var bytes=data.subarray(p.i,p.i+n);
+  try{return new TextDecoder().decode(bytes);}catch(_){return "";}
+}
+function _keepLegacyRelate(a){
+  if(!a||(a.cm&&a.cm.length)||a.uniqueId)return false;
+  var dest="",badge="",unknown=a[Symbol.for("protobuf-ts/unknown")];
+  if(Array.isArray(unknown)){
+    for(var i=0;i<unknown.length;i++){
+      var entry=unknown[i];
+      if(entry.no===7)dest=_unknownText(entry);
+      else if(entry.no===16)badge=_unknownText(entry);
+      else if(entry.no===32&&entry.data&&entry.data.length>1)return false;
+    }
+  }
+  if(/广告|推广|赞助/.test(badge))return false;
+  dest=dest.toLowerCase();
+  return dest!=="cm"&&dest!=="game"&&dest!=="live";
+}
+function _isCommercialRelate(a){
+  var types=[4,5,6,7,11];
+  return !a||types.indexOf(a.relateCardType)>=0||
+    !!(a.cmStock&&a.cmStock.length)||
+    !!(a.basicInfo&&a.basicInfo.uniqueId);
+}
+function _filterRelates(a){
+  return (a||[]).filter(function(item){return !_isCommercialRelate(item);});
+}
+function _filterModules(a){
+  var blocked=[5,18,29,37,55,63];
+  return (a||[]).filter(function(item){
+    if(blocked.indexOf(item.type)>=0)return false;
+    if(item.type===3&&item.data?.oneofKind==="headLine"){
+      item.data.headLine.label=void 0;
+    }
+    if(item.type===28&&item.data?.oneofKind==="relates"){
+      item.data.relates.cards=_filterRelates(item.data.relates.cards);
+    }
+    return true;
+  });
+}
+var znSafe=(a,e)=>{
+  let t=ft.fromBinary(_stripAdModules(_dropWireFields(a.response.bodyBytes,[48])));
+  try{delete t[Symbol.for("protobuf-ts/unknown")];}catch(_){}
+  t.label=void 0;
+  t.cmUnderPlayer=void 0;
+  t.cmIpad=void 0;
+  t.cmConfig=void 0;
+  if(t.reqUser)t.reqUser.elecPlusBtn=void 0;
+  if(t.cms)t.cms.length=0;
+  if(t.specialCellNew)t.specialCellNew.length=0;
+  t.relates=(t.relates||[]).filter(_keepLegacyRelate);
+  a.response.bodyBytes=ft.toBinary(t);
+  return e();
+};
+var eiSafe=(a,e)=>{
+  let t=ut.fromBinary(a.response.bodyBytes);
+  t.list=(t.list||[]).filter(_keepLegacyRelate);
+  a.response.bodyBytes=ut.toBinary(t);
+  return e();
+};
+var riSafe=(a,e)=>{
+  let t=$t.fromBinary(a.response.bodyBytes);
+  t.relates=_filterRelates(t.relates);
+  a.response.bodyBytes=$t.toBinary(t);
+  return e();
+};
+var aiSafe=(a,e)=>{
+  let t=Lt.fromBinary(_stripAdModules(_dropWireFields(a.response.bodyBytes,[7])));
+  try{delete t[Symbol.for("protobuf-ts/unknown")];}catch(_){}
+  t.cm=void 0;
+  if(t.reqUser)t.reqUser.elecPlusBtn=void 0;
+  if(t.tab&&t.tab.tabModule)t.tab.tabModule.forEach(function(item){
+    if(item.tab&&item.tab.oneofKind==="introduction"){
+      item.tab.introduction.modules=_filterModules(item.tab.introduction.modules);
+    }
+  });
+  a.response.bodyBytes=Lt.toBinary(t);
+  return e();
+};
+var siSafe=(a,e)=>{
+  let t=jt.fromBinary(_stripAdModules(_dropWireFields(a.response.bodyBytes,[1])));
+  try{delete t[Symbol.for("protobuf-ts/unknown")];}catch(_){}
+  t.cm=void 0;
+  if(t.module)t.module.modules=_filterModules(t.module.modules);
+  a.response.bodyBytes=jt.toBinary(t);
+  return e();
+};
 var zi=(a,e)=>{a.response.bodyBytes=new Uint8Array(0);return e()};
-var di=(a,e)=>{let t=yn.fromBinary(a.response.bodyBytes);return t.item=t.item.filter(r=>!_chkAd(r)),a.response.bodyBytes=yn.toBinary(t),e()};var R=new J({matchPath:In});R.post("v2.Dynamic/DynAll",L,Jn);R.post("playerunite.v1.Player/PlayViewUnite",Xn);R.post("playurl.v1.PlayURL/PlayView",Yn);R.post("v1.Popular/Index",Zn);R.post("view.v1.View/View",zn);R.post("view.v1.View/ViewProgress",L,Qn);R.post("view.v1.View/RelatesFeed",ei);R.post("viewunite.v1.View/ViewProgress",L,ti);R.post("viewunite.v1.View/RelatesFeed",ri);R.post("viewunite.v1.View/View",ai);R.post("viewunite.v1.View/AIRelateAsync",si);R.post("v1.DM/DmView",fi);R.post("v1.Reply/MainList",L,pi);R.post("v2.PlayURL/PlayView",ui);R.post("v1.Search/SearchAll",di);R.post("viewunite.v1.View/PlayPause",zi);R.post("view.v1.View/PlayPause",zi);R.post("viewunite.v1.View/FloorAdSearch",zi);R.post("viewunite.v1.View/ViewEndPage",zi);R.post("view.v1.View/TFInfo",zi);var mn=new H;mn.use(wn).use(Rn).use(kn).use(R.routes()).use(R.routeNotMatched());mn.run();
+var di=(a,e)=>{let t=yn.fromBinary(a.response.bodyBytes);return t.item=t.item.filter(r=>!_chkAd(r)),a.response.bodyBytes=yn.toBinary(t),e()};var R=new J({matchPath:In});R.post("v2.Dynamic/DynAll",L,Jn);R.post("playerunite.v1.Player/PlayViewUnite",Xn);R.post("playurl.v1.PlayURL/PlayView",Yn);R.post("v1.Popular/Index",Zn);R.post("view.v1.View/View",znSafe);R.post("view.v1.View/ViewProgress",L,Qn);R.post("view.v1.View/RelatesFeed",eiSafe);R.post("viewunite.v1.View/ViewProgress",L,ti);R.post("viewunite.v1.View/RelatesFeed",riSafe);R.post("viewunite.v1.View/View",aiSafe);R.post("viewunite.v1.View/AIRelateAsync",siSafe);R.post("v1.DM/DmView",fi);R.post("v1.Reply/MainList",L,pi);R.post("v2.PlayURL/PlayView",ui);R.post("v1.Search/SearchAll",di);R.post("viewunite.v1.View/PlayPause",zi);R.post("view.v1.View/PlayPause",zi);R.post("viewunite.v1.View/FloorAdSearch",zi);R.post("viewunite.v1.View/ViewEndPage",zi);R.post("view.v1.View/TFInfo",zi);var mn=new H;mn.use(wn).use(Rn).use(kn).use(R.routes()).use(R.routeNotMatched());mn.run();

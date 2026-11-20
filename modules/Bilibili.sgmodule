@@ -1,5 +1,5 @@
 #!name=哔哩哔哩
-#!desc=基于 REA 对 B 站 9.17.0 主二进制的逆向重写：MITM 覆盖 app/api 双域与 biliapi.net/com 备用域；在网络层直接以空 gRPC 帧终结暂停广告(PlayPause)、结束页广告(ViewEndPage)、底部广告(FloorAdSearch)、TFInfo；JSON 层补齐开屏品牌图、首页 Banner、搜索推广、带货物料与弹幕广告配置。保留原版顶栏/底栏页面元素设定。
+#!desc=基于 REA 对 B 站 9.17.0 主二进制的逆向重写：MITM 覆盖 app/api 双域与 biliapi.net/com 备用域；在网络层直接以空 gRPC 帧终结暂停广告(PlayPause)、结束页广告(ViewEndPage)、底部广告(FloorAdSearch)、TFInfo，并移除播放器下方横幅及推荐流商业卡；JSON 层补齐开屏品牌图、首页 Banner、搜索推广、带货物料与弹幕广告配置。保留原版顶栏/底栏页面元素设定。
 #!author=奶思, kokoryh, lujundaren
 #!category=去广告
 
