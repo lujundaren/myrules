@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21 00:47:25 UTC",
+  "updated": "2026-11-21 03:07:36 UTC",
   "source_hashes": {
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "f8ecf48e0e7d01150e34759d4e6275a38a4fc2f35822a58629d2399653c387bc",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partW/WeChatOfficialAccount.srmodule": "1ad6c23887d9a409c49ff571404fdd0a0df714f82aedf677cbc9a2070463ea71",
@@ -8,7 +8,7 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partT/Tencent.srmodule": "27bcffa4897a2056cfbc0aa721fb965e3697b8cdbbc0c68abe3c5855a2853dfc",
     "modules/XinYueClub.sgmodule": "7876d38524f3fd282785f04b416b0cac61b10f26102d2aad36ad53b9fb828ff1",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partB/Binance.srmodule": "0aa5585a9360ff3766beae4af31928b82566be97d641aab44fc9e0dc3b489f9c",
-    "modules/Bilibili.sgmodule": "7cd9224d6de8f60163ea4e83e1ea4126bcd725d7e652611cfa012fd2c9512842",
+    "modules/Bilibili.sgmodule": "4e87d5dfaa170725a42df67e3f8aee1135e3f4f9d987953ea97545365f8a06c2",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partX/Xiaohongshu.srmodule": "48ba9d9edf3eba430cef4288714b0754ff4754915d590629c3961eaaf122545c",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partZ/Zhihu.srmodule": "2b14cc00d83470d46c2df3af06e4d382180362da7affa01ddf27eab684bede3e",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/weibo.srmodule": "46e570c64e21258cd2c70ec4117d45ca00adbf6e0445a719ee1abd265686c2cc",
@@ -50,7 +50,7 @@
     "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.js": "a55dbf2bfa7215102f30ea62a35c298525f3a24e4f56744f85053b5746291846",
     "https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.request.js": "3d7cf60fb5730ac5ab14ab0aa11826df09f009db724562eb8483d907e4564bf0",
     "https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.json.js": "5b2e1a9c2b203648a75c1e7d1c8b20081005fce6d909fb378ab2c3b5c3b8e4cb",
-    "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.protobuf.response.js": "9fcb537ba6c830bebee7a658430a9248d991592d08d9ee2cfd9672b1145488d5",
+    "https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.protobuf.response.js": "af5ca947f8169ba730c0d26e5ddde1ac251708b7d2da8adbcfb73b193aa3c6a3",
     "https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js": "318d89bce1117edb26a93b383804e195649ec4674a04efa9e3ddb4ef7f34b498",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhihu/zhihu.js": "544fd88207b9d7005bb5cf427a1994028f91a95a65fde3db72a501983bff99f4",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/weibo/weibo_ads.js": "0f1f3eba5b2c96f4f089525ad033b578b6a18a2fd99eb95409e5b0816f4a4b34",
