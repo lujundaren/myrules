@@ -1,5 +1,5 @@
 #!name=去广告规则增强版
-#!desc=每日自动合并 | 源 43 | MITM 138 | 脚本 31 | 2026-11-21 03:08:56 UTC
+#!desc=每日自动合并 | 源 43 | MITM 138 | 脚本 31 | 2026-11-21 23:47:22 UTC
 #!category=广告拦截
 #!author=lujundaren
 
@@ -1115,7 +1115,6 @@ DOMAIN,appcloud2.in.zhihu.com,REJECT
 DOMAIN,mqtt.zhihu.com,REJECT
 DOMAIN,sugar.zhihu.com,REJECT
 DOMAIN,crash2.zhihu.com,REJECT
-DOMAIN,118.89.204.198,REJECT
 IP-CIDR,118.89.204.198/32,REJECT,no-resolve
 IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128,REJECT,no-resolve
 DOMAIN,zxid-m.mobileservice.cn,REJECT

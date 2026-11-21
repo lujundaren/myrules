@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21 03:08:56 UTC",
+  "updated": "2026-11-21 23:47:22 UTC",
   "source_hashes": {
     "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Shadowrocket.module": "f8ecf48e0e7d01150e34759d4e6275a38a4fc2f35822a58629d2399653c387bc",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partW/WeChatOfficialAccount.srmodule": "1ad6c23887d9a409c49ff571404fdd0a0df714f82aedf677cbc9a2070463ea71",
@@ -10,7 +10,7 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partB/Binance.srmodule": "0aa5585a9360ff3766beae4af31928b82566be97d641aab44fc9e0dc3b489f9c",
     "modules/Bilibili.sgmodule": "4e87d5dfaa170725a42df67e3f8aee1135e3f4f9d987953ea97545365f8a06c2",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partX/Xiaohongshu.srmodule": "48ba9d9edf3eba430cef4288714b0754ff4754915d590629c3961eaaf122545c",
-    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partZ/Zhihu.srmodule": "2b14cc00d83470d46c2df3af06e4d382180362da7affa01ddf27eab684bede3e",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partZ/Zhihu.srmodule": "354ec8b0850cbdde1d48a85532d528f9c2ebf0b642d07eecdd11405036d23bbd",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/weibo.srmodule": "46e570c64e21258cd2c70ec4117d45ca00adbf6e0445a719ee1abd265686c2cc",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partD/Douban.srmodule": "7a430344623b0c8a82d63751eca9d37af69bd62b8fc324f5de7ab248752ce35a",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Shadowrocket/module/split/partK/Coolapk.srmodule": "3131d4f3104a9d9cb0c796c077bad7b0f6f2cde880d53156018f3f3cd309dbfa",
