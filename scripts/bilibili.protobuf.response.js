@@ -116,7 +116,6 @@ function _filterModules(a){
 }
 var znSafe=(a,e)=>{
   let t=ft.fromBinary(_stripAdModules(_dropWireFields(a.response.bodyBytes,[48])));
-  try{delete t[Symbol.for("protobuf-ts/unknown")];}catch(_){}
   t.label=void 0;
   t.cmUnderPlayer=void 0;
   t.cmIpad=void 0;
@@ -142,7 +141,6 @@ var riSafe=(a,e)=>{
 };
 var aiSafe=(a,e)=>{
   let t=Lt.fromBinary(_stripAdModules(_dropWireFields(a.response.bodyBytes,[7])));
-  try{delete t[Symbol.for("protobuf-ts/unknown")];}catch(_){}
   t.cm=void 0;
   if(t.reqUser)t.reqUser.elecPlusBtn=void 0;
   if(t.tab&&t.tab.tabModule)t.tab.tabModule.forEach(function(item){
@@ -155,11 +153,22 @@ var aiSafe=(a,e)=>{
 };
 var siSafe=(a,e)=>{
   let t=jt.fromBinary(_stripAdModules(_dropWireFields(a.response.bodyBytes,[1])));
-  try{delete t[Symbol.for("protobuf-ts/unknown")];}catch(_){}
   t.cm=void 0;
   if(t.module)t.module.modules=_filterModules(t.module.modules);
   a.response.bodyBytes=jt.toBinary(t);
   return e();
 };
+function _safeTransform(handler){
+  return function(a,e){
+    var original=a.response&&a.response.bodyBytes;
+    try{
+      return handler(a,e);
+    }catch(err){
+      if(a.response)a.response.bodyBytes=original;
+      try{x.warn("[Bilibili] response transform skipped:",String(err));}catch(_){}
+      return e();
+    }
+  };
+}
 var zi=(a,e)=>{a.response.bodyBytes=new Uint8Array(0);return e()};
-var di=(a,e)=>{let t=yn.fromBinary(a.response.bodyBytes);return t.item=t.item.filter(r=>!_chkAd(r)),a.response.bodyBytes=yn.toBinary(t),e()};var R=new J({matchPath:In});R.post("v2.Dynamic/DynAll",L,Jn);R.post("playerunite.v1.Player/PlayViewUnite",Xn);R.post("playurl.v1.PlayURL/PlayView",Yn);R.post("v1.Popular/Index",Zn);R.post("view.v1.View/View",znSafe);R.post("view.v1.View/ViewProgress",L,Qn);R.post("view.v1.View/RelatesFeed",eiSafe);R.post("viewunite.v1.View/ViewProgress",L,ti);R.post("viewunite.v1.View/RelatesFeed",riSafe);R.post("viewunite.v1.View/View",aiSafe);R.post("viewunite.v1.View/AIRelateAsync",siSafe);R.post("v1.DM/DmView",fi);R.post("v1.Reply/MainList",L,pi);R.post("v2.PlayURL/PlayView",ui);R.post("v1.Search/SearchAll",di);R.post("viewunite.v1.View/PlayPause",zi);R.post("view.v1.View/PlayPause",zi);R.post("viewunite.v1.View/FloorAdSearch",zi);R.post("viewunite.v1.View/ViewEndPage",zi);R.post("view.v1.View/TFInfo",zi);var mn=new H;mn.use(wn).use(Rn).use(kn).use(R.routes()).use(R.routeNotMatched());mn.run();
+var di=(a,e)=>{let t=yn.fromBinary(a.response.bodyBytes);return t.item=t.item.filter(r=>!_chkAd(r)),a.response.bodyBytes=yn.toBinary(t),e()};var R=new J({matchPath:In});R.post("v2.Dynamic/DynAll",_safeTransform(L),_safeTransform(Jn));R.post("playerunite.v1.Player/PlayViewUnite",_safeTransform(Xn));R.post("playurl.v1.PlayURL/PlayView",_safeTransform(Yn));R.post("v1.Popular/Index",_safeTransform(Zn));R.post("view.v1.View/View",_safeTransform(znSafe));R.post("view.v1.View/ViewProgress",_safeTransform(L),_safeTransform(Qn));R.post("view.v1.View/RelatesFeed",_safeTransform(eiSafe));R.post("viewunite.v1.View/ViewProgress",_safeTransform(L),_safeTransform(ti));R.post("viewunite.v1.View/RelatesFeed",_safeTransform(riSafe));R.post("viewunite.v1.View/View",_safeTransform(aiSafe));R.post("viewunite.v1.View/AIRelateAsync",_safeTransform(siSafe));R.post("v1.DM/DmView",_safeTransform(fi));R.post("v1.Reply/MainList",_safeTransform(L),_safeTransform(pi));R.post("v2.PlayURL/PlayView",_safeTransform(ui));R.post("v1.Search/SearchAll",_safeTransform(di));R.post("viewunite.v1.View/PlayPause",_safeTransform(zi));R.post("view.v1.View/PlayPause",_safeTransform(zi));R.post("viewunite.v1.View/FloorAdSearch",_safeTransform(zi));R.post("viewunite.v1.View/ViewEndPage",_safeTransform(zi));var mn=new H;mn.use(wn).use(Rn).use(kn).use(R.routes()).use(R.routeNotMatched());mn.run();

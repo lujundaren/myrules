@@ -1,5 +1,5 @@
 #!name=哔哩哔哩
-#!desc=基于 REA 对 B 站 9.17.0 主二进制的逆向重写：MITM 覆盖 app/api 双域与 biliapi.net/com 备用域；在网络层直接以空 gRPC 帧终结暂停广告(PlayPause)、结束页广告(ViewEndPage)、底部广告(FloorAdSearch)、TFInfo，并移除播放器下方横幅及推荐流商业卡；JSON 层补齐开屏品牌图、首页 Banner、搜索推广、带货物料与弹幕广告配置。保留原版顶栏/底栏页面元素设定。
+#!desc=基于 REA 对 B 站 9.17.0 主二进制的逆向重写：MITM 覆盖 app/api 双域与 biliapi.net/com 备用域；在网络层以空 gRPC 帧终结暂停广告(PlayPause)、结束页广告(ViewEndPage)、底部广告(FloorAdSearch)，并移除播放器下方横幅及推荐流商业卡；JSON 层补齐开屏品牌图、首页 Banner、搜索推广、带货物料与弹幕广告配置。保留原版顶栏/底栏页面元素设定。
 #!author=奶思, kokoryh, lujundaren
 #!category=去广告
 
@@ -13,7 +13,7 @@ AND,((DOMAIN-SUFFIX,chat.bilibili.com),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWOR
 
 [Header Rewrite]
 # 空 gRPC 响应必须带 grpc-status，否则客户端按 Unknown 处理并重试
-http-response ^https:\/\/(grpc\.biliapi\.net|app\.(bilibili\.com|biliapi\.net|biliapi\.com))\/bilibili\.app\.(view(unite)?\.v1\.View\/(TFInfo|ViewEndPage|PlayPause|FloorAdSearch))$ header-add grpc-status 0
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.(bilibili\.com|biliapi\.net|biliapi\.com))\/bilibili\.app\.(view\.v1\.View\/(ViewEndPage|PlayPause)|viewunite\.v1\.View\/(ViewEndPage|PlayPause|FloorAdSearch))$ header-add grpc-status 0
 
 [Map Local]
 # ── gRPC 广告 RPC：返回合法空 protobuf 帧（00 00000000 = 未压缩、长度 0）──
@@ -21,7 +21,7 @@ http-response ^https:\/\/(grpc\.biliapi\.net|app\.(bilibili\.com|biliapi\.net|bi
 #          viewunite ViewEndPage -> ViewEndHalf / ViewEndPageCard / viewEndPagePauseBar
 #          viewunite FloorAdSearch -> FloorAdSearchTab
 #          view.v1.View  legacy 同名 RPC（旧详情页/HD 版仍会走）
-^https:\/\/(grpc\.biliapi\.net|app\.(bilibili\.com|biliapi\.net|biliapi\.com))\/bilibili\.app\.(view\.v1\.View\/(TFInfo|PlayPause|ViewEndPage)|viewunite\.v1\.View\/(ViewEndPage|PlayPause|FloorAdSearch|TFInfo))$ data-type=base64 data="AAAAAAA=" header="Content-Type:application/grpc"
+^https:\/\/(grpc\.biliapi\.net|app\.(bilibili\.com|biliapi\.net|biliapi\.com))\/bilibili\.app\.(view\.v1\.View\/(PlayPause|ViewEndPage)|viewunite\.v1\.View\/(ViewEndPage|PlayPause|FloorAdSearch))$ data-type=base64 data="AAAAAAA=" header="Content-Type:application/grpc"
 
 # ── 模式与搜索热词配置（保留原有行为）──
 ^https:\/\/(grpc\.biliapi\.net|app\.(bilibili\.com|biliapi\.net|biliapi\.com))\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus$ data-type=base64 data="AAAAABMKEQgCEgl0ZWVuYWdlcnMgAioA" header="Content-Type:text/plain"
@@ -52,9 +52,8 @@ bilibili_channel = type=http-response,pattern=^https:\/\/api\.(bilibili\.com|bil
 
 # ── gRPC 二进制脚本（Surge/Loon 生效；Shadowrocket 已由上面的 Map Local 兜底）──
 bilibili.airborne = type=http-request, pattern=^https:\/\/(grpc\.biliapi\.net|app\.(bilibili\.com|biliapi\.net|biliapi\.com))\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile$, script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.request.js, requires-body=true, binary-body-mode=true, timeout=10
-bilibili.request = type=http-request, pattern=^https:\/\/(grpc\.biliapi\.net|app\.(bilibili\.com|biliapi\.net|biliapi\.com))\/bilibili\.(app\.viewunite\.v1\.View\/View|main\.community\.reply\.v1\.Reply\/MainList)$, script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.request.js, requires-body=true, binary-body-mode=true, timeout=10
 bilibili.live = type=http-response, pattern=^https:\/\/api\.live\.bilibili\.com\/xlive\/(app-interface\/v2\/index\/feed|app-room\/v1\/index\/getInfoBy(Room|User))\?, script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.json.js, requires-body=true
-bilibili.protobuf = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|app\.(bilibili\.com|biliapi\.net|biliapi\.com))\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite|view\.v1\.View\/(View|ViewProgress|RelatesFeed|PlayPause|TFInfo)|viewunite\.v1\.View\/(View|ViewProgress|RelatesFeed|AIRelateAsync|PlayPause|FloorAdSearch|ViewEndPage))|polymer\.app\.search\.v1\.SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true
+bilibili.protobuf = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|app\.(bilibili\.com|biliapi\.net|biliapi\.com))\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite|view\.v1\.View\/(View|ViewProgress|RelatesFeed|PlayPause)|viewunite\.v1\.View\/(View|ViewProgress|RelatesFeed|AIRelateAsync|PlayPause|FloorAdSearch|ViewEndPage))|polymer\.app\.search\.v1\.SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$, script-path=https://raw.githubusercontent.com/lujundaren/myrules/main/scripts/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, timeout=5
 
 [MITM]
 h2 = true
